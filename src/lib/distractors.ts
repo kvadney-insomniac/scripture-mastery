@@ -15,6 +15,9 @@
 import { BOOKS_BY_ID, canonPool, nearbyPool } from '../data/books';
 import type { Book, Difficulty } from '../data/types';
 import { pickDistractors } from './rng';
+// The widening rule now lives in `quiz-difficulty`, which was extracted from
+// this file. Identical semantics -- the library's copy is this one, moved.
+import { layeredPool } from 'quiz-difficulty';
 import { MAX_WRONG_OPTIONS } from './difficulty';
 
 /**
@@ -97,30 +100,6 @@ export function distractorSets(
   }, n);
 }
 
-/**
- * Walk `chain` from its tightest pool outward and return the first that can
- * supply `n` distinct options other than `answer`; if none can, return the
- * widest.
- *
- * Every scoped pool in the app needs this shape, because tightness that
- * silently yields a short pool does not make a question harder — it makes it
- * *shorter*, and a three-choice question is easier than a six-choice one. The
- * widening is the guarantee that a `hard` card is never accidentally the
- * easiest card on screen (#40).
- */
-export function layeredPool(
-  chain: readonly (() => string[])[],
-  answer: string,
-  n: number,
-): string[] {
-  let widest: string[] = [];
-  for (const build of chain) {
-    const pool = [...new Set(build())].filter((s) => s && s !== answer);
-    if (pool.length > widest.length) widest = pool;
-    if (pool.length >= n) return pool;
-  }
-  return widest;
-}
 
 /**
  * The one entry point every generator uses to bake its three option sets.
