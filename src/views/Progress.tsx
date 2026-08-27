@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from 'react';
 import { BOOKS } from '../data/books';
 import { allItems } from '../lib/generate';
+import { examTimeOf } from '../lib/store-ops';
 import { isLeech, strength } from '../lib/srs';
 import { exportStore, importStore, todayISO } from '../lib/storage';
 import type { StoreApi } from '../lib/useStore';
@@ -12,6 +13,7 @@ export default function Progress({ api }: { api: StoreApi }) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [note, setNote] = useState('');
 
+  const examTime = examTimeOf(store.settings);
   const byBook = useMemo(() => {
     const acc: Record<string, { sum: number; total: number; seen: number }> = {};
     for (const it of items) {
@@ -19,7 +21,7 @@ export default function Progress({ api }: { api: StoreApi }) {
       acc[it.book] ??= { sum: 0, total: 0, seen: 0 };
       acc[it.book].total++;
       const c = cards[it.id];
-      acc[it.book].sum += strength(c);
+      acc[it.book].sum += strength(c, { examTime });
       if (c && c.reps > 0) acc[it.book].seen++;
     }
     return BOOKS.map((b) => {

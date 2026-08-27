@@ -11,7 +11,7 @@
  */
 import { expect, test } from '@playwright/test';
 import { allItems, ITEMS_BY_ID } from '../../src/lib/generate';
-import { buildQueue, type CardState, type ItemMeta } from '../../src/lib/srs';
+import { buildQueue, grade, newCard, strength, type CardState, type ItemMeta } from '../../src/lib/srs';
 
 const DAY = 86_400_000;
 
@@ -120,6 +120,50 @@ test.describe('review queue', () => {
 
     expect(q.filter((id) => id.startsWith('fresh-'))).toHaveLength(2);
     expect(q.filter((id) => id.startsWith('card-'))).toHaveLength(3);
+  });
+
+  /**
+   * Mastery must not fall as the quiz approaches (#42).
+   *
+   * A quarter of the score rides on interval length, because surviving a long
+   * gap is evidence you know something. But `grade` clamps every interval to
+   * half the time remaining, so nothing is scheduled past the quiz unreviewed —
+   * and inside the last four weeks that clamp sits below the fourteen days a
+   * full durability score wanted. The two rules fought and the clamp won, so a
+   * card answered perfectly every time read 100% at thirty days out and 79% at
+   * three, having got no worse — only closer. Exactly when someone is most
+   * likely to look, and least in need of being told their work is decaying.
+   */
+  test('a perfectly known card does not lose mastery as the quiz nears', () => {
+    const now = Date.now();
+    const readings = [90, 30, 14, 7, 3, 1].map((daysLeft) => {
+      const exam = now + daysLeft * DAY;
+      let card = newCard('x');
+      // Ten flawless reviews, all in the past, so `now` never passes the exam.
+      for (let i = 0; i < 10; i++) card = grade(card, 3, exam, now - (10 - i) * DAY);
+      return strength(card, { examTime: exam, now });
+    });
+
+    // Full marks throughout, and — the part that regressed — never declining.
+    for (const s of readings) expect(s).toBeCloseTo(1, 5);
+    for (let i = 1; i < readings.length; i++) {
+      expect(readings[i], `mastery fell between readings ${i - 1} and ${i}`)
+        .toBeGreaterThanOrEqual(readings[i - 1]! - 1e-9);
+    }
+  });
+
+  test('a shaky card still scores below a solid one', () => {
+    // The fix must not flatten the scale into "everything is 100%".
+    const now = Date.now();
+    const exam = now + 3 * DAY;
+    let solid = newCard('good');
+    let shaky = newCard('bad');
+    for (let i = 0; i < 6; i++) {
+      solid = grade(solid, 3, exam, now - (6 - i) * DAY);
+      shaky = grade(shaky, i % 2 === 0 ? 0 : 1, exam, now - (6 - i) * DAY);
+    }
+    expect(strength(shaky, { examTime: exam, now }))
+      .toBeLessThan(strength(solid, { examTime: exam, now }));
   });
 
   test('a card that is not yet due stays out of the queue', () => {

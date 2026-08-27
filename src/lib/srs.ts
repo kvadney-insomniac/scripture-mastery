@@ -81,13 +81,44 @@ export function grade(card: CardState, g: Grade, examDate: number, now = Date.no
 }
 
 /** How well-known a card is, 0–1. Used for progress bars and weak-spot ranking. */
-export function strength(c: CardState | undefined): number {
+/**
+ * How much of the durability credit is achievable at all right now.
+ *
+ * Surviving a long gap is evidence you know something, so a quarter of the
+ * score rides on interval length. But `grade` clamps every interval to half the
+ * time left, precisely so nothing is scheduled past the quiz unreviewed -- and
+ * inside the last four weeks that clamp is *below* the fourteen days a full
+ * durability score wants. The two rules then fight, and the clamp wins.
+ *
+ * The result was a mastery figure that fell as the quiz approached. A card
+ * answered perfectly every time read 100% at thirty days out and 79% at three,
+ * having got no worse -- only closer. Which is exactly when someone is most
+ * likely to be looking at the number, and least in need of being told their
+ * preparation is deteriorating.
+ *
+ * So durability is measured against what the clamp permits today rather than
+ * against a fixed fortnight. Hold an interval as long as the exam allows and
+ * you get full credit for it, whether that is fourteen days or one (#42).
+ */
+function durabilityCeiling(examTime: number | undefined, now: number): number {
+  if (examTime === undefined || !Number.isFinite(examTime)) return 14;
+  const daysLeft = Math.max(0, Math.ceil((examTime - now) / DAY));
+  if (daysLeft <= 0) return 14;
+  return Math.max(1, Math.min(14, Math.floor(daysLeft / 2)));
+}
+
+export function strength(
+  c: CardState | undefined,
+  opts: { examTime?: number; now?: number } = {},
+): number {
   if (!c || c.reps === 0) return 0;
   const recent = c.recent.slice(-4);
   if (recent.length === 0) return 0;
   const score = recent.reduce<number>((sum, g) => sum + (g === 0 ? 0 : g === 1 ? 0.5 : g === 2 ? 0.85 : 1), 0) / recent.length;
-  // Long intervals mean it has survived spacing, which counts for something.
-  const durability = Math.min(1, c.interval / 14);
+  // Long intervals mean it has survived spacing, which counts for something --
+  // measured against the longest interval this stage of the run allows.
+  const ceiling = durabilityCeiling(opts.examTime, opts.now ?? Date.now());
+  const durability = Math.min(1, c.interval / ceiling);
   return Math.min(1, score * 0.75 + durability * 0.25);
 }
 

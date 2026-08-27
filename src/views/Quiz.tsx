@@ -5,7 +5,7 @@ import { allItems, ITEMS_BY_ID } from '../lib/generate';
 import { ESSENTIAL_ITEM_IDS } from '../lib/generate-essentials';
 import { BOOKS } from '../data/books';
 import { currentPhase } from '../data/plan';
-import { planStartOf } from '../lib/store-ops';
+import { planStartOf, examTimeOf } from '../lib/store-ops';
 import { planScopeIds } from '../lib/plan-scope';
 import { TOPIC_LABELS, type Topic } from '../data/types';
 import { shuffle } from '../lib/rng';
@@ -51,6 +51,8 @@ export default function Quiz({ api }: { api: StoreApi }) {
   const phase = currentPhase(store.settings.examDate, planStartOf(store));
   const planIds = useMemo(() => planScopeIds(phase, items), [phase, items]);
 
+  const examTime = examTimeOf(store.settings);
+
   const pool = useMemo(() => {
     let out = items;
     if (topic !== 'all') out = out.filter((i) => i.topic === topic);
@@ -62,8 +64,8 @@ export default function Quiz({ api }: { api: StoreApi }) {
     if (scope === 'starred') out = out.filter((i) => store.starred.includes(i.id));
     if (scope === 'weak') {
       out = out
-        .filter((i) => cards[i.id] && strength(cards[i.id]) < 0.6)
-        .sort((a, b) => strength(cards[a.id]) - strength(cards[b.id]));
+        .filter((i) => cards[i.id] && strength(cards[i.id], { examTime }) < 0.6)
+        .sort((a, b) => strength(cards[a.id], { examTime }) - strength(cards[b.id], { examTime }));
     }
     return out;
   }, [items, topic, book, scope, planIds, store.starred, cards, otIds, ntIds]);

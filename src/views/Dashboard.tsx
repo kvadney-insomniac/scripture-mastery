@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { allItems } from '../lib/generate';
+import { examTimeOf } from '../lib/store-ops';
 import { isDue, isNew, strength } from '../lib/srs';
 import { currentPhase, currentWeek } from '../data/plan';
 import { TOPIC_LABELS, type Topic } from '../data/types';
@@ -12,13 +13,15 @@ export default function Dashboard({ api, go }: { api: StoreApi; go: (tab: string
   const { store, cards, daysLeft } = api;
   const items = allItems();
 
+  const examTime = examTimeOf(store.settings);
   const stats = useMemo(() => {
     const now = Date.now();
-    let due = 0, fresh = 0, learning = 0, known = 0, totalStrength = 0;
+    let due = 0, fresh = 0, learning = 0, known = 0, totalStrength = 0, seen = 0;
     for (const it of items) {
       const c = cards[it.id];
-      const s = strength(c);
+      const s = strength(c, { examTime, now });
       totalStrength += s;
+      if (!isNew(c)) seen++;
       if (isNew(c)) fresh++;
       else {
         if (isDue(c, now)) due++;
@@ -28,9 +31,16 @@ export default function Dashboard({ api, go }: { api: StoreApi; go: (tab: string
     return {
       due, fresh, learning, known,
       total: items.length,
+      seen,
+      // Deliberately over the whole bank, not over what has been seen.
+      //
+      // Dividing by `seen` would let the figure climb by ignoring material
+      // rather than by learning it -- 85% after two hundred of six thousand
+      // questions, which is a worse lie than a low number is a discouragement.
+      // The quiz covers everything, so the honest denominator is everything.
       mastery: Math.round((totalStrength / items.length) * 100),
     };
-  }, [cards, items]);
+  }, [cards, items, examTime]);
 
   const byTopic = useMemo(() => {
     const acc: Record<string, { seen: number; sum: number; total: number }> = {};

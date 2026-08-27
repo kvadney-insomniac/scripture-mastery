@@ -184,7 +184,9 @@ export default function Focus({ track, api }: { track: FocusTrack; api: StoreApi
       const c = cards[it.id];
       if (isNew(c)) fresh++;
       else if (isDue(c, now)) due++;
-      totalStrength += strength(c);
+      // The track's own quiz date, not the survey's: durability is scored
+      // against what that date's clamp allows (#42).
+      totalStrength += strength(c, { examTime, now });
     }
     return {
       due,
@@ -192,7 +194,7 @@ export default function Focus({ track, api }: { track: FocusTrack; api: StoreApi
       total: items.length,
       mastery: items.length ? Math.round((totalStrength / items.length) * 100) : 0,
     };
-  }, [cards, items]);
+  }, [cards, items, examTime]);
 
   function start() {
     setQueue(
