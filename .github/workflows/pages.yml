@@ -53,6 +53,13 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    # Fail fast rather than hanging. A Pages deployment can wedge server-side,
+    # and the action's own wait then burns ten minutes before giving up -- long
+    # enough to look like a slow deploy rather than a stuck one. Worse, the
+    # wedged deployment is keyed to the commit SHA, so retrying the same commit
+    # cannot succeed: it needs a new commit, or the stuck deployment cancelled
+    # out of the way first.
+    timeout-minutes: 5
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
