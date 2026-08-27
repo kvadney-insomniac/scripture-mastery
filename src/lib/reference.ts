@@ -8,6 +8,7 @@
  * recognising it.
  */
 import { BOOKS } from '../data/books';
+import { PEOPLE } from '../data/people';
 
 /**
  * Every way a book can be written, longest first so that "1 John" wins over
@@ -93,4 +94,30 @@ export function referenceMatches(input: string, expected: string): boolean {
   // the chapter part is identical.
   if (want.locus.includes(':')) return false;
   return got.locus.split(':')[0] === want.locus;
+}
+
+/**
+ * Whether an answer is a *name* that can fairly be recalled from memory —
+ * a book of the canon, or a person the bank knows (#42).
+ *
+ * The typed round was built for references and then left there, which meant
+ * the app asked you to *produce* an answer on about one question in six and to
+ * merely *recognise* one on the rest. A survey exam asks the opposite way
+ * round: name the book, name the figure. Recognition is also the weaker way to
+ * study — picking the right option from a list you can see is a much easier
+ * retrieval than dredging the word up unaided.
+ *
+ * Restricted to closed vocabularies on purpose. A book or a person has one
+ * spelling the bank already knows, so the answer can be checked fairly. Free
+ * prose — a chapter summary, an author's purpose — has a hundred right
+ * phrasings and no honest way to mark them, and asking someone to type one
+ * would produce wrong marks for right answers.
+ */
+const NAME_ANSWERS = new Set<string>([
+  ...BOOKS.map((b) => b.name),
+  ...PEOPLE.map((p) => p.name),
+]);
+
+export function isNameAnswer(answer: string): boolean {
+  return NAME_ANSWERS.has(answer);
 }

@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { TOPIC_LABELS, type Difficulty, type Item } from '../data/types';
 import type { Grade } from '../lib/srs';
 import { shuffle } from '../lib/rng';
-import { isReference, referenceMatches } from '../lib/reference';
+import { isReference, isNameAnswer, referenceMatches } from '../lib/reference';
 import { specFor } from '../lib/difficulty';
 
 interface Props {
@@ -113,7 +113,22 @@ export default function QuestionCard({ item, onGrade, starred, onToggleStar, cou
    * setting is the wrong first impression. There the choices are on screen
    * immediately. Medium and hard keep the behaviour unchanged.
    */
-  const hasBonusRound = spec.bonusRound && item.kind === 'mcq' && isReference(item.answer);
+  /**
+   * Whether this card opens on a typed attempt before showing any options.
+   *
+   * Widened from references to any closed-vocabulary name — a book, a person
+   * (#42). The round was built for references and left there, so the app asked
+   * you to *produce* an answer on roughly one question in six and merely to
+   * *recognise* one on the rest, which is the easier retrieval and the one a
+   * survey exam does not ask for.
+   */
+  const hasBonusRound =
+    item.kind === 'mcq' &&
+    ((spec.bonusRound && isReference(item.answer)) ||
+      (spec.nameRecall && isNameAnswer(item.answer)));
+
+  /** References accept abbreviations; a name is checked as the bank spells it. */
+  const wantsReference = isReference(item.answer);
 
   const [bonusOpen, setBonusOpen] = useState(hasBonusRound);
   const [bonusMissed, setBonusMissed] = useState(false);
@@ -212,7 +227,11 @@ export default function QuestionCard({ item, onGrade, starred, onToggleStar, cou
 
   function submitReference() {
     if (revealed || !bonusOpen) return;
-    if (!referenceMatches(typed, item.answer)) {
+    // A reference is compared by its own rules, which understand abbreviations
+    // and chapter ranges. A name is compared the way a typed answer always has
+    // been, against `answer` plus any `accepts` the bank records (#42).
+    const right = wantsReference ? referenceMatches(typed, item.answer) : matches(typed, item);
+    if (!right) {
       // One attempt. A wrong guess costs the bonus, not the question — the
       // options appear and the card is scored the ordinary way from here.
       setBonusMissed(true);
@@ -369,8 +388,8 @@ export default function QuestionCard({ item, onGrade, starred, onToggleStar, cou
             className="answer"
             value={typed}
             disabled={revealed}
-            placeholder="Type the reference, e.g. Josh 6"
-            aria-label="Type the reference for a bonus"
+            placeholder={wantsReference ? 'Type the reference, e.g. Josh 6' : 'Type the answer'}
+            aria-label={wantsReference ? 'Type the reference for a bonus' : 'Type the answer for a bonus'}
             onChange={(e) => setTyped(e.target.value)}
           />
           {/* Once it is answered the round is over: leave what was typed on
@@ -378,12 +397,15 @@ export default function QuestionCard({ item, onGrade, starred, onToggleStar, cou
           {!revealed && (
             <>
               <div className="row" style={{ marginTop: 12 }}>
-                <button className="btn primary" onClick={submitReference}>Check reference</button>
+                <button className="btn primary" onClick={submitReference}>
+                  {wantsReference ? 'Check reference' : 'Check answer'}
+                </button>
                 <button className="btn sm" onClick={showChoices}>Show me the choices</button>
               </div>
               <p className="tiny muted" style={{ marginTop: 10, marginBottom: 0 }}>
-                Name it and the card grades itself Easy. Abbreviations are fine.
-                Take the choices instead and it scores as normal.
+                Name it and the card grades itself Easy.
+                {wantsReference ? ' Abbreviations are fine.' : ' Spelling is checked loosely.'}
+                {' '}Take the choices instead and it scores as normal.
               </p>
             </>
           )}

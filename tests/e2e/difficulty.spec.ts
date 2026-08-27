@@ -332,6 +332,13 @@ test.describe('difficulty — what reaches the card', () => {
       await page.getByRole('button', { name: 'Start review session' }).click();
 
       await expect(page.getByText('Which book immediately follows Genesis?')).toBeVisible();
+
+      // The answer is a book name, so on hard this card opens on a typed round
+      // before any options exist (#42). Take the choices — this test is about
+      // how many are offered, not about how you get to them.
+      const takeChoices = page.getByRole('button', { name: 'Show me the choices' });
+      if (await takeChoices.count()) await takeChoices.click();
+
       await expect(page.locator('.choice')).toHaveCount(expected);
     });
   }
@@ -354,6 +361,51 @@ test.describe('difficulty — what reaches the card', () => {
     await page.getByRole('button', { name: 'Start review session' }).click();
 
     await expect(page.locator('.choice')).toHaveCount(3);
+  });
+
+  /**
+   * Hard asks you to *produce* a name, not recognise one (#42).
+   *
+   * The typed round was built for scripture references and left there, so the
+   * trainer asked for production on about one question in six and for
+   * recognition on the rest — the easier retrieval, and not the one a survey
+   * exam asks for. Names are a closed vocabulary the bank already knows how to
+   * spell, so they can be marked fairly; free prose cannot, and is deliberately
+   * left alone.
+   */
+  test('hard asks a book-name answer to be typed from memory', async ({ page }) => {
+    await openAs(page, { store: { ...soloQueue(ITEM.mcq), settings: {
+      examDate: daysFromNow(60), newLimit: 0, sessionLimit: 1, difficulty: 'hard',
+    } } }, 'review');
+    await page.getByRole('button', { name: 'Start review session' }).click();
+
+    // No options yet — the answer has to be produced first.
+    await expect(page.locator('.choice')).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Show me the choices' })).toBeVisible();
+  });
+
+  test('medium leaves name questions as recognition', async ({ page }) => {
+    // The dial that keeps this from changing the character of the whole
+    // trainer: names answer nearly half the bank, so medium stays as it was.
+    await openAs(page, { store: { ...soloQueue(ITEM.mcq), settings: {
+      examDate: daysFromNow(60), newLimit: 0, sessionLimit: 1, difficulty: 'medium',
+    } } }, 'review');
+    await page.getByRole('button', { name: 'Start review session' }).click();
+
+    await expect(page.locator('.choice')).toHaveCount(4);
+  });
+
+  test('typing the right name on hard earns the bonus', async ({ page }) => {
+    await openAs(page, { store: { ...soloQueue(ITEM.mcq), settings: {
+      examDate: daysFromNow(60), newLimit: 0, sessionLimit: 1, difficulty: 'hard',
+    } } }, 'review');
+    await page.getByRole('button', { name: 'Start review session' }).click();
+
+    await page.getByRole('textbox').fill('Exodus');
+    await page.getByRole('button', { name: 'Check answer' }).click();
+
+    await expect(page.locator('.feedback')).toBeVisible();
+    await expect(page.getByText('Correct', { exact: false })).toBeVisible();
   });
 
   test('medium asks for the reference before showing any options', async ({ page }) => {

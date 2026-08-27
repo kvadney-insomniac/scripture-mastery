@@ -35,6 +35,18 @@ export interface DifficultySpec {
    */
   bonusRound: boolean;
   /**
+   * Whether the same typed round is also asked for answers that are *names* —
+   * a book of the canon, or a person (#42).
+   *
+   * Separate from `bonusRound` because of how much of the bank it covers.
+   * References answer about one question in six; names answer nearly half, so
+   * turning this on at medium would change the character of most of the
+   * trainer rather than sharpen the top of it. It is what makes hard mode ask
+   * the way a survey exam asks — name the book, name the figure — while medium
+   * stays the recognition drill it has always been.
+   */
+  nameRecall: boolean;
+  /**
    * How new cards are ordered as they are introduced.
    *
    * `canonical` walks the bank in generation order — Genesis first, straight
@@ -69,6 +81,7 @@ export const DIFFICULTY_SPEC: Record<Difficulty, DifficultySpec> = {
   easy: {
     wrongOptions: 2,
     bonusRound: false,
+    nameRecall: false,
     newOrder: 'canonical',
     tierBias: 'foundation-first',
     newLimitFactor: 0.6,
@@ -79,6 +92,7 @@ export const DIFFICULTY_SPEC: Record<Difficulty, DifficultySpec> = {
   medium: {
     wrongOptions: 3,
     bonusRound: true,
+    nameRecall: false,
     newOrder: 'interleaved',
     tierBias: 'balanced',
     newLimitFactor: 1,
@@ -89,6 +103,7 @@ export const DIFFICULTY_SPEC: Record<Difficulty, DifficultySpec> = {
   hard: {
     wrongOptions: 5,
     bonusRound: true,
+    nameRecall: true,
     newOrder: 'shuffled',
     tierBias: 'detail-first',
     newLimitFactor: 1.5,
