@@ -1,0 +1,61 @@
+# Publishes the solo build to GitHub Pages.
+#
+# The upstream deploy workflow ships to Firebase Hosting and needs that
+# project's credentials, which a fork does not have and should not want. This
+# one builds with SOLO=1 — localStorage instead of Firestore, no sign-in — so it
+# needs no secrets at all and costs nothing to run.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Pages needs these; the default token is read-only.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race; let a newer commit supersede an in-flight one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      # The same gates the upstream CI runs. A build that typechecks but ships a
+      # broken question bank is not worth deploying, and this is the only place
+      # that check happens before it reaches the browser.
+      - run: npm run check
+      - run: npm run validate
+
+      - run: npm run build:solo
+
+      # Pages serves the built files as-is, so a deep link like /#quiz works via
+      # the hash but a hard refresh on an unknown *path* would 404. Copying
+      # index.html to 404.html makes any path fall back into the app.
+      - run: cp dist/index.html dist/404.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

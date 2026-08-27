@@ -8,13 +8,23 @@
 import { copy } from '../copy';
 import { Corners } from './primitives';
 
-export function MobileGate() {
+export function MobileGate({ onContinue }: { onContinue?: () => void }) {
   return (
     <div className="mobile-gate">
       <div className="plate">
         <Corners />
         <div className="wordmark">{copy.appName}</div>
         <p>{copy.mobileGate.body}</p>
+        {/*
+          * Only a personal copy offers the way through, and it is offered
+          * *after* the refusal rather than beside it: the advice is sound and
+          * should be read before it is waved away.
+          */}
+        {onContinue && (
+          <button className="btn sm" onClick={onContinue}>
+            {copy.mobileGate.continueAnyway}
+          </button>
+        )}
       </div>
     </div>
   );

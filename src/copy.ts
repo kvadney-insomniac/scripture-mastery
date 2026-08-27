@@ -177,6 +177,8 @@ export const copy = {
   },
 
   mobileGate: {
+    /** Shown only on a personal build, which has nobody to keep out but you. */
+    continueAnyway: 'Use it here anyway',
     body:
       'This trainer is built for a full keyboard and a wide screen — and, honestly, for time set apart rather than time squeezed in. Come back from a computer when you can give it your attention.',
   },

@@ -12,3 +12,6 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+/** True in a `build:solo` bundle — no backend, store in localStorage. */
+declare const __SOLO__: boolean;

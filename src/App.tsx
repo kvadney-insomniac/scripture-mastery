@@ -10,6 +10,7 @@ import Focus from './views/Focus';
 import { TRACKS, trackById } from './data/tracks';
 import { useStore } from './lib/useStore';
 import { allItems } from './lib/generate';
+import { soloSignIn } from './lib/firebase';
 import { ALLOWED_DOMAINS, signIn, signOutUser } from './lib/firebase';
 import GoogleMark from './ui/GoogleMark';
 import { BootSplash, MobileGate, Corners, useIsMobile } from './ui';
@@ -67,8 +68,21 @@ export default function App() {
   const api = useStore();
   const isMobile = useIsMobile();
   const [tab, setTab] = useState<TabId>(currentHash);
+  const [mobileAccepted, setMobileAccepted] = useState(false);
   const [authError, setAuthError] = useState('');
   const [splashHeld, setSplashHeld] = useState(true);
+
+  /**
+   * A solo build signs itself in.
+   *
+   * There is no account and no popup — the identity exists only so the rest of
+   * the app, which is written against a signed-in member, has something to read.
+   * Showing a sign-in screen for it would ask the reader to authenticate to
+   * their own browser.
+   */
+  useEffect(() => {
+    if (__SOLO__ && api.authStatus === 'signed-out') soloSignIn();
+  }, [api.authStatus]);
 
   useEffect(() => {
     const onHash = () => setTab(currentHash());
@@ -120,8 +134,14 @@ export default function App() {
   const total = allItems().length;
 
   // A member who can't get in shouldn't watch the press warm up: refuse first.
-  if (isMobile) {
-    return <MobileGate />;
+  //
+  // A solo build softens this from a wall into a warning. The refusal is a
+  // judgement about how the trainer is best used, and it is a good one — but on
+  // a personal copy the person making that judgement is the person reading it,
+  // and the alternative on a phone is not "study properly later", it is "do not
+  // study". So it still says its piece, and then gets out of the way.
+  if (isMobile && !mobileAccepted) {
+    return <MobileGate onContinue={__SOLO__ ? () => setMobileAccepted(true) : undefined} />;
   }
 
   // Decide behind the splash — don't flash the sign-in to a returning member

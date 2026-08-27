@@ -13,6 +13,10 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Upstream only. A fork has no credentials for that Firebase project and
+    # should never be pushing to someone else's hosting; forks publish their own
+    # solo build via pages.yml instead.
+    if: github.repository == 'godwinlaw/scripture-mastery'
     permissions:
       contents: read
       id-token: write

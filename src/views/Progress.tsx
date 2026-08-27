@@ -170,9 +170,26 @@ export default function Progress({ api }: { api: StoreApi }) {
       <div className="section">
         <h2>Your data</h2>
         <Card corners>
+          {/*
+            * The honest sentence differs by build, so it is chosen rather than
+            * written once. A solo build has no account and no sync, and saying
+            * otherwise would be worse than saying nothing: it would tell
+            * someone their progress is safe on another device when clearing
+            * this browser is enough to lose it.
+            */}
           <p className="small muted">
-            Progress syncs to Firestore under {user?.email ?? 'your account'} and follows you to any
-            device you sign in on. Export still makes a local backup any time you want one.
+            {__SOLO__ ? (
+              <>
+                Progress is kept in this browser on this device. Nothing is uploaded and nothing
+                syncs — which also means clearing your browser data clears your progress, so export
+                a backup now and then, and import it if you switch browsers.
+              </>
+            ) : (
+              <>
+                Progress syncs to Firestore under {user?.email ?? 'your account'} and follows you to
+                any device you sign in on. Export still makes a local backup any time you want one.
+              </>
+            )}
           </p>
           <div className="row">
             <button className="btn" onClick={doExport}>Export progress</button>

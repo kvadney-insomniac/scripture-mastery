@@ -45,3 +45,13 @@ export async function signIn(): Promise<void> {
 export function signOutUser(): Promise<void> {
   return signOut(auth);
 }
+
+/**
+ * Present so the two firebase modules keep the same shape and App.tsx compiles
+ * against either. It is unreachable in this build: the only caller is guarded
+ * by `__SOLO__`, and a solo build resolves this import to the stand-in. If it
+ * ever does run, failing loudly beats silently signing someone in.
+ */
+export function soloSignIn(): string {
+  throw new Error('soloSignIn is only available in a solo build.');
+}

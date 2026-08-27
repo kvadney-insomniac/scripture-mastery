@@ -12,7 +12,8 @@
     "check": "tsc -b --pretty",
     "validate": "vite-node scripts/validate.ts",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "build:solo": "SOLO=1 tsc -b && SOLO=1 vite build"
   },
   "dependencies": {
     "firebase": "^12.17.1",
