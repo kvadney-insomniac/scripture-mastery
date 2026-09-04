@@ -1,0 +1,100 @@
+{
+  "goal": "understand Romans in 6 weeks (fixture with deliberate errors)",
+  "weeks": 6,
+  "generatedBy": "hand-authored fixture, not the stub generator",
+  "items": [
+    {
+      "id": "w1-r1",
+      "type": "reading",
+      "week": 1,
+      "title": "Paul's gospel, stated up front",
+      "reference": "Romans 1",
+      "people": ["Paul"],
+      "terms": ["Justification"],
+      "note": "clean item: real book, real chapter, Paul is in Romans, Justification is a Romans term"
+    },
+    {
+      "id": "w1-r2",
+      "type": "reading",
+      "week": 1,
+      "title": "A book that does not exist",
+      "reference": "Hezekiah's Diary 3",
+      "note": "deliberate error: reference-not-found"
+    },
+    {
+      "id": "w1-r3",
+      "type": "reading",
+      "week": 1,
+      "title": "A chapter past the end of Romans",
+      "reference": "Romans 20",
+      "note": "deliberate error: chapter-out-of-range (Romans has 16 chapters)"
+    },
+    {
+      "id": "w2-m1",
+      "type": "memory",
+      "week": 2,
+      "title": "All things work together for good",
+      "reference": "Romans 8:28",
+      "people": ["Jonah the Prophet"],
+      "note": "deliberate error: person-unknown (not a real entry, and not the actual Jonah)"
+    },
+    {
+      "id": "w2-q1",
+      "type": "question",
+      "week": 2,
+      "title": "Who does Paul say sin came through?",
+      "reference": "Romans 5",
+      "people": ["Hezekiah"],
+      "note": "deliberate error: person-not-in-book (Hezekiah is real, but belongs to 2 Kings / 2 Chronicles / Isaiah / Micah, not Romans)"
+    },
+    {
+      "id": "w3-r1",
+      "type": "reading",
+      "week": 3,
+      "title": "An invented council",
+      "reference": "Romans 9",
+      "events": ["Council of Trent"],
+      "note": "deliberate error: event-unknown"
+    },
+    {
+      "id": "w3-q1",
+      "type": "question",
+      "week": 3,
+      "title": "Stephen's martyrdom, misfiled",
+      "reference": "Acts 7",
+      "events": ["Stephen martyred"],
+      "era": "patriarchs",
+      "note": "deliberate error: event-not-in-era (Stephen martyred is the church era, not the patriarchs)"
+    },
+    {
+      "id": "w4-m1",
+      "type": "memory",
+      "week": 4,
+      "title": "Saved by grace through faith",
+      "reference": "Ephesians 2:8-9",
+      "events": ["By grace through faith"],
+      "era": "church",
+      "note": "expected outcome: unverifiable, not pass or fail; Ephesians has no era assignment in timeline.ts"
+    },
+    {
+      "id": "w4-q1",
+      "type": "question",
+      "week": 4,
+      "title": "An invented doctrine",
+      "reference": "Romans 8",
+      "terms": ["Sanctification via Osmosis"],
+      "note": "deliberate error: term-unknown"
+    },
+    {
+      "id": "w5-r1",
+      "type": "reading",
+      "week": 5,
+      "title": "Abraham offers Isaac",
+      "reference": "Genesis 22",
+      "people": ["Abraham", "Isaac"],
+      "events": ["The binding of Isaac"],
+      "era": "patriarchs",
+      "note": "clean item: real people, real event, correct era"
+    }
+  ]
+}
