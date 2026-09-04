@@ -25,3 +25,6 @@ dist
 
 # Local Claude Code launch config
 .claude/
+
+# Hackathon prototype: generated index/plan/report, rebuilt by the hackathon:* scripts
+/hackathon/out/
