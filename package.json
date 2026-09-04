@@ -13,7 +13,11 @@
     "validate": "vite-node scripts/validate.ts",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "build:solo": "SOLO=1 tsc -b && SOLO=1 vite build"
+    "build:solo": "SOLO=1 tsc -b && SOLO=1 vite build",
+    "hackathon:index": "vite-node hackathon/index.ts",
+    "hackathon:verify": "vite-node hackathon/verify.ts",
+    "hackathon:demo": "npm run hackathon:index && vite-node hackathon/generate-stub.ts \"understand Romans in 6 weeks\" && vite-node hackathon/verify.ts hackathon/out/plan.json",
+    "hackathon:check": "tsc -p hackathon/tsconfig.json --pretty"
   },
   "dependencies": {
     "firebase": "^12.17.1",
