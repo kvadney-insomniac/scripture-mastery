@@ -108,6 +108,11 @@ hypothetical one.
   still failing dropped rather than shipped.
 - `hackathon/generate-cli.ts`: the command line front end for the above.
   `npm run hackathon:generate -- "<goal>"`.
+- `hackathon/report.ts`: renders `out/verify-report.json` (plus the
+  generator's trace, when there is one) into a single self-contained
+  `out/report.html`. The demo surface: a judge sees the pass rate, then opens
+  an item and reads the exact check that rejected it. No external assets, no
+  network.
 - `hackathon/selftest.ts`: drives the whole loop with a scripted stand-in
   for the model, so the repair-and-drop behaviour is proved without a key.
   `npm run hackathon:selftest`.
@@ -158,6 +163,7 @@ npm run hackathon:index      # build hackathon/out/index.json from src/data
 npm run hackathon:verify     # verify hackathon/fixtures/plan-with-errors.json
 npm run hackathon:demo       # index -> stub generator -> verify, end to end
 npm run hackathon:selftest   # prove the generate/verify/repair loop, no key needed
+npm run hackathon:report     # render out/report.html from the last verify run
 npm run hackathon:generate -- "understand Romans in 6 weeks"   # the real agent
 npm run hackathon:check      # tsc --noEmit over hackathon/, strict
 ```
@@ -272,12 +278,14 @@ plan:
    been recorded and `hackathon:generate` in its default replay mode has
    nothing to serve. One run with a key fills `fixtures/llm/` and the demo
    becomes self-contained.
-2. **The visible trust surface.** A UI that shows the pass rate, lets a
-   judge click an item, and shows exactly which of the checks above ran and
-   what each one found. `verify-report.json`'s shape
-   (`VerifyReport` / `ItemReport` / `CheckResult` in `verify.ts`) is already
-   structured for that; nothing about it assumes a terminal as the
-   renderer.
+2. **Wiring the trust surface into the app itself.** The standalone page is
+   built (`npm run hackathon:report` writes `out/report.html`): pass rate,
+   the round-by-round history when the LLM generator produced one, and every
+   item expandable to the checks that ran on it, failures open by default.
+   It is one file with no external assets, so it opens from a USB stick with
+   the wifi down. What is not done is showing any of it *inside* Scripture
+   Mastery next to a real plan, which is a decision about the fork's UI
+   rather than about this directory.
 3. **Judgement about what to do with a dropped item.** The loop currently
    drops anything that fails twice, which is the safe default but not always
    the right one: sometimes the honest move is a narrower item rather than

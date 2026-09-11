@@ -41,6 +41,15 @@ function main() {
 
   const reportPath = path.join(HERE, 'out', 'verify-report.json');
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
+  // The plan this report is about, beside the report. `report.ts` needs the
+  // item titles and cannot get them from the report, which carries only ids
+  // and references; guessing at `out/plan.json` was wrong whenever the run
+  // verified something else (the fixture, or a plan passed by path), and the
+  // HTML quietly fell back to printing ids as titles.
+  fs.writeFileSync(
+    path.join(HERE, 'out', 'verified-plan.json'),
+    JSON.stringify(plan, null, 2),
+  );
   console.log(`Wrote ${reportPath}`);
 
   if (report.failCount > 0 && !planArg) {
