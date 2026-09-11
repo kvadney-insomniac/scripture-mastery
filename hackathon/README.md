@@ -91,13 +91,29 @@ hypothetical one.
 - `hackathon/schema.ts`: the study-plan schema (`StudyPlan`, `PlanItem`):
   `type: 'reading' | 'memory' | 'question'`, a `reference` string, optional
   `people` / `events` / `terms` / `era` claims.
-- `hackathon/verify.ts`: loads `index.json` and a plan JSON file, checks
-  every item, prints and writes a structured report. Run with
-  `npm run hackathon:verify` (verifies the fixture) or
-  `vite-node hackathon/verify.ts <path-to-plan.json>` for any other plan.
-- `hackathon/generate-stub.ts`: a **deterministic, non-LLM** stand-in for
-  the generator agent. Builds a plan for a goal string (e.g. "understand
-  Romans in 6 weeks") straight out of the index. Run with
+- `hackathon/verify.ts`: the checks, as a library with no side effects on
+  import. `generate.ts` calls `verifyPlan` on every repair round.
+- `hackathon/verify-cli.ts`: the command line front end for the above. Run
+  with `npm run hackathon:verify` (verifies the fixture) or
+  `npm run hackathon:verify -- <path-to-plan.json>` for any other plan.
+- `hackathon/evidence.ts`: builds the slice of the index a generator is
+  allowed to draw on for one goal: that book's chapters, landmark verses,
+  episodes, terms, people and eras, copied verbatim.
+- `hackathon/llm.ts`: the model client, behind an interface, with a
+  record/replay mode. `AnthropicLlm` calls Claude and writes every response
+  to `fixtures/llm/`; `ReplayLlm` serves those back with no key and no
+  network. Replay is the default.
+- `hackathon/generate.ts`: the generator agent. Evidence pack in, plan out,
+  verified every round, failing items sent back for repair, and anything
+  still failing dropped rather than shipped.
+- `hackathon/generate-cli.ts`: the command line front end for the above.
+  `npm run hackathon:generate -- "<goal>"`.
+- `hackathon/selftest.ts`: drives the whole loop with a scripted stand-in
+  for the model, so the repair-and-drop behaviour is proved without a key.
+  `npm run hackathon:selftest`.
+- `hackathon/generate-stub.ts`: a **deterministic, non-LLM** plan builder,
+  kept as the zero-dependency demo path. Builds a plan for a goal string
+  straight out of the index. Run with
   `vite-node hackathon/generate-stub.ts "<goal>"`.
 - `hackathon/fixtures/plan-with-errors.json`: a hand-authored plan with one
   deliberate error per check kind, plus two clean items, so the verifier's
@@ -141,8 +157,45 @@ From the repo root, in this worktree:
 npm run hackathon:index      # build hackathon/out/index.json from src/data
 npm run hackathon:verify     # verify hackathon/fixtures/plan-with-errors.json
 npm run hackathon:demo       # index -> stub generator -> verify, end to end
+npm run hackathon:selftest   # prove the generate/verify/repair loop, no key needed
+npm run hackathon:generate -- "understand Romans in 6 weeks"   # the real agent
 npm run hackathon:check      # tsc --noEmit over hackathon/, strict
 ```
+
+### The generator agent, and what it needs
+
+`hackathon:generate` runs the loop the entry is about: build an evidence
+pack for the goal, ask Claude for a plan with the schema enforced by the
+API, verify every item against the index, hand the failures back with the
+exact check that broke, and drop anything that still fails after two
+repairs. It writes `out/plan.json` and `out/generate-trace.json`, the second
+of which is the round-by-round record a judge can read.
+
+It needs one of two things to run:
+
+- **Credentials.** `ANTHROPIC_API_KEY` (or `ANTHROPIC_AUTH_TOKEN`, or an
+  `ant auth login` profile) plus `npm i @anthropic-ai/sdk`. The SDK is
+  imported dynamically and is deliberately not a dependency of this fork,
+  so the app's own build is untouched. A live run records every response
+  into `fixtures/llm/`.
+- **A recording.** With no credentials the client defaults to replay and
+  serves those recordings. There are none committed yet, because this
+  machine has no key: the first person with one records them by running
+  `LLM_MODE=live npm run hackathon:generate -- "<goal>"` once.
+
+Replay is the default on purpose. A demo that depends on conference wifi
+and a key being present is a demo that fails in the room, and replay also
+makes the run deterministic, so the plan shown on stage is the plan that was
+rehearsed.
+
+`npm run hackathon:selftest` needs neither, and is the honest answer to "does
+the loop actually do anything". It drives `generatePlan` with a scripted
+stand-in that returns two true items and two invented ones, corrects one of
+the invented pair on the first repair, and leaves the other wrong forever.
+It asserts that exactly the three verifiable items ship, that the one that
+never verified is dropped and listed, and that a repaired item replaces its
+failed version rather than joining it. That stand-in is a test double, not a
+recorded model response, and is not presented as one.
 
 ### Verifying the fixture (deliberate errors)
 
@@ -212,23 +265,23 @@ generation.
 This directory is the prerequisite, not the entry. Still open, per the entry
 plan:
 
-1. **An actual LLM generator agent.** `generate-stub.ts` has a marked hook
-   where it plugs in: the function it currently fills in
-   (`buildPlan()`) would be replaced by a call that still only cites what
-   `index.json` contains, and whose output still goes through
-   `verifyPlan()` from `verify.ts` before it ships. No SDK dependency has
-   been added; that's a deliberate scope boundary for this prototype, not an
-   oversight.
+1. **Recording the generator's fixtures.** The agent itself is built
+   (`generate.ts`), type-checks, and its loop is proved by
+   `npm run hackathon:selftest`. What is missing is a single live run: this
+   machine has no Anthropic credentials, so no real model response has ever
+   been recorded and `hackathon:generate` in its default replay mode has
+   nothing to serve. One run with a key fills `fixtures/llm/` and the demo
+   becomes self-contained.
 2. **The visible trust surface.** A UI that shows the pass rate, lets a
    judge click an item, and shows exactly which of the checks above ran and
    what each one found. `verify-report.json`'s shape
    (`VerifyReport` / `ItemReport` / `CheckResult` in `verify.ts`) is already
    structured for that; nothing about it assumes a terminal as the
    renderer.
-3. **A regeneration loop.** The entry plan calls for failed items to be
-   regenerated, not shipped. `verifyItem()` is already per-item, so a loop
-   that re-prompts on `pass: false` and re-checks the new item is a small
-   addition once (1) exists; it isn't built here.
+3. **Judgement about what to do with a dropped item.** The loop currently
+   drops anything that fails twice, which is the safe default but not always
+   the right one: sometimes the honest move is a narrower item rather than
+   no item. Deciding that per failure kind is open.
 4. **Deciding whether Verse Mastery's spaced-repetition/Speak mode plugs
    into the memory-work items**, per the plan's "if you have time on day
    two" note. Not started.

@@ -15,8 +15,10 @@
     "test:e2e:ui": "playwright test --ui",
     "build:solo": "SOLO=1 tsc -b && SOLO=1 vite build",
     "hackathon:index": "vite-node hackathon/index.ts",
-    "hackathon:verify": "vite-node hackathon/verify.ts",
-    "hackathon:demo": "npm run hackathon:index && vite-node hackathon/generate-stub.ts \"understand Romans in 6 weeks\" && vite-node hackathon/verify.ts hackathon/out/plan.json",
+    "hackathon:verify": "vite-node hackathon/verify-cli.ts",
+    "hackathon:generate": "vite-node hackathon/generate-cli.ts",
+    "hackathon:selftest": "vite-node hackathon/selftest.ts",
+    "hackathon:demo": "npm run hackathon:index && vite-node hackathon/generate-stub.ts \"understand Romans in 6 weeks\" && vite-node hackathon/verify-cli.ts hackathon/out/plan.json",
     "hackathon:check": "tsc -p hackathon/tsconfig.json --pretty"
   },
   "dependencies": {

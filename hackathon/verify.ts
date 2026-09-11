@@ -8,13 +8,10 @@
  * this (to phrase the failure for a learner, or to decide whether to
  * regenerate) is future work; the checks themselves should not need an LLM.
  *
- * Run with `npm run hackathon:verify` (verifies the fixture plan) or
- * `vite-node hackathon/verify.ts <path-to-plan.json>` for any other plan.
+ * This module is a library with no side effects on import: `generate.ts`
+ * calls `verifyPlan` on every repair round. The command line front end lives
+ * in `verify-cli.ts` (`npm run hackathon:verify`).
  */
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
-import fs from 'node:fs';
-
 import type { PlanItem, StudyPlan } from './schema';
 import type { BuiltIndex, IndexBook } from './index-types';
 
@@ -242,7 +239,7 @@ export function verifyPlan(index: BuiltIndex, plan: StudyPlan): VerifyReport {
   };
 }
 
-function printReport(report: VerifyReport) {
+export function printReport(report: VerifyReport) {
   console.log(`\nVerifying plan: "${report.goal}"`);
   console.log(`${report.passCount}/${report.itemCount} items passed all checks\n`);
   for (const item of report.items) {
@@ -256,34 +253,3 @@ function printReport(report: VerifyReport) {
   }
   console.log('');
 }
-
-// ------------------------------------------------------------------ runner
-
-async function main() {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const indexPath = path.join(__dirname, 'out', 'index.json');
-  if (!fs.existsSync(indexPath)) {
-    console.error(`No index found at ${indexPath}. Run "npm run hackathon:index" first.`);
-    process.exit(1);
-  }
-  const index: BuiltIndex = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
-
-  const planArg = process.argv[2];
-  const planPath = planArg ? path.resolve(planArg) : path.join(__dirname, 'fixtures', 'plan-with-errors.json');
-  const plan: StudyPlan = JSON.parse(fs.readFileSync(planPath, 'utf8'));
-
-  const report = verifyPlan(index, plan);
-  printReport(report);
-
-  const reportPath = path.join(__dirname, 'out', 'verify-report.json');
-  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
-  console.log(`Wrote ${reportPath}`);
-
-  if (report.failCount > 0 && !planArg) {
-    // The fixture plan is expected to fail: that is the demo. Exit 0 so
-    // `npm run hackathon:demo` doesn't look broken.
-    console.log(`\n(${report.failCount} failure(s) on the fixture plan are expected; see hackathon/fixtures/plan-with-errors.json)\n`);
-  }
-}
-
-main();
