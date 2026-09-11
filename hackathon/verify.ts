@@ -13,16 +13,19 @@
  * in `verify-cli.ts` (`npm run hackathon:verify`).
  */
 import type { PlanItem, StudyPlan } from './schema';
-import type { BuiltIndex, IndexBook } from './index-types';
+import type { BuiltIndex, EpisodeEvent, IndexBook } from './index-types';
 
 export type CheckKind =
   | 'reference-not-found'
   | 'chapter-out-of-range'
   | 'person-unknown'
   | 'person-not-in-book'
+  | 'person-not-in-chapter'
   | 'event-unknown'
   | 'event-not-in-era'
-  | 'term-unknown';
+  | 'event-not-in-chapter'
+  | 'term-unknown'
+  | 'term-not-in-book';
 
 export interface CheckResult {
   kind: CheckKind | 'unverifiable';
@@ -61,6 +64,11 @@ interface ParsedRef {
   bookRaw: string;
   chapterStart?: number;
   chapterEnd?: number;
+  /** True when the reference named a verse. The number itself cannot be
+   *  bounded, because nothing in src/data records verse counts, but knowing
+   *  one was claimed is what lets the report say so out loud instead of
+   *  passing in silence. */
+  hasVerse?: boolean;
 }
 
 /**
@@ -94,7 +102,8 @@ function parseReference(ref: string): ParsedRef | null {
     else chapterEnd = secondNumber; // "N-M"
   }
   if (!Number.isFinite(chapterStart) || !Number.isFinite(chapterEnd)) return { bookRaw };
-  return { bookRaw, chapterStart, chapterEnd };
+  const hasVerse = hasStartVerse || secondHasColon;
+  return { bookRaw, chapterStart, chapterEnd, hasVerse };
 }
 
 function findBook(index: BuiltIndex, bookRaw: string): IndexBook | undefined {
@@ -128,20 +137,46 @@ function checkReference(index: BuiltIndex, reference: string): { checks: CheckRe
         : `${book.name} has ${book.chapters} chapters; "${reference}" asks for ${parsed.chapterStart}${parsed.chapterEnd !== parsed.chapterStart ? `-${parsed.chapterEnd}` : ''}`,
     });
   }
+
+  // A verse number is the one part of a reference this data cannot judge:
+  // src/data records chapter counts per book and nothing finer, so
+  // "Romans 8:999" is indistinguishable from "Romans 8:28" here. Before, that
+  // meant a made-up verse passed in silence, which is worse than the gap
+  // itself: the report said "verified" about something it had not looked at.
+  // It is reported as unverifiable instead, so the item shows as partial and
+  // the reader knows exactly which claim went unchecked.
+  if (parsed.chapterStart !== undefined && parsed.hasVerse) {
+    const landmark = index.verses.some(
+      (v) => book && v.book === book.id && normalize(v.ref) === normalize(reference),
+    );
+    checks.push({
+      kind: 'unverifiable',
+      subject: reference,
+      ok: true,
+      detail: landmark
+        ? `the verse in "${reference}" is a landmark verse in the index, so it exists; verse numbers in general are not bounded (no verse-count data)`
+        : `the chapter in "${reference}" is checked, the verse number is not: nothing in src/data records how many verses a chapter has`,
+    });
+  }
   return { checks, book };
 }
 
-function checkPeople(index: BuiltIndex, names: string[], book: IndexBook | undefined): CheckResult[] {
-  return names.map((raw) => {
+function checkPeople(
+  index: BuiltIndex,
+  names: string[],
+  book: IndexBook | undefined,
+  ref: ParsedRef | null,
+): CheckResult[] {
+  return names.flatMap((raw): CheckResult[] => {
     const person = index.people.find((p) => p.aliases.some((a) => normalize(a) === normalize(raw)));
     if (!person) {
-      return { kind: 'person-unknown', subject: raw, ok: false, detail: `"${raw}" is not in the 257-person index` };
+      return [{ kind: 'person-unknown', subject: raw, ok: false, detail: `"${raw}" is not in the 257-person index` }];
     }
     if (!book) {
-      return { kind: 'person-unknown', subject: raw, ok: true, detail: `"${raw}" is known (no book to check against)` };
+      return [{ kind: 'person-unknown', subject: raw, ok: true, detail: `"${raw}" is known (no book to check against)` }];
     }
     const inBook = person.booksAppearing.includes(book.id);
-    return {
+    const bookCheck: CheckResult = {
       kind: 'person-not-in-book',
       subject: raw,
       ok: inBook,
@@ -149,10 +184,55 @@ function checkPeople(index: BuiltIndex, names: string[], book: IndexBook | undef
         ? `${person.name} appears in ${book.name}`
         : `${person.name}'s known books are [${person.booksAppearing.join(', ')}], not ${book.name}`,
     };
+    if (!inBook || ref?.chapterStart === undefined) return [bookCheck];
+
+    // Chapter grain, as far as the data goes. `booksAppearing` is the finest
+    // the people index has, so "Adam, in Romans 16" passed while being wrong
+    // (Adam is Romans 5). Episodes carry a `who` list and a chapter, which
+    // gives a narrower reading: where this person is actually placed in this
+    // book. It is reported as unverifiable rather than failed, because
+    // episodes are not an exhaustive concordance and a person can be
+    // mentioned in a chapter that has no episode. Saying "we could not place
+    // them there, here is where we can" gives a generator something to act
+    // on without inventing a failure.
+    const itemStart = ref.chapterStart;
+    const itemEnd = ref.chapterEnd ?? ref.chapterStart;
+    const placements = index.events.episodes
+      .filter((e) => e.book === book.id && e.who.some((w) => normalize(w) === normalize(raw)))
+      .map((e) => ({ e, span: episodeChapters(e.ref) }))
+      .filter((x) => x.span !== null) as { e: EpisodeEvent; span: { start: number; end: number } }[];
+    if (!placements.length) return [bookCheck];
+
+    const here = placements.some(({ span }) => span.start <= itemEnd && span.end >= itemStart);
+    return [bookCheck, {
+      kind: here ? 'person-not-in-chapter' : 'unverifiable',
+      subject: raw,
+      ok: true,
+      detail: here
+        ? `${person.name} is placed in ${book.name} ${placements.map((x) => x.e.ref).join(', ')}, which the reference covers`
+        : `${person.name} appears in ${book.name}, but the episodes that name them are chapters ${placements.map((x) => x.e.ref).join(', ')}, not ${itemStart}${itemEnd !== itemStart ? `-${itemEnd}` : ''}; episodes are not exhaustive, so this is not proof of an error`,
+    }];
   });
 }
 
-function checkEvents(index: BuiltIndex, names: string[], era?: string): CheckResult[] {
+/** An episode's `ref` is a chapter or a chapter range, e.g. "22" or "6-9". */
+function episodeChapters(ref: string): { start: number; end: number } | null {
+  const m = ref.trim().match(/^(\d+)(?:\s*-\s*(\d+))?$/);
+  if (!m) return null;
+  const start = Number(m[1]);
+  const end = m[2] ? Number(m[2]) : start;
+  if (!Number.isFinite(start) || !Number.isFinite(end)) return null;
+  return { start, end };
+}
+
+
+function checkEvents(
+  index: BuiltIndex,
+  names: string[],
+  era: string | undefined,
+  ref: ParsedRef | null,
+  book: IndexBook | undefined,
+): CheckResult[] {
   return names.flatMap((raw) => {
     const key = normalize(raw);
     const datedMatch = index.events.dated.find((e) => normalize(e.label) === key || normalize(e.label).includes(key));
@@ -161,8 +241,44 @@ function checkEvents(index: BuiltIndex, names: string[], era?: string): CheckRes
     if (!datedMatch && episodeMatches.length === 0) {
       return [{ kind: 'event-unknown', subject: raw, ok: false, detail: `"${raw}" does not match any dated event or narrative episode` }];
     }
+
+    // Chapter agreement, checked before the era and independently of it.
+    // An episode is anchored to a chapter in the index, so "Romans 12,
+    // event: Abraham justified by faith" is checkable and false: that
+    // episode is Romans 4. Previously only the name and the era were
+    // compared, so a real episode filed under any chapter of the right book
+    // passed. When the item names no chapter, or the episode's ref is not a
+    // plain chapter range, there is nothing to compare and no check is added.
+    const chapterChecks: CheckResult[] = [];
+    if (book && ref?.chapterStart !== undefined) {
+      const itemStart = ref.chapterStart;
+      const itemEnd = ref.chapterEnd ?? ref.chapterStart;
+      const sameBook = episodeMatches.filter((e) => e.book === book.id);
+      if (sameBook.length) {
+        const spans = sameBook
+          .map((e) => ({ e, span: episodeChapters(e.ref) }))
+          .filter((x) => x.span !== null) as { e: EpisodeEvent; span: { start: number; end: number } }[];
+        if (spans.length) {
+          const overlaps = spans.some(
+            ({ span }) => span.start <= itemEnd && span.end >= itemStart,
+          );
+          chapterChecks.push({
+            kind: 'event-not-in-chapter',
+            subject: raw,
+            ok: overlaps,
+            detail: overlaps
+              ? `"${raw}" is anchored to ${book.name} ${spans.map((x) => x.e.ref).join(', ')}, which the reference covers`
+              : `"${raw}" is ${book.name} ${spans.map((x) => x.e.ref).join(', ')}, not chapter ${itemStart}${itemEnd !== itemStart ? `-${itemEnd}` : ''}`,
+          });
+        }
+      }
+    }
+
     if (!era) {
-      return [{ kind: 'event-unknown', subject: raw, ok: true, detail: `"${raw}" is known (no era claimed to check)` }];
+      return [
+        { kind: 'event-unknown', subject: raw, ok: true, detail: `"${raw}" is known (no era claimed to check)` },
+        ...chapterChecks,
+      ];
     }
 
     const eraKey = normalize(era);
@@ -175,13 +291,13 @@ function checkEvents(index: BuiltIndex, names: string[], era?: string): CheckRes
         subject: raw,
         ok,
         detail: ok ? `"${datedMatch.label}" belongs to era "${datedMatch.era}"` : `"${datedMatch.label}" belongs to era "${datedMatch.era}", not "${era}"`,
-      }];
+      }, ...chapterChecks];
     }
 
     // Episode event: no direct era on the event, so check via its book's
     // candidate eras (ERAS[].books membership). A book with zero candidate
     // eras cannot be judged either way.
-    return episodeMatches.map((ev): CheckResult => {
+    return [...chapterChecks, ...episodeMatches.map((ev): CheckResult => {
       if (ev.candidateEras.length === 0) {
         return {
           kind: 'unverifiable',
@@ -199,29 +315,56 @@ function checkEvents(index: BuiltIndex, names: string[], era?: string): CheckRes
           ? `"${ev.name}" (${ev.book} ${ev.ref}) is consistent with era "${era}"`
           : `"${ev.name}" (${ev.book} ${ev.ref})'s book belongs to era(s) [${ev.candidateEras.join(', ')}], not "${era}"`,
       };
-    });
+    })];
   });
 }
 
-function checkTerms(index: BuiltIndex, names: string[]): CheckResult[] {
-  return names.map((raw) => {
+function checkTerms(
+  index: BuiltIndex, names: string[], book: IndexBook | undefined,
+): CheckResult[] {
+  return names.flatMap((raw): CheckResult[] => {
     const match = index.terms.find((t) => t.key === normalize(raw));
-    return {
+    if (!match) {
+      return [{
+        kind: 'term-unknown',
+        subject: raw,
+        ok: false,
+        detail: `"${raw}" does not match any indexed term`,
+      }];
+    }
+    const known: CheckResult = {
       kind: 'term-unknown',
       subject: raw,
-      ok: !!match,
-      detail: match ? `"${raw}" is a known term (in ${match.books.join(', ')})` : `"${raw}" does not match any indexed term`,
+      ok: true,
+      detail: `"${raw}" is a known term (in ${match.books.join(', ')})`,
     };
+    if (!book) return [known];
+
+    // Existing somewhere is not the claim the item makes. An item saying
+    // "Romans 5, key term: the I AM sayings" is wrong even though that term
+    // is real, because it is indexed under John. Checking only global
+    // existence let a true-looking term sit under any book at all, which was
+    // one of six ways a plan of entirely false claims passed clean.
+    const inBook = match.books.includes(book.id);
+    return [known, {
+      kind: 'term-not-in-book',
+      subject: raw,
+      ok: inBook,
+      detail: inBook
+        ? `"${match.term}" is a key term of ${book.name}`
+        : `"${match.term}" is indexed under [${match.books.join(', ')}], not ${book.name}`,
+    }];
   });
 }
 
 export function verifyItem(index: BuiltIndex, item: PlanItem): ItemReport {
   const { checks: refChecks, book } = checkReference(index, item.reference);
+  const ref = parseReference(item.reference);
   const checks: CheckResult[] = [
     ...refChecks,
-    ...checkPeople(index, item.people ?? [], book),
-    ...checkEvents(index, item.events ?? [], item.era),
-    ...checkTerms(index, item.terms ?? []),
+    ...checkPeople(index, item.people ?? [], book, ref),
+    ...checkEvents(index, item.events ?? [], item.era, ref, book),
+    ...checkTerms(index, item.terms ?? [], book),
   ];
   const pass = checks.every((c) => c.ok);
   return { id: item.id, type: item.type, reference: item.reference, pass, checks };

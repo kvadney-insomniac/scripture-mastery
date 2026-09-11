@@ -128,9 +128,9 @@ hypothetical one.
 
 ## What `verify.ts` checks, and what it reports
 
-Seven check kinds, covering the five failure categories the entry plan
-named (a couple of the plan's categories split into a "does this exist at
-all" check and a "does this exist here" check):
+Ten check kinds. Each category splits into "does this exist at all" and
+"does it exist *here*", because the second question is the one a plausible
+invention fails:
 
 | Check | Fires when |
 |---|---|
@@ -138,9 +138,16 @@ all" check and a "does this exist here" check):
 | `chapter-out-of-range` | the book matched, but the chapter number is outside `1..Book.chapters` |
 | `person-unknown` | a named person isn't in the 257-person roster at all |
 | `person-not-in-book` | the person is known, but not in this book (checked against the reconciled `booksAppearing` set, not just the primary book) |
+| `person-not-in-chapter` | the person is in the book, and an episode places them in the chapter the reference names |
 | `event-unknown` | a named event doesn't match a dated `TimelineEvent` or a narrative `DetailEvent` |
 | `event-not-in-era` | the event is known, but its era doesn't match the item's claimed era |
+| `event-not-in-chapter` | the episode is real and in the right book, but anchored to a different chapter than the reference |
 | `term-unknown` | a named term doesn't match any indexed term |
+| `term-not-in-book` | the term is real, but indexed under other books than the one in the reference |
+
+The last four arrived after an audit described below, which is the
+honest order of events: the first six were what the entry plan asked for,
+and they were not enough.
 
 There's an eighth outcome that is neither pass nor fail: **`unverifiable`**.
 16 books have no entry in any `ERAS[].books` list (computed by
@@ -154,6 +161,52 @@ so explicitly instead of guessing either way. That distinction ("I can't
 check this" vs. "this is wrong") is part of the trust surface the entry
 plan asks for, not an edge case to hide.
 
+## We tried to fool it, and did
+
+A verifier nobody has attacked is a claim, not a guarantee. So before
+saying any of this works, here is a plan of seven items where six make a
+false claim, written to target the specific shape of each check rather
+than to be obviously wrong:
+`hackathon/fixtures/plan-that-slips-through.json`, run with
+`npm run hackathon:audit`.
+
+**All seven passed.** That is what the first version of this verifier did
+with a plan that was almost entirely false, and it is exactly what a judge
+would have found in two minutes:
+
+| The claim | Why it slipped | Now |
+|---|---|---|
+| `Romans 8:999` | verse numbers were parsed and thrown away; only the chapter was bounded | reported `unverifiable`, with the reason |
+| `Romans 3:23-400` | same | reported `unverifiable` |
+| Romans 5, key term "I AM sayings" | the term is real, indexed under John; the check asked only whether it existed | **fails**, `term-not-in-book` |
+| Romans 12, event "Abraham justified by faith" | the episode is real and in Romans; nothing compared its chapter (4) to the reference | **fails**, `event-not-in-chapter` |
+| Romans 16, person "Adam" | `booksAppearing` is the finest grain the people index has | `unverifiable`, naming the chapter Adam *is* placed in |
+| A title saying Romans 9 is Paul's shipwreck on Malta | titles are free text and nothing reads them | still passes, see below |
+
+Two of the six are now hard failures. Two are reported as unverifiable
+with the specific reason, which is worth more than it sounds: a silent
+pass tells a reader "checked, fine" about something never looked at, and
+that is the failure mode the whole entry exists to attack. One names
+where the person actually appears, which is enough for a generator to fix
+itself.
+
+### The limit, stated rather than hidden
+
+**Prose is not checked, and cannot be from this data.** `title` and `note`
+are free text. An item can carry a perfectly true reference, a real
+person, a real term, and a sentence claiming Romans 9 covers a shipwreck,
+and every check will pass. Verse numbers have the same shape of problem
+for a different reason: `src/data` records chapter counts per book and
+nothing finer, so no verse number can be bounded, which is why those
+report as unverifiable rather than pass.
+
+What the verifier actually guarantees is narrower than "this plan is
+true", and saying so precisely is the point: **every structured claim an
+item makes is one the app's own data supports, and anything that could
+not be checked is named.** Closing the prose gap needs either verse-level
+data or a second model pass judging the sentence against the item's
+own structured fields. Neither is built.
+
 ## Run it
 
 From the repo root, in this worktree:
@@ -164,6 +217,7 @@ npm run hackathon:verify     # verify hackathon/fixtures/plan-with-errors.json
 npm run hackathon:demo       # index -> stub generator -> verify, end to end
 npm run hackathon:selftest   # prove the generate/verify/repair loop, no key needed
 npm run hackathon:report     # render out/report.html from the last verify run
+npm run hackathon:audit      # run the adversarial fixture (see "We tried to fool it")
 npm run hackathon:generate -- "understand Romans in 6 weeks"   # the real agent
 npm run hackathon:check      # tsc --noEmit over hackathon/, strict
 ```

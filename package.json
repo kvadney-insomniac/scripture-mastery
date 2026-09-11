@@ -19,6 +19,7 @@
     "hackathon:generate": "vite-node hackathon/generate-cli.ts",
     "hackathon:selftest": "vite-node hackathon/selftest.ts",
     "hackathon:report": "vite-node hackathon/report.ts",
+    "hackathon:audit": "vite-node hackathon/verify-cli.ts hackathon/fixtures/plan-that-slips-through.json",
     "hackathon:demo": "npm run hackathon:index && vite-node hackathon/generate-stub.ts \"understand Romans in 6 weeks\" && vite-node hackathon/verify-cli.ts hackathon/out/plan.json",
     "hackathon:check": "tsc -p hackathon/tsconfig.json --pretty"
   },

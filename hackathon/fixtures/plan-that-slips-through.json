@@ -1,0 +1,69 @@
+{
+  "goal": "understand Romans in 6 weeks (adversarial: every claim below is false, and the verifier's own README says which of them it catches)",
+  "weeks": 6,
+  "generatedBy": "hand-authored adversarial fixture, not a generator",
+  "items": [
+    {
+      "id": "adv-verse",
+      "type": "memory",
+      "week": 1,
+      "title": "A verse that does not exist",
+      "reference": "Romans 8:999",
+      "note": "Romans 8 has 39 verses. parseReference reads the verse number and throws it away, so only the chapter is range-checked."
+    },
+    {
+      "id": "adv-verse-range",
+      "type": "memory",
+      "week": 1,
+      "title": "A verse range running off the end of the chapter",
+      "reference": "Romans 3:23-400",
+      "note": "Same gap. The dash after a colon is read as a verse range, and verse numbers are never bounded."
+    },
+    {
+      "id": "adv-term-wrong-book",
+      "type": "question",
+      "week": 2,
+      "title": "A real key term, attached to the wrong book",
+      "reference": "Romans 5",
+      "terms": ["\"I AM\" sayings"],
+      "note": "That term is indexed under John. checkTerms looks it up globally and never asks whether it belongs to the book in the reference."
+    },
+    {
+      "id": "adv-episode-wrong-chapter",
+      "type": "reading",
+      "week": 3,
+      "title": "A real episode, filed under the wrong chapter of the right book",
+      "reference": "Romans 12",
+      "events": ["Abraham justified by faith"],
+      "note": "That episode is Romans 4. checkEvents matches the name and the era but never compares the episode's own chapter ref to the item's reference."
+    },
+    {
+      "id": "adv-person-wrong-chapter",
+      "type": "question",
+      "week": 4,
+      "title": "A real person of the book, in a chapter they never appear in",
+      "reference": "Romans 16",
+      "people": ["Adam"],
+      "note": "Adam is in Romans, chapter 5. checkPeople scopes to the book, not to the chapter, because booksAppearing is the finest grain the index has."
+    },
+    {
+      "id": "adv-title-lie",
+      "type": "reading",
+      "week": 5,
+      "title": "Romans 9 is where Paul describes his shipwreck on Malta",
+      "reference": "Romans 9",
+      "note": "Every structured field here is true, so the item passes. The false claim is in the title, which nothing reads. This one is not fixable from the index and is the honest limit of the approach."
+    },
+    {
+      "id": "adv-control-clean",
+      "type": "reading",
+      "week": 6,
+      "title": "Control: every claim true",
+      "reference": "Romans 4",
+      "people": ["Abraham"],
+      "terms": ["Justification"],
+      "events": ["Abraham justified by faith"],
+      "note": "Must pass. If this one ever fails, a tightening went too far."
+    }
+  ]
+}

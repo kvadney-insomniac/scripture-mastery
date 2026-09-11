@@ -33,6 +33,15 @@ import fs from 'node:fs';
 import type { StudyPlan, PlanItem } from './schema';
 import type { BuiltIndex, IndexBook } from './index-types';
 
+/** Those of `names` that resolve to an entry in the people index. */
+function indexedPeople(index: BuiltIndex, names: string[]): string[] | undefined {
+  const known = names.filter((raw) =>
+    index.people.some((p) => p.aliases.some((a) => normalize(a) === normalize(raw))),
+  );
+  return known.length > 0 ? known : undefined;
+}
+
+
 function normalize(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
 }
@@ -84,7 +93,14 @@ function buildPlan(index: BuiltIndex, goal: string): StudyPlan {
       week: Math.min(week, weeks),
       title: ev.name,
       reference: `${book.name} ${ev.ref}`,
-      people: ev.who.length > 0 ? ev.who : undefined,
+      // Only the participants the PEOPLE index actually knows. An episode's
+      // `who` is free text from the book detail files, and some of those
+      // names (Phoebe, Tertius, the Romans 16 greeting list) have no PEOPLE
+      // entry, so copying the list wholesale produced `person-unknown`
+      // failures on a plan this file is supposed to build clean by
+      // construction. Grounding means citing what the index contains, not
+      // what one corner of it happens to mention.
+      people: indexedPeople(index, ev.who),
       events: [ev.name],
       era: candidateEra,
     });
