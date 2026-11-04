@@ -42,6 +42,9 @@ are freely permitted"). The BSB text of each cited verse is recorded in
 [scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases),
 with the SHA-256 of the file it was read from.
 
+Quotations keep the BSB's words exactly. Where the BSB sets a phrase off with a
+dash, the dash is shown as a comma (Numbers 14:34); the words are unchanged.
+
 Earlier versions of this fork quoted the ESV, which is copyright Crossway and
 needs Crossway's written permission for use in an application. No ESV text
 remains in the item bank of this fork. Which text the upstream repository uses

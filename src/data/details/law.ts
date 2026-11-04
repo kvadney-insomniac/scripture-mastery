@@ -272,7 +272,7 @@ export const LAW_DETAILS: BookDetail[] = [
     christ: 'The bronze serpent lifted up so that whoever looks lives (21:9), the rock that gives water, the star out of Jacob (24:17), and the cities of refuge for the guilty.',
     verses: [
       { ref: 'Numbers 6:24-26', text: 'May the LORD bless you and keep you; may the LORD cause His face to shine upon you and be gracious to you.' },
-      { ref: 'Numbers 14:34', text: 'In keeping with the forty days you spied out the land, you shall bear your guilt forty years—a year for each day.' },
+      { ref: 'Numbers 14:34', text: 'In keeping with the forty days you spied out the land, you shall bear your guilt forty years, a year for each day.' },
     ],
     distinctive: 'Two censuses bracket the book — one generation dies between them, and only Joshua and Caleb appear in both.',
   },
