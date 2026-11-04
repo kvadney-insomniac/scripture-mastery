@@ -15,7 +15,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { ch: '12-16', title: 'Application — living sacrifices, government, the weak and the strong, greetings' },
     ],
     events: [
-      { ref: '1', name: 'The theme stated', what: 'Paul is not ashamed of the gospel, the power of God for salvation, and quotes Habakkuk: "the righteous shall live by faith"', who: ['Paul'] },
+      { ref: '1', name: 'The theme stated', what: 'Paul is not ashamed of the gospel, the power of God for salvation, and quotes Habakkuk: "the righteous will live by faith"', who: ['Paul'] },
       { ref: '3', name: 'All have sinned', what: 'A chain of Old Testament quotations closes every mouth, then righteousness comes through faith in Jesus Christ', who: [] },
       { ref: '4', name: 'Abraham justified by faith', what: 'Abraham believed before circumcision and before the law, so he is father of all who believe', who: ['Abraham'] },
       { ref: '5', name: 'Two Adams', what: 'Through one man sin entered; through one man came the free gift — condemnation reversed', who: ['Adam'] },
@@ -48,8 +48,8 @@ export const PAULINE_DETAILS: BookDetail[] = [
     christ: 'The whole letter is about what His death and resurrection accomplished: justification, reconciliation, and a righteousness from God received by faith.',
     verses: [
       { ref: 'Romans 3:23', text: 'For all have sinned and fall short of the glory of God.' },
-      { ref: 'Romans 6:23', text: 'For the wages of sin is death, but the free gift of God is eternal life in Christ Jesus our Lord.' },
-      { ref: 'Romans 8:28', text: 'And we know that for those who love God all things work together for good.' },
+      { ref: 'Romans 6:23', text: 'For the wages of sin is death, but the gift of God is eternal life in Christ Jesus our Lord.' },
+      { ref: 'Romans 8:28', text: 'And we know that God works all things together for the good of those who love Him.' },
     ],
     distinctive: 'The most systematic book in the Bible — and the letter that converted Augustine, Luther, and Wesley.',
   },
@@ -97,8 +97,8 @@ export const PAULINE_DETAILS: BookDetail[] = [
     ],
     christ: 'Christ crucified — a stumbling block to Jews and folly to Greeks — is Paul’s answer to a church chasing wisdom and status. Chapter 15 makes the resurrection the hinge of everything.',
     verses: [
-      { ref: '1 Corinthians 13:13', text: 'So now faith, hope, and love abide, these three; but the greatest of these is love.' },
-      { ref: '1 Corinthians 15:3-4', text: 'Christ died for our sins in accordance with the Scriptures… he was raised on the third day.' },
+      { ref: '1 Corinthians 13:13', text: 'And now these three remain: faith, hope, and love; but the greatest of these is love.' },
+      { ref: '1 Corinthians 15:3-4', text: 'That Christ died for our sins according to the Scriptures… that He was raised on the third day according to the Scriptures.' },
     ],
     distinctive: 'The most practical of Paul’s letters — a church’s dirty laundry, answered one item at a time.',
   },
@@ -120,7 +120,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { ref: '5', name: 'Ambassadors of reconciliation', what: 'If anyone is in Christ, new creation; God made Him who knew no sin to be sin for us', who: [] },
       { ref: '8-9', name: 'The Macedonian example', what: 'Churches in extreme poverty gave beyond their means; give as you have decided, not reluctantly', who: ['Titus'] },
       { ref: '11', name: 'Paul’s résumé of suffering', what: 'Five times thirty-nine lashes, three beatings with rods, three shipwrecks, a night and a day adrift, and constant danger', who: ['Paul'] },
-      { ref: '12', name: 'The third heaven and the thorn', what: 'Caught up to paradise, then given a thorn in the flesh; "My grace is sufficient for you, for my power is made perfect in weakness"', who: ['Paul'] },
+      { ref: '12', name: 'The third heaven and the thorn', what: 'Caught up to paradise, then given a thorn in the flesh; "My grace is sufficient for you, for My power is perfected in weakness"', who: ['Paul'] },
     ],
     figures: [
       { name: 'Paul', did: 'Defends himself more personally here than anywhere else in his letters', ref: '2 Cor 10-12' },
@@ -139,10 +139,10 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { of: 'times Paul asked for the thorn to be removed', value: 'Three', ref: '2 Cor 12:8' },
       { of: 'the heaven Paul was caught up to', value: 'The third', ref: '2 Cor 12:2' },
     ],
-    christ: '"For our sake he made him to be sin who knew no sin, so that in him we might become the righteousness of God" (5:21) — the clearest single sentence on the exchange at the cross.',
+    christ: '"God made Him who knew no sin to be sin on our behalf, so that in Him we might become the righteousness of God" (5:21) — the clearest single sentence on the exchange at the cross.',
     verses: [
-      { ref: '2 Corinthians 5:17', text: 'If anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come.' },
-      { ref: '2 Corinthians 12:9', text: 'My grace is sufficient for you, for my power is made perfect in weakness.' },
+      { ref: '2 Corinthians 5:17', text: 'Therefore if anyone is in Christ, he is a new creation. The old has passed away. Behold, the new has come!' },
+      { ref: '2 Corinthians 12:9', text: 'My grace is sufficient for you, for My power is perfected in weakness.' },
     ],
     distinctive: 'The most autobiographical and emotional of Paul’s letters — he boasts, but only about his weaknesses.',
   },
@@ -181,10 +181,10 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { of: 'chapters', value: 'Six' },
       { of: 'years between the promise to Abraham and the law', value: '430', ref: 'Gal 3:17' },
     ],
-    christ: '"I have been crucified with Christ. It is no longer I who live, but Christ who lives in me" (2:20) — and He redeemed us from the curse by becoming a curse for us.',
+    christ: '"I have been crucified with Christ, and I no longer live, but Christ lives in me" (2:20) — and He redeemed us from the curse by becoming a curse for us.',
     verses: [
-      { ref: 'Galatians 2:20', text: 'I have been crucified with Christ. It is no longer I who live, but Christ who lives in me.' },
-      { ref: 'Galatians 5:1', text: 'For freedom Christ has set us free; stand firm therefore.' },
+      { ref: 'Galatians 2:20', text: 'I have been crucified with Christ, and I no longer live, but Christ lives in me.' },
+      { ref: 'Galatians 5:1', text: 'It is for freedom that Christ has set us free. Stand firm.' },
     ],
     distinctive: 'The only letter where Paul writes no thanksgiving — he goes straight to the rebuke. Luther called it his wife.',
   },
@@ -208,7 +208,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { ref: '6', name: 'The armor of God', what: 'Belt, breastplate, shoes, shield, helmet, and sword, for a struggle against spiritual forces rather than flesh and blood', who: [] },
     ],
     figures: [
-      { name: 'Paul', did: 'Writes from prison as "a prisoner for Christ Jesus on behalf of you Gentiles"', ref: 'Eph 3:1' },
+      { name: 'Paul', did: 'Writes from prison as "the prisoner of Christ Jesus for the sake of you Gentiles"', ref: 'Eph 3:1' },
       { name: 'Tychicus', did: 'Carried the letter and was to report on Paul’s situation', ref: 'Eph 6:21' },
     ],
     terms: [
@@ -224,8 +224,8 @@ export const PAULINE_DETAILS: BookDetail[] = [
     ],
     christ: 'The head of the body, in whom all things in heaven and earth are united — and the husband who gave Himself up for His bride.',
     verses: [
-      { ref: 'Ephesians 2:8-9', text: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works.' },
-      { ref: 'Ephesians 6:11', text: 'Put on the whole armor of God, that you may be able to stand against the schemes of the devil.' },
+      { ref: 'Ephesians 2:8-9', text: 'For it is by grace you have been saved through faith, and this not from yourselves; it is the gift of God, not by works.' },
+      { ref: 'Ephesians 6:11', text: 'Put on the full armor of God, so that you can make your stand against the devil’s schemes.' },
     ],
     distinctive: 'No specific problems addressed and no individuals greeted — a letter about the church as such, likely circulated among several.',
   },
@@ -247,7 +247,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { ref: '2', name: 'Timothy and Epaphroditus', what: 'Paul commends Timothy, who has no one like him, and Epaphroditus, who nearly died carrying the gift', who: ['Timothy', 'Epaphroditus'] },
       { ref: '3', name: 'Rubbish for Christ', what: 'Paul lists his credentials — circumcised the eighth day, a Hebrew of Hebrews, a Pharisee — and counts them as loss', who: ['Paul'] },
       { ref: '4', name: 'Euodia and Syntyche', what: 'Two women who labored beside him are urged to agree in the Lord', who: ['Euodia', 'Syntyche'] },
-      { ref: '4', name: 'The secret of contentment', what: 'Do not be anxious; think on whatever is true and lovely; "I have learned in whatever situation I am to be content"', who: [] },
+      { ref: '4', name: 'The secret of contentment', what: 'Do not be anxious; think on whatever is true and lovely; "I have learned to be content regardless of my circumstances"', who: [] },
     ],
     figures: [
       { name: 'Paul', did: 'Writes the most joyful letter from the least joyful place', ref: 'Phil 1:12' },
@@ -267,8 +267,8 @@ export const PAULINE_DETAILS: BookDetail[] = [
     ],
     christ: 'Philippians 2:6-11 is the New Testament’s clearest statement of the descent and exaltation: from the form of God to the death of a cross to the name above every name.',
     verses: [
-      { ref: 'Philippians 4:13', text: 'I can do all things through him who strengthens me.' },
-      { ref: 'Philippians 1:21', text: 'For to me to live is Christ, and to die is gain.' },
+      { ref: 'Philippians 4:13', text: 'I can do all things through Christ who gives me strength.' },
+      { ref: 'Philippians 1:21', text: 'For to me, to live is Christ, and to die is gain.' },
     ],
     distinctive: 'The friendliest letter Paul wrote, with no doctrinal crisis to fix — and it was written in chains.',
   },
@@ -299,7 +299,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
     ],
     terms: [
       { term: 'Colossian heresy', meaning: 'A mix of Jewish legalism, Greek philosophy, and angel worship that treated Christ as insufficient' },
-      { term: 'Preeminence', meaning: 'The letter’s claim: "that in everything he might be preeminent" (1:18)' },
+      { term: 'Preeminence', meaning: 'The letter’s claim: "so that in all things He may have preeminence" (1:18)' },
       { term: 'Fullness (pleroma)', meaning: 'All the fullness of deity dwelling bodily in Christ — 2:9' },
     ],
     numbers: [
@@ -308,8 +308,8 @@ export const PAULINE_DETAILS: BookDetail[] = [
     ],
     christ: 'The highest Christology in Paul: creator, sustainer, head, reconciler, and the one in whom the whole fullness of deity dwells bodily.',
     verses: [
-      { ref: 'Colossians 1:15-16', text: 'He is the image of the invisible God, the firstborn of all creation. For by him all things were created.' },
-      { ref: 'Colossians 3:2', text: 'Set your minds on things that are above, not on things that are on earth.' },
+      { ref: 'Colossians 1:15-16', text: 'The Son is the image of the invisible God, the firstborn over all creation. For in Him all things were created.' },
+      { ref: 'Colossians 3:2', text: 'Set your minds on things above, not on earthly things.' },
     ],
     distinctive: 'Written to a church Paul never visited, about a heresy that never quite got named — and it produced the New Testament’s greatest paragraph about Christ.',
   },
@@ -346,8 +346,8 @@ export const PAULINE_DETAILS: BookDetail[] = [
     ],
     christ: 'The returning Lord: every chapter ends looking at His coming, and chapter 4 gives the fullest description of it in Paul’s letters.',
     verses: [
-      { ref: '1 Thessalonians 4:16-17', text: 'The Lord himself will descend from heaven with a cry of command… and the dead in Christ will rise first.' },
-      { ref: '1 Thessalonians 5:16-18', text: 'Rejoice always, pray without ceasing, give thanks in all circumstances.' },
+      { ref: '1 Thessalonians 4:16-17', text: 'For the Lord Himself will descend from heaven with a loud command… and the dead in Christ will be the first to rise.' },
+      { ref: '1 Thessalonians 5:16-18', text: 'Rejoice at all times. Pray without ceasing. Give thanks in every circumstance.' },
     ],
     distinctive: 'Probably Paul’s earliest surviving letter, and it is mostly about the end.',
   },
@@ -360,7 +360,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
     outline: [
       { ch: '1', title: 'Comfort under persecution — God will repay' },
       { ch: '2', title: 'The day has not come — the man of lawlessness must be revealed first' },
-      { ch: '3', title: 'A command about the idle: "If anyone is not willing to work, let him not eat"' },
+      { ch: '3', title: 'A command about the idle: "If anyone is unwilling to work, he shall not eat"' },
     ],
     events: [
       { ref: '1', name: 'Relief for the afflicted', what: 'God will grant relief when the Lord Jesus is revealed from heaven with His mighty angels in flaming fire', who: [] },
@@ -382,7 +382,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { of: 'signs that must precede the day of the Lord', value: 'Two — the rebellion and the man of lawlessness', ref: '2 Thess 2:3' },
     ],
     christ: 'The Lord Jesus will kill the lawless one "with the breath of his mouth" — the return is both comfort for the persecuted and judgment on the persecutor.',
-    verses: [{ ref: '2 Thessalonians 3:10', text: 'If anyone is not willing to work, let him not eat.' }],
+    verses: [{ ref: '2 Thessalonians 3:10', text: 'If anyone is unwilling to work, he shall not eat.' }],
     distinctive: 'A correction letter — the only one written because his previous letter was being misread.',
   },
   {
@@ -418,10 +418,10 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { of: 'the Pastoral Epistles', value: 'Three' },
       { of: 'mediators between God and men', value: 'One', ref: '1 Tim 2:5' },
     ],
-    christ: '"Christ Jesus came into the world to save sinners, of whom I am the foremost" (1:15) — and the one mediator who gave Himself as a ransom for all.',
+    christ: '"Christ Jesus came into the world to save sinners, of whom I am the worst" (1:15) — and the one mediator who gave Himself as a ransom for all.',
     verses: [
-      { ref: '1 Timothy 1:15', text: 'Christ Jesus came into the world to save sinners, of whom I am the foremost.' },
-      { ref: '1 Timothy 6:10', text: 'For the love of money is a root of all kinds of evils.' },
+      { ref: '1 Timothy 1:15', text: 'Christ Jesus came into the world to save sinners, of whom I am the worst.' },
+      { ref: '1 Timothy 6:10', text: 'For the love of money is the root of all kinds of evil.' },
     ],
     distinctive: 'A church manual in letter form — the source of nearly everything churches say about who may lead them.',
   },
@@ -447,13 +447,13 @@ export const PAULINE_DETAILS: BookDetail[] = [
     figures: [
       { name: 'Timothy', did: 'Receives Paul’s final charge to guard and preach the word', ref: '2 Tim 4:1-2' },
       { name: 'Lois and Eunice', did: 'Timothy’s grandmother and mother, who taught him the Scriptures', ref: '2 Tim 1:5' },
-      { name: 'Demas', did: 'Deserted Paul, "in love with this present world"', ref: '2 Tim 4:10' },
+      { name: 'Demas', did: 'Deserted Paul, "in his love of this world"', ref: '2 Tim 4:10' },
       { name: 'Luke', did: 'The only one still with Paul at the end', ref: '2 Tim 4:11' },
-      { name: 'Mark', did: 'Asked for by name — "he is very useful to me for ministry"', ref: '2 Tim 4:11' },
+      { name: 'Mark', did: 'Asked for by name — "he is useful to me in the ministry"', ref: '2 Tim 4:11' },
       { name: 'Onesiphorus', did: 'Searched Rome eagerly until he found Paul in chains', ref: '2 Tim 1:16-17' },
     ],
     terms: [
-      { term: 'Theopneustos', meaning: '"God-breathed" — the word behind "all Scripture is breathed out by God" (3:16)' },
+      { term: 'Theopneustos', meaning: '"God-breathed" — the word behind "all Scripture is God-breathed" (3:16)' },
       { term: 'The good deposit', meaning: 'The apostolic teaching Timothy is charged to guard' },
       { term: 'Itching ears', meaning: 'Paul’s picture of hearers who collect teachers who tell them what they want' },
     ],
@@ -464,7 +464,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
     ],
     christ: 'Paul faces execution certain of "the crown of righteousness, which the Lord, the righteous judge, will award to me on that day."',
     verses: [
-      { ref: '2 Timothy 3:16', text: 'All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in righteousness.' },
+      { ref: '2 Timothy 3:16', text: 'All Scripture is God-breathed and is useful for instruction, for conviction, for correction, and for training in righteousness.' },
       { ref: '2 Timothy 4:7', text: 'I have fought the good fight, I have finished the race, I have kept the faith.' },
     ],
     distinctive: 'The last letter Paul wrote, and he asks for a coat — the most human detail in the New Testament.',
@@ -498,8 +498,8 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { of: 'chapters', value: 'Three' },
       { of: 'groups given instructions in chapter 2', value: 'Five' },
     ],
-    christ: '"Our great God and Savior Jesus Christ, who gave himself for us to redeem us" (2:13-14) — one of the New Testament’s plainest statements of Christ’s deity.',
-    verses: [{ ref: 'Titus 3:5', text: 'He saved us, not because of works done by us in righteousness, but according to his own mercy.' }],
+    christ: '"Our great God and Savior Jesus Christ. He gave Himself for us to redeem us" (2:13-14) — one of the New Testament’s plainest statements of Christ’s deity.',
+    verses: [{ ref: 'Titus 3:5', text: 'He saved us, not by the righteous deeds we had done, but according to His mercy.' }],
     distinctive: 'Three chapters that hold both the strictest list of leadership requirements and the warmest statement of pure grace.',
   },
   {
@@ -511,7 +511,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
     outline: [
       { ch: '1-7', title: 'Thanksgiving for Philemon’s love and faith' },
       { ch: '8-16', title: 'The appeal — receive Onesimus no longer as a slave but as a beloved brother' },
-      { ch: '17-25', title: 'The guarantee — "charge that to my account"' },
+      { ch: '17-25', title: 'The guarantee — "charge it to my account"' },
     ],
     events: [
       { ref: '1-7', name: 'The setup', what: 'Paul thanks Philemon for refreshing the hearts of the saints — the same phrase he will use for his request', who: ['Philemon'] },
@@ -527,14 +527,14 @@ export const PAULINE_DETAILS: BookDetail[] = [
     ],
     terms: [
       { term: 'Onesimus', meaning: 'The slave’s name, meaning "useful" — Paul plays on it directly' },
-      { term: 'Imputation illustrated', meaning: '"Charge that to my account" — the gospel in one sentence of business language' },
+      { term: 'Imputation illustrated', meaning: '"Charge it to my account" — the gospel in one sentence of business language' },
     ],
     numbers: [
       { of: 'chapters in Philemon', value: 'One — 25 verses' },
       { of: 'Philemon’s rank by length among Paul’s thirteen letters', value: 'Shortest' },
     ],
     christ: 'Paul takes the debt of a guilty man onto his own account so the man can be received as family — the mechanics of the atonement in a personal note.',
-    verses: [{ ref: 'Philemon 18', text: 'If he has wronged you at all, or owes you anything, charge that to my account.' }],
+    verses: [{ ref: 'Philemon 18', text: 'But if he has wronged you in any way or owes you anything, charge it to my account.' }],
     distinctive: 'A private letter about one man, preserved in the canon — and the seed of the Christian argument against slavery.',
   },
 ];

@@ -57,13 +57,13 @@ export default function BookDetailPanel({ book, detail, highlight }: {
           {book.keyVerse && (
             <blockquote className="verse">
               “{book.keyVerse.text}”<br />
-              <span className="tiny">— {book.keyVerse.ref} (ESV)</span>
+              <span className="tiny">— {book.keyVerse.ref} (BSB)</span>
             </blockquote>
           )}
           {(detail.verses ?? []).map((v) => (
             <blockquote className="verse" key={v.ref}>
               “{v.text}”<br />
-              <span className="tiny">— {v.ref} (ESV)</span>
+              <span className="tiny">— {v.ref} (BSB)</span>
             </blockquote>
           ))}
 

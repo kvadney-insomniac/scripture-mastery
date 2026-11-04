@@ -312,7 +312,7 @@ function buildBookItems(): Item[] {
         prompt: `Which book is this from? "${b.keyVerse.text}"`,
         answer: b.name,
         ...distractorSets(b.id, (x) => [x.name], b.name, `kv-${b.id}`, 'book'),
-        explain: `${b.keyVerse.ref} (ESV)`,
+        explain: `${b.keyVerse.ref} (BSB)`,
       });
     }
   }

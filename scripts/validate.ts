@@ -14,6 +14,11 @@ import { ESSENTIAL_ITEM_IDS } from '../src/lib/generate-essentials';
 import { TOPIC_LABELS } from '../src/data/types';
 import type { Difficulty, Item } from '../src/data/types';
 import { allItems } from '../src/lib/generate';
+import { quotesPassage } from './bsb-ref';
+import cited from './bsb-cited-verses.json';
+import citedPhrases from './bsb-cited-phrases.json';
+import notScripture from './quoted-not-scripture.json';
+import { quotedPhrases } from './quoted-phrases';
 
 const items = allItems();
 const problems: string[] = [];
@@ -66,6 +71,37 @@ hard('mcq items with duplicate distractors', items.filter((i) => i.distractors &
 
 hard('order items with a duplicated step', items.filter((i) => i.kind === 'order' && i.sequence && dupes(i.sequence).length > 0), (i: Item) => i.id);
 hard('order items with fewer than 3 steps', items.filter((i) => i.kind === 'order' && (i.sequence?.length ?? 0) < 3), (i: Item) => i.id);
+// ------------------------------------------------------------- scripture
+// Every quotation is the Berean Standard Bible's own words at the reference it
+// gives, with an ellipsis where words are left out. A misremembered phrase, a
+// line from another translation, or the right words under the wrong reference
+// all fail here. The BSB text of each cited verse is in bsb-cited-verses.json
+// (scripts/cite-bsb.ts writes it); a reference with no text there fails too.
+const BSB = (cited as { verses: Record<string, string> }).verses;
+const quotations = [
+  ...BOOKS.flatMap((b) => (b.keyVerse ? [{ where: b.id, ...b.keyVerse }] : [])),
+  ...DETAILS.flatMap((d) => (d.verses ?? []).map((v) => ({ where: d.book, ...v }))),
+];
+hard(
+  'quotations that are not the BSB text at their reference',
+  quotations.filter((q) => !BSB[q.ref] || !quotesPassage(q.text, BSB[q.ref])),
+  (q) => `${q.where} | ${q.ref} | ${q.text}`,
+);
+// The same bar for every phrase the data puts in quotation marks: it is BSB or
+// KJV wording (both public domain), held to the verses recorded for it in
+// bsb-cited-phrases.json, or it is on the short list of quoted things that
+// are not scripture (a nickname, a name's meaning, a term). A new quoted
+// phrase fails until scripts/cite-bsb.ts records it or a reviewer lists it.
+const PHRASES = (citedPhrases as { phrases: Record<string, { text: string }> }).phrases;
+const NOT_SCRIPTURE = (notScripture as { phrases: Record<string, string> }).phrases;
+hard(
+  'quoted phrases that are neither BSB nor KJV wording',
+  quotedPhrases().filter(
+    ({ phrase }) => !(phrase in NOT_SCRIPTURE) && !(PHRASES[phrase] && quotesPassage(phrase, PHRASES[phrase].text)),
+  ),
+  (q) => `${q.where} | ${q.phrase}`,
+);
+
 hard('items pointing at a book that does not exist', items.filter((i) => i.book && !BOOKS.some((b) => b.id === i.book)), (i: Item) => `${i.id} -> ${i.book}`);
 
 // ------------------------------------------------------------- ambiguity

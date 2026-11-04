@@ -15,8 +15,8 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { ref: '2', name: 'The wilderness allure', what: 'God says He will bring His unfaithful wife into the wilderness and speak tenderly to her there', who: [] },
       { ref: '3', name: 'Bought back', what: 'Hosea buys Gomer back for fifteen shekels of silver and a homer and a half of barley', who: ['Hosea', 'Gomer'] },
       { ref: '4', name: 'No knowledge of God', what: '"My people are destroyed for lack of knowledge" — the priests have forgotten the law', who: [] },
-      { ref: '6', name: 'Steadfast love, not sacrifice', what: '"I desire steadfast love and not sacrifice" — the verse Jesus quotes twice in Matthew', who: [] },
-      { ref: '11', name: 'When Israel was a child', what: 'God remembers teaching Ephraim to walk: "How can I give you up, O Ephraim?"', who: [] },
+      { ref: '6', name: 'Steadfast love, not sacrifice', what: '"I desire mercy, not sacrifice" — the verse Jesus quotes twice in Matthew', who: [] },
+      { ref: '11', name: 'When Israel was a child', what: 'God remembers teaching Ephraim to walk: "How could I give you up, O Ephraim?"', who: [] },
       { ref: '14', name: 'Return, O Israel', what: 'The book ends with an invitation and a promise to heal their apostasy and love them freely', who: [] },
     ],
     figures: [
@@ -36,7 +36,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'the price Hosea paid to buy Gomer back', value: 'Fifteen shekels and a homer and a half of barley', ref: 'Hos 3:2' },
     ],
     christ: '"Out of Egypt I called my son" (11:1) is applied to Jesus in Matthew 2, and the husband who redeems an unfaithful bride is the church’s own story.',
-    verses: [{ ref: 'Hosea 6:6', text: 'For I desire steadfast love and not sacrifice, the knowledge of God rather than burnt offerings.' }],
+    verses: [{ ref: 'Hosea 6:6', text: 'For I desire mercy, not sacrifice, and the knowledge of God rather than burnt offerings.' }],
     distinctive: 'The only prophet commanded to marry as part of the message.',
   },
   {
@@ -53,7 +53,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { ref: '1', name: 'The locusts', what: 'Cutting, swarming, hopping, and destroying locusts strip everything; the priests are told to put on sackcloth', who: ['Joel'] },
       { ref: '2', name: 'Rend your hearts', what: '"Return to me with all your heart… rend your hearts and not your garments" — God is gracious and slow to anger', who: [] },
       { ref: '2', name: 'I will restore the years', what: 'God promises to restore the years the locusts have eaten', who: [] },
-      { ref: '2', name: 'The Spirit poured out', what: '"I will pour out my Spirit on all flesh; your sons and your daughters shall prophesy" — quoted by Peter at Pentecost', who: [] },
+      { ref: '2', name: 'The Spirit poured out', what: '"I will pour out My Spirit on all people. Your sons and daughters will prophesy" — quoted by Peter at Pentecost', who: [] },
       { ref: '3', name: 'The Valley of Decision', what: 'The nations are gathered for judgment; plowshares are beaten into swords, reversing Isaiah and Micah', who: [] },
     ],
     figures: [
@@ -69,7 +69,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'chapters in Joel', value: 'Three' },
     ],
     christ: 'The outpouring of the Spirit on all flesh (2:28-32) is what Peter says began at Pentecost — the promise Joel made is dated by Acts 2.',
-    verses: [{ ref: 'Joel 2:28', text: 'And it shall come to pass afterward, that I will pour out my Spirit on all flesh.' }],
+    verses: [{ ref: 'Joel 2:28', text: 'And afterward, I will pour out My Spirit on all people.' }],
     distinctive: 'Its most famous passage is quoted in the New Testament to explain the birthday of the church.',
   },
   {
@@ -107,7 +107,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'Amos’s occupation', value: 'Two — herdsman and dresser of sycamore figs', ref: 'Amos 7:14' },
     ],
     christ: 'James quotes Amos 9:11-12 at the Jerusalem Council to prove the Gentiles belong in the rebuilt booth of David.',
-    verses: [{ ref: 'Amos 5:24', text: 'But let justice roll down like waters, and righteousness like an ever-flowing stream.' }],
+    verses: [{ ref: 'Amos 5:24', text: 'But let justice roll on like a river, and righteousness like an ever-flowing stream.' }],
     distinctive: 'The prophet who insists he is not a prophet — a farmer sent to the richest kingdom of his day.',
   },
   {
@@ -123,7 +123,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     events: [
       { ref: '1-4', name: 'Though you soar like the eagle', what: 'Edom, secure in the rock clefts of Petra, is told its pride has deceived it and God will bring it down', who: ['Obadiah'], where: 'Edom, in the cliffs of Sela' },
       { ref: '10-14', name: 'The day of your brother', what: 'Edom stood aloof, gloated, looted, and cut off fugitives on the day Jerusalem fell — as a brother, since Edom descends from Esau', who: [] },
-      { ref: '15', name: 'As you have done', what: '"As you have done, it shall be done to you; your deeds shall return on your own head"', who: [] },
+      { ref: '15', name: 'As you have done', what: '"As you have done, it will be done to you; your recompense will return upon your own head"', who: [] },
       { ref: '21', name: 'The kingdom shall be the LORD’s', what: 'The shortest book in the Old Testament ends with the reign of God', who: [] },
     ],
     figures: [
@@ -139,7 +139,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'chapters', value: 'One' },
     ],
     christ: 'The book ends with "the kingdom shall be the LORD’s" — the goal every prophet is pointing at.',
-    verses: [{ ref: 'Obadiah 15', text: 'As you have done, it shall be done to you; your deeds shall return on your own head.' }],
+    verses: [{ ref: 'Obadiah 15', text: 'As you have done, it will be done to you; your recompense will return upon your own head.' }],
     distinctive: 'The shortest book in the Old Testament, and it is about one nation only.',
   },
   {
@@ -157,7 +157,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { ref: '1', name: 'Fleeing to Tarshish', what: 'Told to go east to Nineveh, Jonah boards a ship west; a storm rises, the sailors cast lots, and he is thrown overboard', who: ['Jonah'], where: 'Joppa, bound for Tarshish' },
       { ref: '1', name: 'The great fish', what: 'The LORD appoints a great fish to swallow Jonah, and he is in it three days and three nights', who: ['Jonah'] },
       { ref: '2', name: 'The prayer from the deep', what: 'Jonah prays a psalm of thanksgiving from inside the fish: "Salvation belongs to the LORD"', who: ['Jonah'] },
-      { ref: '3', name: 'Nineveh repents', what: 'Jonah preaches "Forty days more, and Nineveh shall be overthrown"; the whole city fasts, from the king down to the animals', who: ['Jonah'], where: 'Nineveh' },
+      { ref: '3', name: 'Nineveh repents', what: 'Jonah preaches "Forty more days and Nineveh will be overturned"; the whole city fasts, from the king down to the animals', who: ['Jonah'], where: 'Nineveh' },
       { ref: '4', name: 'The plant and the worm', what: 'Angry that God relented, Jonah sulks; a plant grows and a worm kills it, and God asks whether He should not pity 120,000 people', who: ['Jonah'] },
     ],
     figures: [
@@ -177,7 +177,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'chapters', value: 'Four' },
     ],
     christ: 'Jesus points to Jonah as the only sign He will give: three days and three nights, then a preaching that brings a city to repentance.',
-    verses: [{ ref: 'Jonah 2:9', text: 'Salvation belongs to the LORD!' }],
+    verses: [{ ref: 'Jonah 2:9', text: 'Salvation is from the LORD!' }],
     distinctive: 'A prophetic book with almost no prophecy in it — it is a story about the prophet, and it ends with a question.',
   },
   {
@@ -195,7 +195,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { ref: '2', name: 'Woe to schemers', what: 'Schemers covet fields and seize them, oppressing a man and his house', who: [] },
       { ref: '3', name: 'Leaders who hate good', what: 'Rulers who tear the skin off God’s people, prophets who cry peace when fed — Zion will be plowed as a field', who: [] },
       { ref: '4', name: 'Swords into plowshares', what: 'In the latter days the mountain of the house of the LORD will be lifted up and nations will not learn war anymore', who: [] },
-      { ref: '5', name: 'Bethlehem Ephrathah', what: '"From you shall come forth for me one who is to be ruler in Israel, whose coming forth is from of old"', who: [], where: 'Bethlehem' },
+      { ref: '5', name: 'Bethlehem Ephrathah', what: '"Out of you will come forth for Me One to be ruler over Israel, One whose origins are of old"', who: [], where: 'Bethlehem' },
       { ref: '6', name: 'What does the LORD require', what: 'God takes Israel to court; not thousands of rams but to do justice, love kindness, and walk humbly with your God', who: [] },
       { ref: '7', name: 'Who is a God like you', what: 'The book ends with God pardoning iniquity and casting sins into the depths of the sea', who: [] },
     ],
@@ -213,8 +213,8 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     ],
     christ: 'Micah 5:2 names Bethlehem as the birthplace of the ruler — the verse the chief priests quoted to Herod in Matthew 2.',
     verses: [
-      { ref: 'Micah 6:8', text: 'What does the LORD require of you but to do justice, and to love kindness, and to walk humbly with your God?' },
-      { ref: 'Micah 5:2', text: 'But you, O Bethlehem Ephrathah… from you shall come forth for me one who is to be ruler in Israel.' },
+      { ref: 'Micah 6:8', text: 'And what does the LORD require of you but to act justly, to love mercy, and to walk humbly with your God?' },
+      { ref: 'Micah 5:2', text: 'But you, Bethlehem Ephrathah… out of you will come forth for Me One to be ruler over Israel.' },
     ],
     distinctive: 'The only prophet whose preaching is credited in another book with saving a king’s life a century later.',
   },
@@ -245,8 +245,8 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'the year Nineveh actually fell', value: '612 BC' },
       { of: 'years between Jonah’s preaching and Nahum’s', value: 'About 150' },
     ],
-    christ: 'Nahum 1:15 — "the feet of him who brings good news" — is the same image Isaiah uses and Paul applies to gospel preachers in Romans 10.',
-    verses: [{ ref: 'Nahum 1:7', text: 'The LORD is good, a stronghold in the day of trouble; he knows those who take refuge in him.' }],
+    christ: 'Nahum 1:15 — "the feet of one who brings good news" — is the same image Isaiah uses and Paul applies to gospel preachers in Romans 10.',
+    verses: [{ ref: 'Nahum 1:7', text: 'The LORD is good, a stronghold in the day of distress; He cares for those who trust in Him.' }],
     distinctive: 'A sequel to Jonah, in the same city, with the opposite ending.',
   },
   {
@@ -256,11 +256,11 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     written: 'c. 610–600 BC',
     outline: [
       { ch: '1', title: 'Two complaints and two answers' },
-      { ch: '2', title: 'Waiting on the watchtower, the five woes, and "the righteous shall live by his faith"' },
+      { ch: '2', title: 'Waiting on the watchtower, the five woes, and "the righteous will live by faith"' },
       { ch: '3', title: 'The prophet’s prayer and psalm — "yet I will rejoice"' },
     ],
     events: [
-      { ref: '1', name: 'The first complaint', what: '"O LORD, how long shall I cry for help, and you will not hear?" — violence and injustice go unanswered', who: ['Habakkuk'] },
+      { ref: '1', name: 'The first complaint', what: '"How long, O LORD, must I call for help but You do not hear?" — violence and injustice go unanswered', who: ['Habakkuk'] },
       { ref: '1', name: 'God’s startling answer', what: 'God says He is raising up the Chaldeans, bitter and hasty — which prompts a harder second question', who: [] },
       { ref: '2', name: 'The watchtower', what: 'Habakkuk stations himself to watch for an answer; God says write the vision plainly, and the righteous shall live by his faith', who: ['Habakkuk'] },
       { ref: '2', name: 'Five woes', what: 'Woes on plunder, unjust gain, bloodshed, drunkenness, and idolatry — the earth will be filled with the knowledge of the glory of the LORD', who: [] },
@@ -273,7 +273,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     terms: [
       { term: 'Theodicy', meaning: 'The problem the book takes on: God’s justice given the world as it is' },
       { term: 'Shigionoth', meaning: 'A musical term in the heading of chapter 3 — the prayer was meant to be sung' },
-      { term: '"The righteous shall live by his faith"', meaning: 'Habakkuk 2:4, quoted in Romans, Galatians, and Hebrews' },
+      { term: '"The righteous will live by faith"', meaning: 'Habakkuk 2:4, quoted in Romans, Galatians, and Hebrews' },
     ],
     numbers: [
       { of: 'chapters', value: 'Three' },
@@ -281,10 +281,10 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'woes in chapter 2', value: 'Five' },
       { of: 'New Testament books that quote Habakkuk 2:4', value: 'Three — Romans, Galatians, Hebrews' },
     ],
-    christ: '"The righteous shall live by his faith" became the seed of Romans and Galatians, and through them of the Reformation.',
+    christ: '"The righteous will live by faith" became the seed of Romans and Galatians, and through them of the Reformation.',
     verses: [
-      { ref: 'Habakkuk 2:4', text: 'The righteous shall live by his faith.' },
-      { ref: 'Habakkuk 3:17-18', text: 'Though the fig tree should not blossom… yet I will rejoice in the LORD.' },
+      { ref: 'Habakkuk 2:4', text: 'But the righteous will live by faith.' },
+      { ref: 'Habakkuk 3:17-18', text: 'Though the fig tree does not bud… yet I will exult in the LORD.' },
     ],
     distinctive: 'The prophet talks to God instead of to the people — the whole book is a conversation and a song.',
   },
@@ -294,12 +294,12 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     purpose: 'To announce a sweeping Day of the LORD and call the humble to seek shelter in it',
     written: 'c. 630 BC',
     outline: [
-      { ch: '1', title: 'The Day of the LORD against Judah — "I will sweep away everything"' },
+      { ch: '1', title: 'The Day of the LORD against Judah — "I will completely sweep away everything"' },
       { ch: '2', title: 'Judgment on the nations, and "seek the LORD, all you humble"' },
       { ch: '3', title: 'Jerusalem’s guilt, then God singing over His people' },
     ],
     events: [
-      { ref: '1', name: 'A sweeping judgment', what: 'God will search Jerusalem with lamps and punish those who say "The LORD will not do good, nor will he do ill"', who: ['Zephaniah'] },
+      { ref: '1', name: 'A sweeping judgment', what: 'God will search Jerusalem with lamps and punish those who say "The LORD will do nothing, either good or bad"', who: ['Zephaniah'] },
       { ref: '2', name: 'Seek the LORD', what: 'Seek righteousness, seek humility; perhaps you may be hidden on the day of the anger of the LORD', who: [] },
       { ref: '3', name: 'The LORD sings', what: 'The book ends with God in the midst of His people rejoicing over them with loud singing', who: [] },
     ],
@@ -316,7 +316,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'generations of ancestry Zephaniah lists', value: 'Four, back to Hezekiah', ref: 'Zeph 1:1' },
     ],
     christ: 'The picture of God in the midst of His people, quieting them by His love and rejoicing over them with singing (3:17), is the goal of every covenant.',
-    verses: [{ ref: 'Zephaniah 3:17', text: 'The LORD your God is in your midst… he will rejoice over you with gladness; he will quiet you by his love.' }],
+    verses: [{ ref: 'Zephaniah 3:17', text: 'The LORD your God is among you… He will rejoice over you with gladness; He will quiet you with His love.' }],
     distinctive: 'One of the darkest openings in Scripture and one of the warmest closings — in three chapters.',
   },
   {
@@ -325,12 +325,12 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     purpose: 'To get the temple finished — "Consider your ways"',
     written: '520 BC — the most precisely dated prophetic book',
     outline: [
-      { ch: '1', title: 'First message — "Is it a time for you to dwell in paneled houses while this house lies in ruins?"' },
+      { ch: '1', title: 'First message — "Is it a time for you yourselves to live in your paneled houses, while this house lies in ruins?"' },
       { ch: '2', title: 'Three more messages — the greater glory, the defiled offering, and Zerubbabel as a signet ring' },
     ],
     events: [
       { ref: '1', name: 'Consider your ways', what: 'The returned exiles sow much and harvest little because God’s house lies in ruins; twenty-three days later the work restarts', who: ['Haggai', 'Zerubbabel', 'Joshua the high priest'] },
-      { ref: '2', name: 'The latter glory', what: 'To those weeping that this temple is nothing next to Solomon’s: "The latter glory of this house shall be greater than the former"', who: [] },
+      { ref: '2', name: 'The latter glory', what: 'To those weeping that this temple is nothing next to Solomon’s: "The latter glory of this house will be greater than the former"', who: [] },
       { ref: '2', name: 'The priests’ ruling', what: 'A question about clean and unclean makes the point that holiness is not contagious but defilement is', who: [] },
       { ref: '2', name: 'The signet ring', what: 'God tells Zerubbabel He will make him like a signet ring — reversing the curse spoken over his grandfather Jehoiachin', who: ['Zerubbabel'] },
     ],
@@ -349,8 +349,8 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'the span of Haggai’s recorded ministry', value: 'About four months in 520 BC' },
       { of: 'years the temple work had been stalled', value: 'About sixteen' },
     ],
-    christ: '"The treasures of all nations shall come in, and I will fill this house with glory" — the second temple’s greater glory was the presence of Christ walking in it.',
-    verses: [{ ref: 'Haggai 2:9', text: 'The latter glory of this house shall be greater than the former, says the LORD of hosts.' }],
+    christ: '"They will come with all their treasures, and I will fill this house with glory" — the second temple’s greater glory was the presence of Christ walking in it.',
+    verses: [{ ref: 'Haggai 2:9', text: 'The latter glory of this house will be greater than the former, says the LORD of Hosts.' }],
     distinctive: 'The most precisely dated book in the Old Testament, and one that visibly worked — the temple was finished four years later.',
   },
   {
@@ -368,7 +368,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { ref: '3', name: 'Joshua re-clothed', what: 'The high priest stands in filthy garments with Satan accusing; God rebukes Satan and clothes him in pure vestments', who: ['Joshua the high priest'] },
       { ref: '4', name: 'Not by might', what: 'The lampstand and olive trees: "Not by might, nor by power, but by my Spirit, says the LORD of hosts"', who: ['Zerubbabel'] },
       { ref: '6', name: 'The crown for the Branch', what: 'A crown is set on Joshua’s head and the man called the Branch is said to be both priest and king on one throne', who: ['Joshua the high priest'] },
-      { ref: '9', name: 'Behold your king', what: '"Righteous and having salvation, humble and mounted on a donkey" — quoted at the triumphal entry', who: [] },
+      { ref: '9', name: 'Behold your king', what: '"Righteous and victorious, humble and riding on a donkey" — quoted at the triumphal entry', who: [] },
       { ref: '11', name: 'Thirty pieces of silver', what: 'The rejected shepherd is weighed out thirty pieces of silver, thrown to the potter in the house of the LORD', who: [] },
       { ref: '12', name: 'They will look on me whom they pierced', what: 'A spirit of grace and pleas for mercy is poured out and they mourn for the one they pierced', who: [] },
       { ref: '14', name: 'The Mount of Olives splits', what: 'The LORD’s feet stand on the Mount of Olives and it splits in two; the LORD will be king over all the earth', who: [], where: 'The Mount of Olives' },
@@ -391,8 +391,8 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     ],
     christ: 'More messianic prophecy per page than anywhere outside Isaiah: the humble king on a donkey (9:9), the thirty pieces of silver (11:12), the shepherd struck (13:7), and the pierced one they look upon (12:10).',
     verses: [
-      { ref: 'Zechariah 4:6', text: 'Not by might, nor by power, but by my Spirit, says the LORD of hosts.' },
-      { ref: 'Zechariah 9:9', text: 'Behold, your king is coming to you… humble and mounted on a donkey.' },
+      { ref: 'Zechariah 4:6', text: 'Not by might nor by power, but by My Spirit, says the LORD of Hosts.' },
+      { ref: 'Zechariah 9:9', text: 'Your King comes to you… humble and riding on a donkey.' },
     ],
     distinctive: 'The longest and most quoted of the twelve, and the most apocalyptic book outside Daniel and Revelation.',
   },
@@ -410,9 +410,9 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     events: [
       { ref: '1', name: '"How have you loved us?"', what: 'God says "I have loved you" and the people answer with a question — the book’s pattern of six disputations', who: ['Malachi'] },
       { ref: '1', name: 'Blemished offerings', what: 'The priests bring blind and lame animals God would not dare offer a governor; better to shut the temple doors', who: [] },
-      { ref: '2', name: 'Faithless marriages', what: 'The men of Judah are marrying foreign wives and divorcing the wives of their youth; "the man who does not love his wife but divorces her… covers his garment with violence"', who: [] },
+      { ref: '2', name: 'Faithless marriages', what: 'The men of Judah are marrying foreign wives and divorcing the wives of their youth; "he who divorces his wife covers his garment with violence"', who: [] },
       { ref: '3', name: 'The messenger of the covenant', what: 'A messenger will prepare the way, and the Lord will suddenly come to His temple like a refiner’s fire', who: [] },
-      { ref: '3', name: 'Robbing God', what: 'Bring the full tithe into the storehouse and "put me to the test" — the one place God invites it', who: [] },
+      { ref: '3', name: 'Robbing God', what: 'Bring the full tithe into the storehouse and "test Me in this" — the one place God invites it', who: [] },
       { ref: '3', name: 'The book of remembrance', what: 'Those who feared the LORD spoke with one another, and a book of remembrance was written before Him', who: [] },
       { ref: '4', name: 'Elijah will come', what: 'The Old Testament ends with a promise to send Elijah before the great and awesome day of the LORD', who: [] },
     ],
@@ -431,10 +431,10 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'disputations in the book', value: 'Six' },
       { of: 'years of silence after Malachi', value: 'About 400' },
     ],
-    christ: 'The messenger who prepares the way (3:1) is John the Baptist, and "the sun of righteousness shall rise with healing in its wings" (4:2) is the last promise before four centuries of quiet.',
+    christ: 'The messenger who prepares the way (3:1) is John the Baptist, and "the sun of righteousness will rise with healing in its wings" (4:2) is the last promise before four centuries of quiet.',
     verses: [
-      { ref: 'Malachi 3:6', text: 'For I the LORD do not change; therefore you, O children of Jacob, are not consumed.' },
-      { ref: 'Malachi 3:10', text: 'Bring the full tithe into the storehouse… and thereby put me to the test, says the LORD of hosts.' },
+      { ref: 'Malachi 3:6', text: 'Because I, the LORD, do not change, you descendants of Jacob have not been destroyed.' },
+      { ref: 'Malachi 3:10', text: 'Bring the full tithe into the storehouse… Test Me in this, says the LORD of Hosts.' },
     ],
     distinctive: 'The Old Testament’s last word in the Hebrew ordering is different, but in the Christian canon Malachi ends it — pointing straight at John the Baptist.',
   },

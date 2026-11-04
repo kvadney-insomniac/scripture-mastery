@@ -39,7 +39,13 @@ jobs:
       - run: npm run check
       - run: npm run validate
 
+      # The footer's feedback form, help contact and "what it does not do"
+      # link. Empty hides that line, so nothing dead is ever published.
       - run: npm run build:solo
+        env:
+          VITE_FEEDBACK_URL: 'https://docs.google.com/forms/d/e/1FAIpQLSc_3ztRXdPM8C7e8GCb43oO_2RcmQSij2pKcIkUSaSxtUhPfA/viewform'
+          VITE_HELP_CONTACT: 'https://docs.google.com/forms/d/e/1FAIpQLSc_3ztRXdPM8C7e8GCb43oO_2RcmQSij2pKcIkUSaSxtUhPfA/viewform'
+          VITE_ABOUT_URL: 'https://github.com/kvadney-insomniac/scripture-mastery#what-it-does-not-do'
 
       # Pages serves the built files as-is, so a deep link like /#quiz works via
       # the hash but a hard refresh on an unknown *path* would 404. Copying

@@ -28,8 +28,8 @@ export const copy = {
    */
   motto: {
     text:
-      '“Do your best to present yourself to God as one approved, a worker who has no need to be ashamed, rightly handling the word of truth.”',
-    ref: '2 Timothy 2:15 ESV',
+      '“Make every effort to present yourself approved to God, an unashamed workman who accurately handles the word of truth.”',
+    ref: '2 Timothy 2:15 BSB',
   },
 
   header: {
@@ -190,6 +190,16 @@ export const copy = {
       `${email ?? 'That account'} isn’t on an allowed domain. Sign in with ${orList(domains)} instead.`,
     signInButton: 'Sign in with Google',
     signOut: 'Sign out',
+  },
+
+  footer: {
+    feedbackPrompt: 'What helped, what did not, and what would you want?',
+    feedbackLink: 'Tell us in three short questions.',
+    helpPrompt: 'If you want help memorizing or studying,',
+    helpLink: 'reach out',
+    aboutLink: 'What this app does and does not do',
+    scripture:
+      'Scripture quotations are from the Berean Standard Bible (BSB), with a few familiar phrases from the King James Version (KJV). Both are in the public domain.',
   },
 
   loading: 'Loading…',
