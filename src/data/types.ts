@@ -41,7 +41,7 @@ export interface Book {
   keyPeople: string[];
   keyEvents: string[];
   keyChapters: KeyChapter[];
-  /** A landmark verse, cited by reference (ESV). */
+  /** A landmark verse, cited by reference, in the BSB's own words (checked by `npm run validate`). */
   keyVerse?: { ref: string; text: string };
   /** Mnemonic or association to make the book stick. */
   hook?: string;

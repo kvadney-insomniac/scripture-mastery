@@ -36,7 +36,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'the price Hosea paid to buy Gomer back', value: 'Fifteen shekels and a homer and a half of barley', ref: 'Hos 3:2' },
     ],
     christ: '"Out of Egypt I called my son" (11:1) is applied to Jesus in Matthew 2, and the husband who redeems an unfaithful bride is the church’s own story.',
-    verses: [{ ref: 'Hosea 6:6', text: 'For I desire steadfast love and not sacrifice, the knowledge of God rather than burnt offerings.' }],
+    verses: [{ ref: 'Hosea 6:6', text: 'For I desire mercy, not sacrifice, and the knowledge of God rather than burnt offerings.' }],
     distinctive: 'The only prophet commanded to marry as part of the message.',
   },
   {
@@ -69,7 +69,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'chapters in Joel', value: 'Three' },
     ],
     christ: 'The outpouring of the Spirit on all flesh (2:28-32) is what Peter says began at Pentecost — the promise Joel made is dated by Acts 2.',
-    verses: [{ ref: 'Joel 2:28', text: 'And it shall come to pass afterward, that I will pour out my Spirit on all flesh.' }],
+    verses: [{ ref: 'Joel 2:28', text: 'And afterward, I will pour out My Spirit on all people.' }],
     distinctive: 'Its most famous passage is quoted in the New Testament to explain the birthday of the church.',
   },
   {
@@ -107,7 +107,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'Amos’s occupation', value: 'Two — herdsman and dresser of sycamore figs', ref: 'Amos 7:14' },
     ],
     christ: 'James quotes Amos 9:11-12 at the Jerusalem Council to prove the Gentiles belong in the rebuilt booth of David.',
-    verses: [{ ref: 'Amos 5:24', text: 'But let justice roll down like waters, and righteousness like an ever-flowing stream.' }],
+    verses: [{ ref: 'Amos 5:24', text: 'But let justice roll on like a river, and righteousness like an ever-flowing stream.' }],
     distinctive: 'The prophet who insists he is not a prophet — a farmer sent to the richest kingdom of his day.',
   },
   {
@@ -139,7 +139,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'chapters', value: 'One' },
     ],
     christ: 'The book ends with "the kingdom shall be the LORD’s" — the goal every prophet is pointing at.',
-    verses: [{ ref: 'Obadiah 15', text: 'As you have done, it shall be done to you; your deeds shall return on your own head.' }],
+    verses: [{ ref: 'Obadiah 15', text: 'As you have done, it will be done to you; your recompense will return upon your own head.' }],
     distinctive: 'The shortest book in the Old Testament, and it is about one nation only.',
   },
   {
@@ -177,7 +177,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'chapters', value: 'Four' },
     ],
     christ: 'Jesus points to Jonah as the only sign He will give: three days and three nights, then a preaching that brings a city to repentance.',
-    verses: [{ ref: 'Jonah 2:9', text: 'Salvation belongs to the LORD!' }],
+    verses: [{ ref: 'Jonah 2:9', text: 'Salvation is from the LORD!' }],
     distinctive: 'A prophetic book with almost no prophecy in it — it is a story about the prophet, and it ends with a question.',
   },
   {
@@ -213,8 +213,8 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     ],
     christ: 'Micah 5:2 names Bethlehem as the birthplace of the ruler — the verse the chief priests quoted to Herod in Matthew 2.',
     verses: [
-      { ref: 'Micah 6:8', text: 'What does the LORD require of you but to do justice, and to love kindness, and to walk humbly with your God?' },
-      { ref: 'Micah 5:2', text: 'But you, O Bethlehem Ephrathah… from you shall come forth for me one who is to be ruler in Israel.' },
+      { ref: 'Micah 6:8', text: 'And what does the LORD require of you but to act justly, to love mercy, and to walk humbly with your God?' },
+      { ref: 'Micah 5:2', text: 'But you, Bethlehem Ephrathah… out of you will come forth for Me One to be ruler over Israel.' },
     ],
     distinctive: 'The only prophet whose preaching is credited in another book with saving a king’s life a century later.',
   },
@@ -246,7 +246,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'years between Jonah’s preaching and Nahum’s', value: 'About 150' },
     ],
     christ: 'Nahum 1:15 — "the feet of him who brings good news" — is the same image Isaiah uses and Paul applies to gospel preachers in Romans 10.',
-    verses: [{ ref: 'Nahum 1:7', text: 'The LORD is good, a stronghold in the day of trouble; he knows those who take refuge in him.' }],
+    verses: [{ ref: 'Nahum 1:7', text: 'The LORD is good, a stronghold in the day of distress; He cares for those who trust in Him.' }],
     distinctive: 'A sequel to Jonah, in the same city, with the opposite ending.',
   },
   {
@@ -283,8 +283,8 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     ],
     christ: '"The righteous shall live by his faith" became the seed of Romans and Galatians, and through them of the Reformation.',
     verses: [
-      { ref: 'Habakkuk 2:4', text: 'The righteous shall live by his faith.' },
-      { ref: 'Habakkuk 3:17-18', text: 'Though the fig tree should not blossom… yet I will rejoice in the LORD.' },
+      { ref: 'Habakkuk 2:4', text: 'But the righteous will live by faith.' },
+      { ref: 'Habakkuk 3:17-18', text: 'Though the fig tree does not bud… yet I will exult in the LORD.' },
     ],
     distinctive: 'The prophet talks to God instead of to the people — the whole book is a conversation and a song.',
   },
@@ -316,7 +316,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'generations of ancestry Zephaniah lists', value: 'Four, back to Hezekiah', ref: 'Zeph 1:1' },
     ],
     christ: 'The picture of God in the midst of His people, quieting them by His love and rejoicing over them with singing (3:17), is the goal of every covenant.',
-    verses: [{ ref: 'Zephaniah 3:17', text: 'The LORD your God is in your midst… he will rejoice over you with gladness; he will quiet you by his love.' }],
+    verses: [{ ref: 'Zephaniah 3:17', text: 'The LORD your God is among you… He will rejoice over you with gladness; He will quiet you with His love.' }],
     distinctive: 'One of the darkest openings in Scripture and one of the warmest closings — in three chapters.',
   },
   {
@@ -350,7 +350,7 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
       { of: 'years the temple work had been stalled', value: 'About sixteen' },
     ],
     christ: '"The treasures of all nations shall come in, and I will fill this house with glory" — the second temple’s greater glory was the presence of Christ walking in it.',
-    verses: [{ ref: 'Haggai 2:9', text: 'The latter glory of this house shall be greater than the former, says the LORD of hosts.' }],
+    verses: [{ ref: 'Haggai 2:9', text: 'The latter glory of this house will be greater than the former, says the LORD of Hosts.' }],
     distinctive: 'The most precisely dated book in the Old Testament, and one that visibly worked — the temple was finished four years later.',
   },
   {
@@ -391,8 +391,8 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     ],
     christ: 'More messianic prophecy per page than anywhere outside Isaiah: the humble king on a donkey (9:9), the thirty pieces of silver (11:12), the shepherd struck (13:7), and the pierced one they look upon (12:10).',
     verses: [
-      { ref: 'Zechariah 4:6', text: 'Not by might, nor by power, but by my Spirit, says the LORD of hosts.' },
-      { ref: 'Zechariah 9:9', text: 'Behold, your king is coming to you… humble and mounted on a donkey.' },
+      { ref: 'Zechariah 4:6', text: 'Not by might nor by power, but by My Spirit, says the LORD of Hosts.' },
+      { ref: 'Zechariah 9:9', text: 'Your King comes to you… humble and riding on a donkey.' },
     ],
     distinctive: 'The longest and most quoted of the twelve, and the most apocalyptic book outside Daniel and Revelation.',
   },
@@ -433,8 +433,8 @@ export const MINOR_PROPHET_DETAILS: BookDetail[] = [
     ],
     christ: 'The messenger who prepares the way (3:1) is John the Baptist, and "the sun of righteousness shall rise with healing in its wings" (4:2) is the last promise before four centuries of quiet.',
     verses: [
-      { ref: 'Malachi 3:6', text: 'For I the LORD do not change; therefore you, O children of Jacob, are not consumed.' },
-      { ref: 'Malachi 3:10', text: 'Bring the full tithe into the storehouse… and thereby put me to the test, says the LORD of hosts.' },
+      { ref: 'Malachi 3:6', text: 'Because I, the LORD, do not change, you descendants of Jacob have not been destroyed.' },
+      { ref: 'Malachi 3:10', text: 'Bring the full tithe into the storehouse… Test Me in this, says the LORD of Hosts.' },
     ],
     distinctive: 'The Old Testament’s last word in the Hebrew ordering is different, but in the Christian canon Malachi ends it — pointing straight at John the Baptist.',
   },

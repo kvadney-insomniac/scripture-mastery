@@ -14,6 +14,8 @@ import { ESSENTIAL_ITEM_IDS } from '../src/lib/generate-essentials';
 import { TOPIC_LABELS } from '../src/data/types';
 import type { Difficulty, Item } from '../src/data/types';
 import { allItems } from '../src/lib/generate';
+import { quotesPassage } from './bsb-ref';
+import cited from './bsb-cited-verses.json';
 
 const items = allItems();
 const problems: string[] = [];
@@ -66,6 +68,23 @@ hard('mcq items with duplicate distractors', items.filter((i) => i.distractors &
 
 hard('order items with a duplicated step', items.filter((i) => i.kind === 'order' && i.sequence && dupes(i.sequence).length > 0), (i: Item) => i.id);
 hard('order items with fewer than 3 steps', items.filter((i) => i.kind === 'order' && (i.sequence?.length ?? 0) < 3), (i: Item) => i.id);
+// ------------------------------------------------------------- scripture
+// Every quotation is the Berean Standard Bible's own words at the reference it
+// gives, with an ellipsis where words are left out. A misremembered phrase, a
+// line from another translation, or the right words under the wrong reference
+// all fail here. The BSB text of each cited verse is in bsb-cited-verses.json
+// (scripts/cite-bsb.ts writes it); a reference with no text there fails too.
+const BSB = (cited as { verses: Record<string, string> }).verses;
+const quotations = [
+  ...BOOKS.flatMap((b) => (b.keyVerse ? [{ where: b.id, ...b.keyVerse }] : [])),
+  ...DETAILS.flatMap((d) => (d.verses ?? []).map((v) => ({ where: d.book, ...v }))),
+];
+hard(
+  'quotations that are not the BSB text at their reference',
+  quotations.filter((q) => !BSB[q.ref] || !quotesPassage(q.text, BSB[q.ref])),
+  (q) => `${q.where} | ${q.ref} | ${q.text}`,
+);
+
 hard('items pointing at a book that does not exist', items.filter((i) => i.book && !BOOKS.some((b) => b.id === i.book)), (i: Item) => `${i.id} -> ${i.book}`);
 
 // ------------------------------------------------------------- ambiguity

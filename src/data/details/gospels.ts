@@ -67,7 +67,7 @@ export const GOSPEL_DETAILS: BookDetail[] = [
     christ: 'Matthew’s whole argument: Jesus is the King promised to David and Abraham, and every major moment is matched to a prophecy.',
     verses: [
       { ref: 'Matthew 16:16', text: 'You are the Christ, the Son of the living God.' },
-      { ref: 'Matthew 28:19', text: 'Go therefore and make disciples of all nations.' },
+      { ref: 'Matthew 28:19', text: 'Therefore go and make disciples of all nations.' },
     ],
     distinctive: 'The most Jewish Gospel and the bridge between the testaments — placed first for that reason, though probably not written first.',
   },
@@ -120,8 +120,8 @@ export const GOSPEL_DETAILS: BookDetail[] = [
     ],
     christ: 'Mark 10:45 states it: "The Son of Man came not to be served but to serve, and to give his life as a ransom for many."',
     verses: [
-      { ref: 'Mark 10:45', text: 'For even the Son of Man came not to be served but to serve, and to give his life as a ransom for many.' },
-      { ref: 'Mark 9:24', text: 'I believe; help my unbelief!' },
+      { ref: 'Mark 10:45', text: 'For even the Son of Man did not come to be served, but to serve, and to give His life as a ransom for many.' },
+      { ref: 'Mark 9:24', text: 'I do believe; help my unbelief!' },
     ],
     distinctive: 'The shortest and fastest Gospel, with more miracles than parables and almost half of it devoted to the last week.',
   },
@@ -184,7 +184,7 @@ export const GOSPEL_DETAILS: BookDetail[] = [
     christ: 'The Son of Man who came to seek and to save the lost (19:10) — Luke’s Jesus is for the outsider: shepherds, Samaritans, tax collectors, women, and the poor.',
     verses: [
       { ref: 'Luke 19:10', text: 'For the Son of Man came to seek and to save the lost.' },
-      { ref: 'Luke 2:11', text: 'For unto you is born this day in the city of David a Savior, who is Christ the Lord.' },
+      { ref: 'Luke 2:11', text: 'Today in the city of David a Savior has been born to you. He is Christ the Lord!' },
     ],
     distinctive: 'The longest book in the New Testament, written by a doctor, and volume one of a two-part work that continues in Acts.',
   },
@@ -244,9 +244,9 @@ export const GOSPEL_DETAILS: BookDetail[] = [
     ],
     christ: 'The whole book is the argument. John 20:31 states the purpose: "these are written so that you may believe that Jesus is the Christ, the Son of God."',
     verses: [
-      { ref: 'John 1:14', text: 'And the Word became flesh and dwelt among us, and we have seen his glory.' },
-      { ref: 'John 3:16', text: 'For God so loved the world, that he gave his only Son.' },
-      { ref: 'John 14:6', text: 'I am the way, and the truth, and the life. No one comes to the Father except through me.' },
+      { ref: 'John 1:14', text: 'The Word became flesh and made His dwelling among us. We have seen His glory.' },
+      { ref: 'John 3:16', text: 'For God so loved the world that He gave His one and only Son.' },
+      { ref: 'John 14:6', text: 'I am the way and the truth and the life. No one comes to the Father except through Me.' },
     ],
     distinctive: 'About 90% of its material appears in no other Gospel — no parables, no birth story, and seven signs instead.',
   },
@@ -321,8 +321,8 @@ export const GOSPEL_DETAILS: BookDetail[] = [
     ],
     christ: 'Acts is Christ’s continued work — Luke says his first book covered what Jesus "began to do and teach," implying this one covers what He kept doing by His Spirit through the church.',
     verses: [
-      { ref: 'Acts 1:8', text: 'You will be my witnesses in Jerusalem and in all Judea and Samaria, and to the end of the earth.' },
-      { ref: 'Acts 4:12', text: 'There is salvation in no one else.' },
+      { ref: 'Acts 1:8', text: 'And you will be My witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth.' },
+      { ref: 'Acts 4:12', text: 'Salvation exists in no one else.' },
     ],
     distinctive: 'The only history book in the New Testament, and it ends without an ending — Paul preaching in Rome, the story still going.',
   },

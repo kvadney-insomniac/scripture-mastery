@@ -24,7 +24,7 @@ export const BOOKS: Book[] = [
       { ch: '37', what: 'Joseph’s coat and his brothers selling him into slavery' },
       { ch: '50', what: '"You meant evil against me, but God meant it for good"' },
     ],
-    keyVerse: { ref: 'Genesis 1:1', text: 'In the beginning, God created the heavens and the earth.' },
+    keyVerse: { ref: 'Genesis 1:1', text: 'In the beginning God created the heavens and the earth.' },
     hook: 'Genesis = "genes" = origins. Four events (Creation, Fall, Flood, Babel), then four people (Abraham, Isaac, Jacob, Joseph).',
   },
   {
@@ -61,7 +61,7 @@ export const BOOKS: Book[] = [
       { ch: '23', what: 'The appointed feasts of Israel' },
       { ch: '25', what: 'Sabbath year and the Year of Jubilee' },
     ],
-    keyVerse: { ref: 'Leviticus 19:2', text: 'You shall be holy, for I the LORD your God am holy.' },
+    keyVerse: { ref: 'Leviticus 19:2', text: 'Be holy because I, the LORD your God, am holy.' },
     hook: 'Leviticus = the Levites’ handbook. Chapter 16 (Atonement) is the hinge of the book.',
   },
   {
@@ -80,7 +80,7 @@ export const BOOKS: Book[] = [
       { ch: '22-24', what: 'Balaam, his talking donkey, and his blessings on Israel' },
       { ch: '26', what: 'The second census of the new generation' },
     ],
-    keyVerse: { ref: 'Numbers 6:24', text: 'The LORD bless you and keep you.' },
+    keyVerse: { ref: 'Numbers 6:24', text: 'May the LORD bless you and keep you.' },
     hook: 'Numbers is named for its two censuses — one for the generation that dies, one for the generation that enters.',
   },
   {
@@ -97,7 +97,7 @@ export const BOOKS: Book[] = [
       { ch: '30', what: '"Choose life" — the covenant decision set before Israel' },
       { ch: '34', what: 'Moses views Canaan from Mount Nebo and dies' },
     ],
-    keyVerse: { ref: 'Deuteronomy 6:4-5', text: 'Hear, O Israel: The LORD our God, the LORD is one. You shall love the LORD your God with all your heart and with all your soul and with all your might.' },
+    keyVerse: { ref: 'Deuteronomy 6:4-5', text: 'Hear, O Israel: The LORD our God, the LORD is One. And you shall love the LORD your God with all your heart and with all your soul and with all your strength.' },
     hook: 'Deutero-nomy = "second law." Moses’ farewell sermons; he dies in the last chapter without entering.',
   },
 
@@ -119,7 +119,7 @@ export const BOOKS: Book[] = [
       { ch: '10', what: 'The sun stands still over Gibeon' },
       { ch: '24', what: '"As for me and my house, we will serve the LORD"' },
     ],
-    keyVerse: { ref: 'Joshua 24:15', text: 'As for me and my house, we will serve the LORD.' },
+    keyVerse: { ref: 'Joshua 24:15', text: 'As for me and my house, we will serve the LORD!' },
     hook: 'Joshua = conquest (1–12) then allotment (13–24).',
   },
   {
@@ -138,7 +138,7 @@ export const BOOKS: Book[] = [
       { ch: '13-16', what: 'Samson: his strength, Delilah, and the temple of Dagon' },
       { ch: '21', what: '"Everyone did what was right in his own eyes"' },
     ],
-    keyVerse: { ref: 'Judges 21:25', text: 'In those days there was no king in Israel. Everyone did what was right in his own eyes.' },
+    keyVerse: { ref: 'Judges 21:25', text: 'In those days there was no king in Israel; everyone did what was right in his own eyes.' },
     hook: 'The cycle: Sin → Servitude → Supplication → Salvation → Silence → repeat.',
   },
   {
@@ -155,7 +155,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: 'Ruth at the threshing floor asks Boaz to redeem her' },
       { ch: '4', what: 'Boaz redeems; Obed is born, father of Jesse, father of David' },
     ],
-    keyVerse: { ref: 'Ruth 1:16', text: 'Where you go I will go, and where you lodge I will lodge. Your people shall be my people, and your God my God.' },
+    keyVerse: { ref: 'Ruth 1:16', text: 'For wherever you go, I will go, and wherever you live, I will live; your people will be my people, and your God will be my God.' },
     hook: 'Set "in the days when the judges ruled" — a bright story inside a dark book. Ends with David’s genealogy.',
   },
   {
@@ -176,7 +176,7 @@ export const BOOKS: Book[] = [
       { ch: '28', what: 'Saul consults the medium at Endor' },
       { ch: '31', what: 'Saul and Jonathan die at Mount Gilboa' },
     ],
-    keyVerse: { ref: '1 Samuel 16:7', text: 'Man looks on the outward appearance, but the LORD looks on the heart.' },
+    keyVerse: { ref: '1 Samuel 16:7', text: 'For man sees the outward appearance, but the LORD sees the heart.' },
     hook: 'Three lives, overlapping: Samuel → Saul → David.',
   },
   {
@@ -196,7 +196,7 @@ export const BOOKS: Book[] = [
       { ch: '15-18', what: 'Absalom’s rebellion and death in the oak tree' },
       { ch: '24', what: 'David’s census brings a plague; he buys the threshing floor' },
     ],
-    keyVerse: { ref: '2 Samuel 7:16', text: 'Your throne shall be established forever.' },
+    keyVerse: { ref: '2 Samuel 7:16', text: 'And your throne will be established forever.' },
     hook: 'Chapters 1–10 David rises; 11 is the turn; 12–24 the fallout.',
   },
   {
@@ -216,7 +216,7 @@ export const BOOKS: Book[] = [
       { ch: '18', what: 'Elijah versus the prophets of Baal on Mount Carmel' },
       { ch: '19', what: 'Elijah at Horeb hears the low whisper' },
     ],
-    keyVerse: { ref: '1 Kings 18:21', text: 'How long will you go limping between two different opinions?' },
+    keyVerse: { ref: '1 Kings 18:21', text: 'How long will you waver between two opinions?' },
     hook: 'One kingdom (1–11) becomes two (12–22). North = Israel, capital Samaria. South = Judah, capital Jerusalem.',
   },
   {
@@ -235,7 +235,7 @@ export const BOOKS: Book[] = [
       { ch: '22-23', what: 'Josiah finds the Book of the Law and reforms Judah' },
       { ch: '25', what: 'Jerusalem and the temple destroyed by Babylon' },
     ],
-    keyVerse: { ref: '2 Kings 17:23', text: 'The LORD removed Israel out of his sight, as he had spoken by all his servants the prophets.' },
+    keyVerse: { ref: '2 Kings 17:23', text: 'The LORD removed Israel from His presence, as He had declared through all His servants the prophets.' },
     hook: 'Two falls to memorize: Israel to Assyria 722 BC, Judah to Babylon 586 BC.',
   },
   {
@@ -270,7 +270,7 @@ export const BOOKS: Book[] = [
       { ch: '34-35', what: 'Josiah’s reforms and the great Passover' },
       { ch: '36', what: 'Jerusalem falls; the book ends with Cyrus’s decree to return' },
     ],
-    keyVerse: { ref: '2 Chronicles 7:14', text: 'If my people who are called by my name humble themselves, and pray and seek my face and turn from their wicked ways, then I will hear from heaven.' },
+    keyVerse: { ref: '2 Chronicles 7:14', text: 'And if My people who are called by My name humble themselves and pray and seek My face and turn from their wicked ways, then I will hear from heaven.' },
     hook: 'Ends mid-hope: the last verses of the Hebrew Bible order point home from exile.',
   },
   {
@@ -305,7 +305,7 @@ export const BOOKS: Book[] = [
       { ch: '8', what: 'Ezra reads the Law; the people weep, then rejoice' },
       { ch: '9', what: 'A long national confession retelling Israel’s history' },
     ],
-    keyVerse: { ref: 'Nehemiah 6:15', text: 'So the wall was finished... in fifty-two days.' },
+    keyVerse: { ref: 'Nehemiah 6:15', text: 'So the wall was completed in fifty-two days.' },
     hook: 'Fifty-two days for the wall. Nehemiah was the king’s cupbearer.',
   },
   {
@@ -324,7 +324,7 @@ export const BOOKS: Book[] = [
       { ch: '7', what: 'Haman hanged on the gallows he built for Mordecai' },
       { ch: '9', what: 'The Jews defend themselves; the Feast of Purim established' },
     ],
-    keyVerse: { ref: 'Esther 4:14', text: 'And who knows whether you have not come to the kingdom for such a time as this?' },
+    keyVerse: { ref: 'Esther 4:14', text: 'And who knows if perhaps you have come to the kingdom for such a time as this?' },
     hook: 'God is not mentioned once in Esther. Purim = "lots," the dice Haman cast.',
   },
 
@@ -344,7 +344,7 @@ export const BOOKS: Book[] = [
       { ch: '38-41', what: 'God answers from the whirlwind with questions, not explanations' },
       { ch: '42', what: 'Job repents; God restores him twofold' },
     ],
-    keyVerse: { ref: 'Job 19:25', text: 'For I know that my Redeemer lives, and at the last he will stand upon the earth.' },
+    keyVerse: { ref: 'Job 19:25', text: 'But I know that my Redeemer lives, and in the end He will stand upon the earth.' },
     hook: 'Three friends give bad comfort, Elihu speaks fourth, and God never explains why.',
   },
   {
@@ -381,7 +381,7 @@ export const BOOKS: Book[] = [
       { ch: '8', what: 'Wisdom personified, present at creation' },
       { ch: '31', what: 'The excellent wife — an acrostic poem' },
     ],
-    keyVerse: { ref: 'Proverbs 3:5-6', text: 'Trust in the LORD with all your heart, and do not lean on your own understanding.' },
+    keyVerse: { ref: 'Proverbs 3:5-6', text: 'Trust in the LORD with all your heart, and lean not on your own understanding.' },
     hook: '31 chapters — one per day of the month. Chapters 1–9 are speeches; 10–31 are the short sayings.',
   },
   {
@@ -397,7 +397,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: '"For everything there is a season"' },
       { ch: '12', what: '"Fear God and keep his commandments" — the whole duty of man' },
     ],
-    keyVerse: { ref: 'Ecclesiastes 12:13', text: 'Fear God and keep his commandments, for this is the whole duty of man.' },
+    keyVerse: { ref: 'Ecclesiastes 12:13', text: 'Fear God and keep His commandments, because this is the whole duty of man.' },
     hook: '"Under the sun" appears ~29 times — the book’s view from ground level.',
   },
   {
@@ -411,7 +411,7 @@ export const BOOKS: Book[] = [
       { ch: '2', what: '"I am a rose of Sharon, a lily of the valleys"' },
       { ch: '8', what: '"Love is strong as death" — the seal upon the heart' },
     ],
-    keyVerse: { ref: 'Song of Solomon 8:6', text: 'Set me as a seal upon your heart... for love is strong as death.' },
+    keyVerse: { ref: 'Song of Solomon 8:6', text: 'Set me as a seal over your heart… For love is as strong as death.' },
     hook: 'Also called Song of Songs — a Hebrew superlative meaning "the greatest song."',
   },
 
@@ -431,7 +431,7 @@ export const BOOKS: Book[] = [
       { ch: '53', what: 'The Suffering Servant, pierced for our transgressions' },
       { ch: '65-66', what: 'New heavens and a new earth' },
     ],
-    keyVerse: { ref: 'Isaiah 53:5', text: 'But he was pierced for our transgressions; he was crushed for our iniquities.' },
+    keyVerse: { ref: 'Isaiah 53:5', text: 'But He was pierced for our transgressions, He was crushed for our iniquities.' },
     hook: '66 chapters like 66 books: chapters 1–39 (judgment, like the OT), 40–66 (comfort, like the NT).',
   },
   {
@@ -451,7 +451,7 @@ export const BOOKS: Book[] = [
       { ch: '38', what: 'Jeremiah thrown into a muddy cistern' },
       { ch: '52', what: 'The fall of Jerusalem recounted' },
     ],
-    keyVerse: { ref: 'Jeremiah 29:11', text: 'For I know the plans I have for you, declares the LORD, plans for welfare and not for evil.' },
+    keyVerse: { ref: 'Jeremiah 29:11', text: 'For I know the plans I have for you, declares the LORD, plans to prosper you and not to harm you.' },
     hook: 'The "weeping prophet." Seventy years of exile is his signature number.',
   },
   {
@@ -467,7 +467,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: '"His mercies never come to an end; they are new every morning"' },
       { ch: '5', what: '"Restore us to yourself, O LORD" — the closing plea' },
     ],
-    keyVerse: { ref: 'Lamentations 3:22-23', text: 'The steadfast love of the LORD never ceases; his mercies never come to an end; they are new every morning.' },
+    keyVerse: { ref: 'Lamentations 3:22-23', text: 'Because of the loving devotion of the LORD we are not consumed, for His mercies never fail. They are new every morning.' },
     hook: 'Five chapters, four of them acrostics. The hope sits dead center, in chapter 3.',
   },
   {
@@ -484,7 +484,7 @@ export const BOOKS: Book[] = [
       { ch: '37', what: 'The valley of dry bones coming to life' },
       { ch: '40-48', what: 'Vision of a new temple; the city named "The LORD Is There"' },
     ],
-    keyVerse: { ref: 'Ezekiel 37:5', text: 'Behold, I will cause breath to enter you, and you shall live.' },
+    keyVerse: { ref: 'Ezekiel 37:5', text: 'I will cause breath to enter you, and you will come to life.' },
     hook: 'Ezekiel prophesied in exile, by the Chebar canal. Dry bones (37) is his most famous vision.',
   },
   {
@@ -503,7 +503,7 @@ export const BOOKS: Book[] = [
       { ch: '7', what: 'Vision of four beasts and the Son of Man' },
       { ch: '9', what: 'The prophecy of seventy weeks' },
     ],
-    keyVerse: { ref: 'Daniel 2:21', text: 'He changes times and seasons; he removes kings and sets up kings.' },
+    keyVerse: { ref: 'Daniel 2:21', text: 'He changes the times and seasons; He removes kings and establishes them.' },
     hook: 'Chapters 1–6 are stories, 7–12 are visions. Four kingdoms: Babylon, Medo-Persia, Greece, Rome.',
   },
 
@@ -521,7 +521,7 @@ export const BOOKS: Book[] = [
       { ch: '6', what: '"I desire steadfast love and not sacrifice"' },
       { ch: '14', what: 'A call to return; God promises to heal their apostasy' },
     ],
-    keyVerse: { ref: 'Hosea 6:6', text: 'For I desire steadfast love and not sacrifice.' },
+    keyVerse: { ref: 'Hosea 6:6', text: 'For I desire mercy, not sacrifice.' },
     hook: 'Hosea prophesied to the NORTHERN kingdom. His marriage IS the message.',
   },
   {
@@ -536,7 +536,7 @@ export const BOOKS: Book[] = [
       { ch: '2', what: '"Rend your hearts and not your garments"; the Spirit poured out on all flesh' },
       { ch: '3', what: 'Judgment of the nations in the Valley of Jehoshaphat' },
     ],
-    keyVerse: { ref: 'Joel 2:28', text: 'I will pour out my Spirit on all flesh.' },
+    keyVerse: { ref: 'Joel 2:28', text: 'I will pour out My Spirit on all people.' },
     hook: 'Peter quotes Joel 2 at Pentecost (Acts 2). Locusts → the Day of the LORD.',
   },
   {
@@ -552,7 +552,7 @@ export const BOOKS: Book[] = [
       { ch: '7', what: 'The plumb line vision; Amaziah tells Amos to go home' },
       { ch: '9', what: 'Restoration of the booth of David' },
     ],
-    keyVerse: { ref: 'Amos 5:24', text: 'But let justice roll down like waters, and righteousness like an ever-flowing stream.' },
+    keyVerse: { ref: 'Amos 5:24', text: 'But let justice roll on like a river, and righteousness like an ever-flowing stream.' },
     hook: 'Amos was a shepherd and fig farmer, not a professional prophet. Justice is his one note.',
   },
   {
@@ -581,7 +581,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: 'Nineveh repents from the king down to the animals' },
       { ch: '4', what: 'Jonah is angry; God appoints a plant, a worm, and a wind' },
     ],
-    keyVerse: { ref: 'Jonah 4:2', text: 'I knew that you are a gracious God and merciful, slow to anger and abounding in steadfast love.' },
+    keyVerse: { ref: 'Jonah 4:2', text: 'I knew that You are a gracious and compassionate God, slow to anger, abounding in loving devotion.' },
     hook: 'The only prophet whose sermon works — and he hates it. Nineveh = capital of Assyria.',
   },
   {
@@ -596,7 +596,7 @@ export const BOOKS: Book[] = [
       { ch: '5', what: '"But you, O Bethlehem Ephrathah" — the ruler’s birthplace foretold' },
       { ch: '6', what: '"Do justice, love kindness, walk humbly with your God"' },
     ],
-    keyVerse: { ref: 'Micah 6:8', text: 'What does the LORD require of you but to do justice, and to love kindness, and to walk humbly with your God?' },
+    keyVerse: { ref: 'Micah 6:8', text: 'And what does the LORD require of you but to act justly, to love mercy, and to walk humbly with your God?' },
     hook: 'Micah 5:2 is the verse the chief priests quote to Herod about Bethlehem.',
   },
   {
@@ -610,7 +610,7 @@ export const BOOKS: Book[] = [
       { ch: '1', what: 'The LORD is slow to anger but great in power' },
       { ch: '3', what: 'Woe to the bloody city — Nineveh’s destruction' },
     ],
-    keyVerse: { ref: 'Nahum 1:7', text: 'The LORD is good, a stronghold in the day of trouble.' },
+    keyVerse: { ref: 'Nahum 1:7', text: 'The LORD is good, a stronghold in the day of distress.' },
     hook: 'Nahum is the sequel to Jonah — same city, opposite outcome, about 150 years later.',
   },
   {
@@ -625,7 +625,7 @@ export const BOOKS: Book[] = [
       { ch: '2', what: '"The righteous shall live by his faith"' },
       { ch: '3', what: '"Yet I will rejoice in the LORD" — trust without the harvest' },
     ],
-    keyVerse: { ref: 'Habakkuk 2:4', text: 'But the righteous shall live by his faith.' },
+    keyVerse: { ref: 'Habakkuk 2:4', text: 'But the righteous will live by faith.' },
     hook: 'Habakkuk 2:4 is quoted in Romans, Galatians, and Hebrews — the verse behind the Reformation.',
   },
   {
@@ -639,7 +639,7 @@ export const BOOKS: Book[] = [
       { ch: '1', what: '"The great day of the LORD is near"' },
       { ch: '3', what: '"He will rejoice over you with gladness... he will exult over you with loud singing"' },
     ],
-    keyVerse: { ref: 'Zephaniah 3:17', text: 'The LORD your God is in your midst, a mighty one who will save.' },
+    keyVerse: { ref: 'Zephaniah 3:17', text: 'The LORD your God is among you; He is mighty to save.' },
     hook: 'Zephaniah preached under Josiah — likely fuel for Josiah’s reforms.',
   },
   {
@@ -653,7 +653,7 @@ export const BOOKS: Book[] = [
       { ch: '1', what: '"Consider your ways" — the temple lies in ruins while they build their own homes' },
       { ch: '2', what: '"The latter glory of this house shall be greater than the former"' },
     ],
-    keyVerse: { ref: 'Haggai 1:7', text: 'Thus says the LORD of hosts: Consider your ways.' },
+    keyVerse: { ref: 'Haggai 1:7', text: 'This is what the LORD of Hosts says: Consider carefully your ways.' },
     hook: 'Only 2 chapters, and every message is dated to the day. Works alongside Zechariah in 520 BC.',
   },
   {
@@ -669,7 +669,7 @@ export const BOOKS: Book[] = [
       { ch: '11', what: 'The thirty pieces of silver' },
       { ch: '14', what: 'The LORD will be king over all the earth' },
     ],
-    keyVerse: { ref: 'Zechariah 4:6', text: 'Not by might, nor by power, but by my Spirit, says the LORD of hosts.' },
+    keyVerse: { ref: 'Zechariah 4:6', text: 'Not by might nor by power, but by My Spirit, says the LORD of Hosts.' },
     hook: 'The longest Minor Prophet (14 chapters) and the most quoted in the Passion narratives.',
   },
   {
@@ -684,7 +684,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: '"Bring the full tithe into the storehouse" and test me' },
       { ch: '4', what: '"I will send you Elijah the prophet" — the last words of the OT' },
     ],
-    keyVerse: { ref: 'Malachi 3:10', text: 'Bring the full tithe into the storehouse... and thereby put me to the test.' },
+    keyVerse: { ref: 'Malachi 3:10', text: 'Bring the full tithe into the storehouse… Test Me in this, says the LORD of Hosts.' },
     hook: 'The last book of the OT. Then 400 silent years until John the Baptist — the promised "Elijah."',
   },
 
@@ -705,7 +705,7 @@ export const BOOKS: Book[] = [
       { ch: '24-25', what: 'The Olivet Discourse on the end of the age' },
       { ch: '28', what: 'Resurrection and the Great Commission' },
     ],
-    keyVerse: { ref: 'Matthew 28:19', text: 'Go therefore and make disciples of all nations.' },
+    keyVerse: { ref: 'Matthew 28:19', text: 'Therefore go and make disciples of all nations.' },
     hook: 'Written for Jews: genealogy starts at Abraham, "kingdom of heaven" ~32 times, five big discourses.',
   },
   {
@@ -723,7 +723,7 @@ export const BOOKS: Book[] = [
       { ch: '10', what: 'The rich young ruler; "the Son of Man came... to give his life as a ransom for many"' },
       { ch: '15-16', what: 'Crucifixion, burial, and the empty tomb' },
     ],
-    keyVerse: { ref: 'Mark 10:45', text: 'For even the Son of Man came not to be served but to serve, and to give his life as a ransom for many.' },
+    keyVerse: { ref: 'Mark 10:45', text: 'For even the Son of Man did not come to be served, but to serve, and to give His life as a ransom for many.' },
     hook: 'Watch for "immediately" (~40 times). Shortest Gospel, written for a Roman audience.',
   },
   {
@@ -760,7 +760,7 @@ export const BOOKS: Book[] = [
       { ch: '13-17', what: 'Upper Room: foot washing, the Helper promised, the High Priestly Prayer' },
       { ch: '20', what: 'Resurrection appearances and doubting Thomas; the purpose statement' },
     ],
-    keyVerse: { ref: 'John 20:31', text: 'These are written so that you may believe that Jesus is the Christ, the Son of God.' },
+    keyVerse: { ref: 'John 20:31', text: 'But these are written so that you may believe that Jesus is the Christ, the Son of God.' },
     hook: '7 signs, 7 "I AM" statements, no parables, ~90% unique material. The one non-synoptic Gospel.',
   },
 
@@ -781,7 +781,7 @@ export const BOOKS: Book[] = [
       { ch: '15', what: 'The Jerusalem Council settles the Gentile question' },
       { ch: '27-28', what: 'Shipwreck on Malta; Paul preaching in Rome' },
     ],
-    keyVerse: { ref: 'Acts 1:8', text: 'You will be my witnesses in Jerusalem and in all Judea and Samaria, and to the end of the earth.' },
+    keyVerse: { ref: 'Acts 1:8', text: 'And you will be My witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth.' },
     hook: 'Acts 1:8 is the book’s outline. Chapters 1–12 follow Peter; 13–28 follow Paul.',
   },
 
@@ -801,7 +801,7 @@ export const BOOKS: Book[] = [
       { ch: '9-11', what: 'God’s plan for Israel and the grafted-in Gentiles' },
       { ch: '12', what: '"Present your bodies as a living sacrifice"' },
     ],
-    keyVerse: { ref: 'Romans 3:23-24', text: 'For all have sinned and fall short of the glory of God, and are justified by his grace as a gift.' },
+    keyVerse: { ref: 'Romans 3:23-24', text: 'For all have sinned and fall short of the glory of God, and are justified freely by His grace through the redemption that is in Christ Jesus.' },
     hook: 'Longest and most systematic letter. 1–11 doctrine, 12–16 duty. Written to a church Paul had not yet visited.',
   },
   {
@@ -818,7 +818,7 @@ export const BOOKS: Book[] = [
       { ch: '13', what: 'The love chapter — "the greatest of these is love"' },
       { ch: '15', what: 'The resurrection chapter — "if Christ has not been raised..."' },
     ],
-    keyVerse: { ref: '1 Corinthians 13:13', text: 'So now faith, hope, and love abide, these three; but the greatest of these is love.' },
+    keyVerse: { ref: '1 Corinthians 13:13', text: 'And now these three remain: faith, hope, and love; but the greatest of these is love.' },
     hook: 'A problem-by-problem letter. Chapter 13 (love) sits deliberately between two chapters on gifts.',
   },
   {
@@ -835,7 +835,7 @@ export const BOOKS: Book[] = [
       { ch: '11', what: 'Paul’s catalogue of sufferings' },
       { ch: '12', what: 'The thorn in the flesh — "my power is made perfect in weakness"' },
     ],
-    keyVerse: { ref: '2 Corinthians 12:9', text: 'My grace is sufficient for you, for my power is made perfect in weakness.' },
+    keyVerse: { ref: '2 Corinthians 12:9', text: 'My grace is sufficient for you, for My power is perfected in weakness.' },
     hook: 'The most personal and emotional of Paul’s letters. Weakness is the through-line.',
   },
   {
@@ -850,7 +850,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: 'Abraham believed God — justified by faith, not law' },
       { ch: '5', what: 'Freedom in Christ; the fruit of the Spirit' },
     ],
-    keyVerse: { ref: 'Galatians 2:20', text: 'I have been crucified with Christ. It is no longer I who live, but Christ who lives in me.' },
+    keyVerse: { ref: 'Galatians 2:20', text: 'I have been crucified with Christ, and I no longer live, but Christ lives in me.' },
     hook: 'The angriest letter — no thanksgiving section. Think of it as short-form Romans.',
   },
   {
@@ -867,7 +867,7 @@ export const BOOKS: Book[] = [
       { ch: '4', what: 'One body, one Spirit, one Lord, one faith, one baptism' },
       { ch: '6', what: 'The whole armor of God' },
     ],
-    keyVerse: { ref: 'Ephesians 2:8-9', text: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God.' },
+    keyVerse: { ref: 'Ephesians 2:8-9', text: 'For it is by grace you have been saved through faith, and this not from yourselves; it is the gift of God.' },
     hook: 'One of four Prison Epistles (Eph, Phil, Col, Phlm). Perfectly split: 3 chapters doctrine, 3 chapters practice.',
   },
   {
@@ -884,7 +884,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: 'Counting everything as loss; pressing on toward the goal' },
       { ch: '4', what: '"Rejoice in the Lord always"; contentment and "I can do all things"' },
     ],
-    keyVerse: { ref: 'Philippians 4:13', text: 'I can do all things through him who strengthens me.' },
+    keyVerse: { ref: 'Philippians 4:13', text: 'I can do all things through Christ who gives me strength.' },
     hook: 'Joy/rejoice appears ~16 times in 4 chapters — from a prison cell.',
   },
   {
@@ -900,7 +900,7 @@ export const BOOKS: Book[] = [
       { ch: '2', what: 'Warning against empty philosophy and human tradition' },
       { ch: '3', what: '"Set your minds on things that are above"' },
     ],
-    keyVerse: { ref: 'Colossians 1:15-16', text: 'He is the image of the invisible God, the firstborn of all creation. For by him all things were created.' },
+    keyVerse: { ref: 'Colossians 1:15-16', text: 'The Son is the image of the invisible God, the firstborn over all creation. For in Him all things were created.' },
     hook: 'Colossians and Ephesians are twins — similar structure, sent by the same messenger (Tychicus).',
   },
   {
@@ -914,7 +914,7 @@ export const BOOKS: Book[] = [
       { ch: '4', what: 'The dead in Christ will rise first; caught up to meet the Lord' },
       { ch: '5', what: '"The day of the Lord will come like a thief in the night"; rejoice, pray, give thanks' },
     ],
-    keyVerse: { ref: '1 Thessalonians 4:16-17', text: 'The dead in Christ will rise first. Then we who are alive... will be caught up together with them.' },
+    keyVerse: { ref: '1 Thessalonians 4:16-17', text: 'And the dead in Christ will be the first to rise. After that, we who are alive and remain will be caught up together with them.' },
     hook: 'Probably Paul’s earliest surviving letter. Every chapter mentions Christ’s return.',
   },
   {
@@ -928,7 +928,7 @@ export const BOOKS: Book[] = [
       { ch: '2', what: 'The man of lawlessness must be revealed before the day of the Lord' },
       { ch: '3', what: '"If anyone is not willing to work, let him not eat"' },
     ],
-    keyVerse: { ref: '2 Thessalonians 3:10', text: 'If anyone is not willing to work, let him not eat.' },
+    keyVerse: { ref: '2 Thessalonians 3:10', text: 'If anyone is unwilling to work, he shall not eat.' },
     hook: 'The correction letter: they overcorrected on the return of Christ and quit their jobs.',
   },
   {
@@ -944,7 +944,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: 'Qualifications for overseers and deacons' },
       { ch: '6', what: '"The love of money is a root of all kinds of evils"' },
     ],
-    keyVerse: { ref: '1 Timothy 6:10', text: 'For the love of money is a root of all kinds of evils.' },
+    keyVerse: { ref: '1 Timothy 6:10', text: 'For the love of money is the root of all kinds of evil.' },
     hook: 'Pastoral Epistles = 1 Timothy, 2 Timothy, Titus. Written to individuals, not churches.',
   },
   {
@@ -960,7 +960,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: '"All Scripture is breathed out by God and profitable"' },
       { ch: '4', what: '"I have fought the good fight, I have finished the race"' },
     ],
-    keyVerse: { ref: '2 Timothy 3:16', text: 'All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in righteousness.' },
+    keyVerse: { ref: '2 Timothy 3:16', text: 'All Scripture is God-breathed and is useful for instruction, for conviction, for correction, and for training in righteousness.' },
     hook: 'Paul’s last written words before execution. "Demas... has deserted me" is in chapter 4.',
   },
   {
@@ -976,7 +976,7 @@ export const BOOKS: Book[] = [
       { ch: '2', what: 'The grace of God trains us to renounce ungodliness' },
       { ch: '3', what: 'Saved by the washing of regeneration, not by works done in righteousness' },
     ],
-    keyVerse: { ref: 'Titus 3:5', text: 'He saved us, not because of works done by us in righteousness, but according to his own mercy.' },
+    keyVerse: { ref: 'Titus 3:5', text: 'He saved us, not by the righteous deeds we had done, but according to His mercy.' },
     hook: 'Set on the island of Crete. Only 3 chapters — the shortest Pastoral.',
   },
   {
@@ -990,7 +990,7 @@ export const BOOKS: Book[] = [
     keyChapters: [
       { ch: '1', what: 'The whole letter — an appeal to receive Onesimus "no longer as a slave but as a beloved brother"' },
     ],
-    keyVerse: { ref: 'Philemon 1:16', text: 'No longer as a bondservant but more than a bondservant, as a beloved brother.' },
+    keyVerse: { ref: 'Philemon 1:16', text: 'No longer as a slave, but better than a slave, as a beloved brother.' },
     hook: 'Shortest of Paul’s letters — one chapter, 25 verses. Onesimus means "useful," and Paul plays on it.',
   },
 
@@ -1010,7 +1010,7 @@ export const BOOKS: Book[] = [
       { ch: '11', what: 'The hall of faith — Abel through the prophets' },
       { ch: '12', what: '"Run with endurance the race that is set before us"' },
     ],
-    keyVerse: { ref: 'Hebrews 11:1', text: 'Now faith is the assurance of things hoped for, the conviction of things not seen.' },
+    keyVerse: { ref: 'Hebrews 11:1', text: 'Now faith is the assurance of what we hope for and the certainty of what we do not see.' },
     hook: 'Author unknown. Key word: "better" (~13 times). Chapter 11 is the "hall of faith."',
   },
   {
@@ -1027,7 +1027,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: 'The tongue as a small rudder and a fire' },
       { ch: '5', what: 'The prayer of faith and the example of Elijah' },
     ],
-    keyVerse: { ref: 'James 2:26', text: 'For as the body apart from the spirit is dead, so also faith apart from works is dead.' },
+    keyVerse: { ref: 'James 2:26', text: 'As the body without the spirit is dead, so faith without deeds is dead.' },
     hook: 'The "Proverbs of the NT" — practical, blunt, command-dense. Written by Jesus’ half-brother.',
   },
   {
@@ -1043,7 +1043,7 @@ export const BOOKS: Book[] = [
       { ch: '3', what: '"Always being prepared to make a defense" for your hope' },
       { ch: '5', what: '"Cast all your anxieties on him"; the devil prowls like a roaring lion' },
     ],
-    keyVerse: { ref: '1 Peter 3:15', text: 'Always being prepared to make a defense to anyone who asks you for a reason for the hope that is in you.' },
+    keyVerse: { ref: '1 Peter 3:15', text: 'Always be prepared to give a defense to everyone who asks you the reason for the hope that is in you.' },
     hook: 'Written to "elect exiles" scattered across Asia Minor. Suffering appears in every chapter.',
   },
   {
@@ -1058,7 +1058,7 @@ export const BOOKS: Book[] = [
       { ch: '2', what: 'False teachers and their destruction' },
       { ch: '3', what: '"With the Lord one day is as a thousand years"; the heavens will pass away' },
     ],
-    keyVerse: { ref: '2 Peter 3:9', text: 'The Lord is not slow to fulfill his promise... but is patient toward you.' },
+    keyVerse: { ref: '2 Peter 3:9', text: 'The Lord is not slow in keeping His promise as some understand slowness… but is patient with you.' },
     hook: 'Peter’s farewell letter (he knows he will die soon). Chapter 2 closely parallels Jude.',
   },
   {
@@ -1074,7 +1074,7 @@ export const BOOKS: Book[] = [
       { ch: '4', what: '"God is love" — and perfect love casts out fear' },
       { ch: '5', what: '"That you may know that you have eternal life"' },
     ],
-    keyVerse: { ref: '1 John 1:9', text: 'If we confess our sins, he is faithful and just to forgive us our sins.' },
+    keyVerse: { ref: '1 John 1:9', text: 'If we confess our sins, He is faithful and just to forgive us our sins.' },
     hook: 'No greeting, no named recipients — more sermon than letter. "Know" appears ~35 times.',
   },
   {
@@ -1088,7 +1088,7 @@ export const BOOKS: Book[] = [
     keyChapters: [
       { ch: '1', what: 'The whole letter — walk in truth, love one another, do not receive false teachers' },
     ],
-    keyVerse: { ref: '2 John 1:6', text: 'And this is love, that we walk according to his commandments.' },
+    keyVerse: { ref: '2 John 1:6', text: 'And this is love, that we walk according to His commandments.' },
     hook: 'One chapter, 13 verses — the shortest book in the Bible by verse count. Addressed to "the elect lady."',
   },
   {
@@ -1116,7 +1116,7 @@ export const BOOKS: Book[] = [
     keyChapters: [
       { ch: '1', what: 'The whole letter — contend for the faith; the doxology "to him who is able to keep you from stumbling"' },
     ],
-    keyVerse: { ref: 'Jude 1:3', text: 'Contend for the faith that was once for all delivered to the saints.' },
+    keyVerse: { ref: 'Jude 1:3', text: 'Contend earnestly for the faith entrusted once for all to the saints.' },
     hook: 'One chapter, 25 verses. Written by Jesus’ half-brother; overlaps heavily with 2 Peter 2.',
   },
 
@@ -1137,7 +1137,7 @@ export const BOOKS: Book[] = [
       { ch: '20', what: 'The thousand years and the great white throne judgment' },
       { ch: '21-22', what: 'New heaven, new earth, and the New Jerusalem' },
     ],
-    keyVerse: { ref: 'Revelation 21:4', text: 'He will wipe away every tear from their eyes, and death shall be no more.' },
+    keyVerse: { ref: 'Revelation 21:4', text: 'He will wipe away every tear from their eyes, and there will be no more death.' },
     hook: 'Seven everywhere: churches, seals, trumpets, bowls. The seven churches are Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, Laodicea.',
   },
 ];
