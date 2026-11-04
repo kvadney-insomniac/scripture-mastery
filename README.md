@@ -49,10 +49,12 @@ to one church's accounts; see [Data & sync](#data--sync).
   Where scholars differ, the explanation after an answer says so, but not every
   view is given.
 - **It quotes short phrases, not whole passages.** Every key verse and landmark
-  verse is the Berean Standard Bible's own words at the reference given, and
-  `npm run validate` fails the build if one is not. Some short phrases inside
-  the summaries still follow other wording and are being moved to the BSB. If
-  you memorize from another translation, the wording here will differ.
+  verse is the Berean Standard Bible's own words at the reference given. Every
+  other phrase the summaries put in quotation marks is BSB wording, or for a
+  few familiar lines the King James Version's (both are public domain).
+  `npm run validate` fails the build if a quotation is neither. Summaries
+  outside quotation marks are in plain words and are not quotations. If you
+  memorize from another translation, the wording here will differ.
 - **It keeps your progress only in this browser** (public build). Clearing site
   data or switching device starts over; Progress has export and import.
 - **It is not a substitute for reading the Bible.**
@@ -357,6 +359,11 @@ fixed and Playwright will flag the test as unexpectedly passing.
   2023-04-30), kept short and used for identification rather than memorization.
   `npm run validate` holds each one to the BSB's own words at its reference,
   using `scripts/bsb-cited-verses.json` (written by `scripts/cite-bsb.ts`).
+- Phrases inside summaries that sit in quotation marks are BSB wording, or KJV
+  wording for a few familiar lines ("Vanity of vanities", "Peace, be still").
+  `scripts/bsb-cited-phrases.json` records the verses each was found in, and
+  `scripts/quoted-not-scripture.json` lists the quoted things that are not
+  scripture (nicknames, the meaning of a name, terms).
 - Dates are approximate and follow common conservative dating. Chapter counts
   follow the English canon and total 1,189 (929 OT + 260 NT) — checked against
   those literal figures in `npm run validate`, not against themselves.
