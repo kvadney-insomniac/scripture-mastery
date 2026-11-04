@@ -912,6 +912,16 @@ dl.facts dd { margin: 0; }
   .boot-splash .cycle > span:nth-child(1) { opacity: 0.85; }       /* one line survives */
 }
 
+/* ============================================================ site footer */
+.site-footer {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-divider);
+  max-width: 72ch;
+}
+.site-footer p { margin: 0 0 6px; }
+.site-footer a { color: var(--color-accent); text-decoration: underline; }
+
 /* ============================================================= responsive
    Desktop-first: these breakpoints serve a narrow *laptop* window. Phones and
    tablets are turned away by the mobile gate, per the sibling app's stance. */

@@ -306,6 +306,49 @@ export default function App() {
         {tab === 'settings' && <Settings api={api} />}
         {focusTrack && <Focus track={focusTrack} api={api} />}
       </main>
+      <SiteFooter />
     </div>
+  );
+}
+
+/**
+ * Feedback, an offer of help, and what the app does not do. Each link is a
+ * build-time setting (VITE_FEEDBACK_URL, VITE_HELP_CONTACT, VITE_ABOUT_URL);
+ * an empty one draws nothing, so no build links to a form it does not have.
+ */
+function SiteFooter() {
+  const feedback = (import.meta.env.VITE_FEEDBACK_URL ?? '').trim();
+  const help = (import.meta.env.VITE_HELP_CONTACT ?? '').trim();
+  const about = (import.meta.env.VITE_ABOUT_URL ?? '').trim();
+  if (!feedback && !help && !about) return null;
+  const helpHref = /^(https?:|mailto:)/i.test(help) ? help : help.includes('@') ? `mailto:${help}` : help;
+  return (
+    <footer className="site-footer small muted">
+      {feedback && (
+        <p>
+          {copy.footer.feedbackPrompt}{' '}
+          <a href={feedback} target="_blank" rel="noopener noreferrer">
+            {copy.footer.feedbackLink}
+          </a>
+        </p>
+      )}
+      {help && (
+        <p>
+          {copy.footer.helpPrompt}{' '}
+          <a href={helpHref} target="_blank" rel="noopener noreferrer">
+            {copy.footer.helpLink}
+          </a>
+          .
+        </p>
+      )}
+      {about && (
+        <p>
+          <a href={about} target="_blank" rel="noopener noreferrer">
+            {copy.footer.aboutLink}
+          </a>
+        </p>
+      )}
+      <p className="tiny">{copy.footer.scripture}</p>
+    </footer>
   );
 }
