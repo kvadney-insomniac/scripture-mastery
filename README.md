@@ -48,10 +48,11 @@ to one church's accounts; see [Data & sync](#data--sync).
 - **Its dates and authorship follow one common, conservative survey reading.**
   Where scholars differ, the explanation after an answer says so, but not every
   view is given.
-- **It quotes short phrases, not whole passages.** Every quotation is the
-  Berean Standard Bible's own words at the reference given, and `npm run
-  validate` fails the build if one is not. If you memorize from another
-  translation, the wording here will differ.
+- **It quotes short phrases, not whole passages.** Every key verse and landmark
+  verse is the Berean Standard Bible's own words at the reference given, and
+  `npm run validate` fails the build if one is not. Some short phrases inside
+  the summaries still follow other wording and are being moved to the BSB. If
+  you memorize from another translation, the wording here will differ.
 - **It keeps your progress only in this browser** (public build). Clearing site
   data or switching device starts over; Progress has export and import.
 - **It is not a substitute for reading the Bible.**

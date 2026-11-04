@@ -47,7 +47,9 @@ dash, the dash is shown as a comma (Numbers 14:34); the words are unchanged.
 
 Earlier versions of this fork quoted the ESV, which is copyright Crossway and
 needs Crossway's written permission for use in an application. No ESV text
-remains in the item bank of this fork. Which text the upstream repository uses
+remains in the key verses or landmark verses of this fork. Some short phrases
+inside the summaries (events, terms, explanations) still follow ESV wording;
+moving them to the BSB is the next change. Which text the upstream repository uses
 is the upstream author's decision.
 
 The Holy Bible, Berean Standard Bible, BSB is produced in cooperation with Bible

@@ -199,7 +199,7 @@ export const copy = {
     helpLink: 'reach out',
     aboutLink: 'What this app does and does not do',
     scripture:
-      'Scripture quotations are from the Berean Standard Bible (BSB), which is in the public domain.',
+      'Key verses are quoted from the Berean Standard Bible (BSB), which is in the public domain.',
   },
 
   loading: 'Loading…',
