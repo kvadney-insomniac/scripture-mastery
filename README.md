@@ -1,7 +1,11 @@
 # Scripture Mastery
 
-A whole-Bible survey trainer built for one job: walking into a quiz at the end of
-October knowing the content of all 66 books.
+A whole-Bible survey trainer: learn what happens in each of the 66 books, who is
+in them, where and when, until you could pass a Bible survey quiz on all of it.
+It was first built for one church's survey quiz.
+
+**Try it: https://kvadney-insomniac.github.io/scripture-mastery/** No sign-up and
+nothing to install; this public build keeps your progress in your own browser.
 
 **6,581 questions** generated from structured data: 66 books with a full outline
 and episode list each, 595 dated events, 360 per-book figures, 233 people, 54
@@ -21,8 +25,36 @@ npm run validate # content-integrity checks over the whole item bank
 npm run test:e2e # Playwright: 82 browser tests over the real UI
 ```
 
-Progress syncs to **Firestore**, keyed to a Google sign-in restricted to
-`acts2.network` and `gpmail.org` accounts — see [Data & sync](#data--sync).
+Two builds come from this code. The public one (`npm run build:solo`, what the
+link above serves) has no account and stores progress in the browser. The
+original team build syncs progress to Firestore behind a Google sign-in limited
+to one church's accounts; see [Data & sync](#data--sync).
+
+## Who it is for
+
+- **Anyone preparing for a Bible survey quiz or class** who wants to know the
+  whole Bible at the level of books, people, places, events and eras.
+- **People who want the big picture** of how the story of the Bible fits
+  together, one short question at a time, reviewed before they forget it.
+- It works best on a computer. A phone is shown a short note first and can
+  continue.
+
+## What it does not do
+
+- **It does not teach doctrine or interpretation.** It drills facts a survey
+  course covers. The one line per book on how it points to Christ is the kind of
+  summary a survey course gives, not the last word; read the book itself, and
+  ask your pastor and the people you study with.
+- **Its dates and authorship follow one common, conservative survey reading.**
+  Where scholars differ, the explanation after an answer says so, but not every
+  view is given.
+- **It quotes short phrases, not whole passages.** Every quotation is the
+  Berean Standard Bible's own words at the reference given, and `npm run
+  validate` fails the build if one is not. If you memorize from another
+  translation, the wording here will differ.
+- **It keeps your progress only in this browser** (public build). Clearing site
+  data or switching device starts over; Progress has export and import.
+- **It is not a substitute for reading the Bible.**
 
 ---
 
@@ -320,8 +352,10 @@ fixed and Playwright will flag the test as unexpectedly passing.
 - Authors follow the **traditional attribution** a survey quiz expects. Where
   scholarship differs, `authorNote` carries the nuance and surfaces in the
   explanation after you answer.
-- Verse quotations are **ESV**, kept short and used for identification rather
-  than memorization.
+- Verse quotations are **BSB** (Berean Standard Bible, public domain since
+  2023-04-30), kept short and used for identification rather than memorization.
+  `npm run validate` holds each one to the BSB's own words at its reference,
+  using `scripts/bsb-cited-verses.json` (written by `scripts/cite-bsb.ts`).
 - Dates are approximate and follow common conservative dating. Chapter counts
   follow the English canon and total 1,189 (929 OT + 260 NT) — checked against
   those literal figures in `npm run validate`, not against themselves.
@@ -346,3 +380,18 @@ fixed and Playwright will flag the test as unexpectedly passing.
 - [National Bible Bee — Winning Study Habits](https://biblebee.org/wshaft2cw/) — habits of competition winners
 - [Bible quiz (Wikipedia)](https://en.wikipedia.org/wiki/Bible_quiz) — competition formats and question types
 - [OverviewBible — All 66 Books](https://overviewbible.com/books-of-the-bible/) — cross-check on book summaries and groupings
+
+## Tell us what helped
+
+This is a small project, and it gets better when people say how it went.
+Three questions, a minute or two:
+
+1. What helped?
+2. What did not work, or was confusing?
+3. What would you want it to do?
+
+Answer here: [the feedback form](https://docs.google.com/forms/d/e/1FAIpQLSc_3ztRXdPM8C7e8GCb43oO_2RcmQSij2pKcIkUSaSxtUhPfA/viewform)
+(one form for several Bible tools; the first question asks which one), or open
+an issue on this repository.
+
+If you want help memorizing or studying, reach out: <!-- HELP_CONTACT -->(contact coming soon).
