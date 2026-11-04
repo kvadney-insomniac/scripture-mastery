@@ -15,7 +15,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { ch: '12-16', title: 'Application — living sacrifices, government, the weak and the strong, greetings' },
     ],
     events: [
-      { ref: '1', name: 'The theme stated', what: 'Paul is not ashamed of the gospel, the power of God for salvation, and quotes Habakkuk: "the righteous shall live by faith"', who: ['Paul'] },
+      { ref: '1', name: 'The theme stated', what: 'Paul is not ashamed of the gospel, the power of God for salvation, and quotes Habakkuk: "the righteous will live by faith"', who: ['Paul'] },
       { ref: '3', name: 'All have sinned', what: 'A chain of Old Testament quotations closes every mouth, then righteousness comes through faith in Jesus Christ', who: [] },
       { ref: '4', name: 'Abraham justified by faith', what: 'Abraham believed before circumcision and before the law, so he is father of all who believe', who: ['Abraham'] },
       { ref: '5', name: 'Two Adams', what: 'Through one man sin entered; through one man came the free gift — condemnation reversed', who: ['Adam'] },
@@ -120,7 +120,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { ref: '5', name: 'Ambassadors of reconciliation', what: 'If anyone is in Christ, new creation; God made Him who knew no sin to be sin for us', who: [] },
       { ref: '8-9', name: 'The Macedonian example', what: 'Churches in extreme poverty gave beyond their means; give as you have decided, not reluctantly', who: ['Titus'] },
       { ref: '11', name: 'Paul’s résumé of suffering', what: 'Five times thirty-nine lashes, three beatings with rods, three shipwrecks, a night and a day adrift, and constant danger', who: ['Paul'] },
-      { ref: '12', name: 'The third heaven and the thorn', what: 'Caught up to paradise, then given a thorn in the flesh; "My grace is sufficient for you, for my power is made perfect in weakness"', who: ['Paul'] },
+      { ref: '12', name: 'The third heaven and the thorn', what: 'Caught up to paradise, then given a thorn in the flesh; "My grace is sufficient for you, for My power is perfected in weakness"', who: ['Paul'] },
     ],
     figures: [
       { name: 'Paul', did: 'Defends himself more personally here than anywhere else in his letters', ref: '2 Cor 10-12' },
@@ -139,7 +139,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { of: 'times Paul asked for the thorn to be removed', value: 'Three', ref: '2 Cor 12:8' },
       { of: 'the heaven Paul was caught up to', value: 'The third', ref: '2 Cor 12:2' },
     ],
-    christ: '"For our sake he made him to be sin who knew no sin, so that in him we might become the righteousness of God" (5:21) — the clearest single sentence on the exchange at the cross.',
+    christ: '"God made Him who knew no sin to be sin on our behalf, so that in Him we might become the righteousness of God" (5:21) — the clearest single sentence on the exchange at the cross.',
     verses: [
       { ref: '2 Corinthians 5:17', text: 'Therefore if anyone is in Christ, he is a new creation. The old has passed away. Behold, the new has come!' },
       { ref: '2 Corinthians 12:9', text: 'My grace is sufficient for you, for My power is perfected in weakness.' },
@@ -181,7 +181,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { of: 'chapters', value: 'Six' },
       { of: 'years between the promise to Abraham and the law', value: '430', ref: 'Gal 3:17' },
     ],
-    christ: '"I have been crucified with Christ. It is no longer I who live, but Christ who lives in me" (2:20) — and He redeemed us from the curse by becoming a curse for us.',
+    christ: '"I have been crucified with Christ, and I no longer live, but Christ lives in me" (2:20) — and He redeemed us from the curse by becoming a curse for us.',
     verses: [
       { ref: 'Galatians 2:20', text: 'I have been crucified with Christ, and I no longer live, but Christ lives in me.' },
       { ref: 'Galatians 5:1', text: 'It is for freedom that Christ has set us free. Stand firm.' },
@@ -208,7 +208,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { ref: '6', name: 'The armor of God', what: 'Belt, breastplate, shoes, shield, helmet, and sword, for a struggle against spiritual forces rather than flesh and blood', who: [] },
     ],
     figures: [
-      { name: 'Paul', did: 'Writes from prison as "a prisoner for Christ Jesus on behalf of you Gentiles"', ref: 'Eph 3:1' },
+      { name: 'Paul', did: 'Writes from prison as "the prisoner of Christ Jesus for the sake of you Gentiles"', ref: 'Eph 3:1' },
       { name: 'Tychicus', did: 'Carried the letter and was to report on Paul’s situation', ref: 'Eph 6:21' },
     ],
     terms: [
@@ -247,7 +247,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { ref: '2', name: 'Timothy and Epaphroditus', what: 'Paul commends Timothy, who has no one like him, and Epaphroditus, who nearly died carrying the gift', who: ['Timothy', 'Epaphroditus'] },
       { ref: '3', name: 'Rubbish for Christ', what: 'Paul lists his credentials — circumcised the eighth day, a Hebrew of Hebrews, a Pharisee — and counts them as loss', who: ['Paul'] },
       { ref: '4', name: 'Euodia and Syntyche', what: 'Two women who labored beside him are urged to agree in the Lord', who: ['Euodia', 'Syntyche'] },
-      { ref: '4', name: 'The secret of contentment', what: 'Do not be anxious; think on whatever is true and lovely; "I have learned in whatever situation I am to be content"', who: [] },
+      { ref: '4', name: 'The secret of contentment', what: 'Do not be anxious; think on whatever is true and lovely; "I have learned to be content regardless of my circumstances"', who: [] },
     ],
     figures: [
       { name: 'Paul', did: 'Writes the most joyful letter from the least joyful place', ref: 'Phil 1:12' },
@@ -299,7 +299,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
     ],
     terms: [
       { term: 'Colossian heresy', meaning: 'A mix of Jewish legalism, Greek philosophy, and angel worship that treated Christ as insufficient' },
-      { term: 'Preeminence', meaning: 'The letter’s claim: "that in everything he might be preeminent" (1:18)' },
+      { term: 'Preeminence', meaning: 'The letter’s claim: "so that in all things He may have preeminence" (1:18)' },
       { term: 'Fullness (pleroma)', meaning: 'All the fullness of deity dwelling bodily in Christ — 2:9' },
     ],
     numbers: [
@@ -360,7 +360,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
     outline: [
       { ch: '1', title: 'Comfort under persecution — God will repay' },
       { ch: '2', title: 'The day has not come — the man of lawlessness must be revealed first' },
-      { ch: '3', title: 'A command about the idle: "If anyone is not willing to work, let him not eat"' },
+      { ch: '3', title: 'A command about the idle: "If anyone is unwilling to work, he shall not eat"' },
     ],
     events: [
       { ref: '1', name: 'Relief for the afflicted', what: 'God will grant relief when the Lord Jesus is revealed from heaven with His mighty angels in flaming fire', who: [] },
@@ -418,7 +418,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { of: 'the Pastoral Epistles', value: 'Three' },
       { of: 'mediators between God and men', value: 'One', ref: '1 Tim 2:5' },
     ],
-    christ: '"Christ Jesus came into the world to save sinners, of whom I am the foremost" (1:15) — and the one mediator who gave Himself as a ransom for all.',
+    christ: '"Christ Jesus came into the world to save sinners, of whom I am the worst" (1:15) — and the one mediator who gave Himself as a ransom for all.',
     verses: [
       { ref: '1 Timothy 1:15', text: 'Christ Jesus came into the world to save sinners, of whom I am the worst.' },
       { ref: '1 Timothy 6:10', text: 'For the love of money is the root of all kinds of evil.' },
@@ -447,13 +447,13 @@ export const PAULINE_DETAILS: BookDetail[] = [
     figures: [
       { name: 'Timothy', did: 'Receives Paul’s final charge to guard and preach the word', ref: '2 Tim 4:1-2' },
       { name: 'Lois and Eunice', did: 'Timothy’s grandmother and mother, who taught him the Scriptures', ref: '2 Tim 1:5' },
-      { name: 'Demas', did: 'Deserted Paul, "in love with this present world"', ref: '2 Tim 4:10' },
+      { name: 'Demas', did: 'Deserted Paul, "in his love of this world"', ref: '2 Tim 4:10' },
       { name: 'Luke', did: 'The only one still with Paul at the end', ref: '2 Tim 4:11' },
-      { name: 'Mark', did: 'Asked for by name — "he is very useful to me for ministry"', ref: '2 Tim 4:11' },
+      { name: 'Mark', did: 'Asked for by name — "he is useful to me in the ministry"', ref: '2 Tim 4:11' },
       { name: 'Onesiphorus', did: 'Searched Rome eagerly until he found Paul in chains', ref: '2 Tim 1:16-17' },
     ],
     terms: [
-      { term: 'Theopneustos', meaning: '"God-breathed" — the word behind "all Scripture is breathed out by God" (3:16)' },
+      { term: 'Theopneustos', meaning: '"God-breathed" — the word behind "all Scripture is God-breathed" (3:16)' },
       { term: 'The good deposit', meaning: 'The apostolic teaching Timothy is charged to guard' },
       { term: 'Itching ears', meaning: 'Paul’s picture of hearers who collect teachers who tell them what they want' },
     ],
@@ -498,7 +498,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
       { of: 'chapters', value: 'Three' },
       { of: 'groups given instructions in chapter 2', value: 'Five' },
     ],
-    christ: '"Our great God and Savior Jesus Christ, who gave himself for us to redeem us" (2:13-14) — one of the New Testament’s plainest statements of Christ’s deity.',
+    christ: '"Our great God and Savior Jesus Christ. He gave Himself for us to redeem us" (2:13-14) — one of the New Testament’s plainest statements of Christ’s deity.',
     verses: [{ ref: 'Titus 3:5', text: 'He saved us, not by the righteous deeds we had done, but according to His mercy.' }],
     distinctive: 'Three chapters that hold both the strictest list of leadership requirements and the warmest statement of pure grace.',
   },
@@ -511,7 +511,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
     outline: [
       { ch: '1-7', title: 'Thanksgiving for Philemon’s love and faith' },
       { ch: '8-16', title: 'The appeal — receive Onesimus no longer as a slave but as a beloved brother' },
-      { ch: '17-25', title: 'The guarantee — "charge that to my account"' },
+      { ch: '17-25', title: 'The guarantee — "charge it to my account"' },
     ],
     events: [
       { ref: '1-7', name: 'The setup', what: 'Paul thanks Philemon for refreshing the hearts of the saints — the same phrase he will use for his request', who: ['Philemon'] },
@@ -527,7 +527,7 @@ export const PAULINE_DETAILS: BookDetail[] = [
     ],
     terms: [
       { term: 'Onesimus', meaning: 'The slave’s name, meaning "useful" — Paul plays on it directly' },
-      { term: 'Imputation illustrated', meaning: '"Charge that to my account" — the gospel in one sentence of business language' },
+      { term: 'Imputation illustrated', meaning: '"Charge it to my account" — the gospel in one sentence of business language' },
     ],
     numbers: [
       { of: 'chapters in Philemon', value: 'One — 25 verses' },

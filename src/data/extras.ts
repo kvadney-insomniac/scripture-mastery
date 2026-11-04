@@ -95,7 +95,7 @@ export const AUTHORED: Item[] = [
 
   // ---- Cross-book connections
   { id: 'a-no-god-named', kind: 'type', topic: 'summaries', tier: 2, prompt: 'Which book of the Bible never mentions God by name?', answer: 'Esther', accepts: ['esther'], explain: 'God is never named, yet His providence drives the entire plot.' },
-  { id: 'a-joel-pentecost', kind: 'mcq', topic: 'events', tier: 3, prompt: 'At Pentecost, Peter quoted which Old Testament prophet?', answer: 'Joel', distractors: ['Isaiah', 'Amos', 'Zechariah'], explain: 'Joel 2:28 — "I will pour out my Spirit on all flesh."' },
+  { id: 'a-joel-pentecost', kind: 'mcq', topic: 'events', tier: 3, prompt: 'At Pentecost, Peter quoted which Old Testament prophet?', answer: 'Joel', distractors: ['Isaiah', 'Amos', 'Zechariah'], explain: 'Joel 2:28 — "I will pour out My Spirit on all people."' },
   { id: 'a-micah-bethlehem', kind: 'mcq', topic: 'events', tier: 3, prompt: 'Which prophet foretold that the Messiah would be born in Bethlehem?', answer: 'Micah', distractors: ['Isaiah', 'Malachi', 'Hosea'], explain: 'Micah 5:2, quoted to Herod by the chief priests in Matthew 2.' },
 
   // ---- Events and people

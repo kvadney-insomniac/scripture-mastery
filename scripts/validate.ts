@@ -16,6 +16,9 @@ import type { Difficulty, Item } from '../src/data/types';
 import { allItems } from '../src/lib/generate';
 import { quotesPassage } from './bsb-ref';
 import cited from './bsb-cited-verses.json';
+import citedPhrases from './bsb-cited-phrases.json';
+import notScripture from './quoted-not-scripture.json';
+import { quotedPhrases } from './quoted-phrases';
 
 const items = allItems();
 const problems: string[] = [];
@@ -83,6 +86,20 @@ hard(
   'quotations that are not the BSB text at their reference',
   quotations.filter((q) => !BSB[q.ref] || !quotesPassage(q.text, BSB[q.ref])),
   (q) => `${q.where} | ${q.ref} | ${q.text}`,
+);
+// The same bar for every phrase the data puts in quotation marks: it is BSB or
+// KJV wording (both public domain), held to the verses recorded for it in
+// bsb-cited-phrases.json, or it is on the short list of quoted things that
+// are not scripture (a nickname, a name's meaning, a term). A new quoted
+// phrase fails until scripts/cite-bsb.ts records it or a reviewer lists it.
+const PHRASES = (citedPhrases as { phrases: Record<string, { text: string }> }).phrases;
+const NOT_SCRIPTURE = (notScripture as { phrases: Record<string, string> }).phrases;
+hard(
+  'quoted phrases that are neither BSB nor KJV wording',
+  quotedPhrases().filter(
+    ({ phrase }) => !(phrase in NOT_SCRIPTURE) && !(PHRASES[phrase] && quotesPassage(phrase, PHRASES[phrase].text)),
+  ),
+  (q) => `${q.where} | ${q.phrase}`,
 );
 
 hard('items pointing at a book that does not exist', items.filter((i) => i.book && !BOOKS.some((b) => b.id === i.book)), (i: Item) => `${i.id} -> ${i.book}`);

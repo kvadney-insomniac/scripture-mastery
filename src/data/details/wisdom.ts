@@ -44,7 +44,7 @@ export const WISDOM_DETAILS: BookDetail[] = [
       { of: 'Job’s friends who speak before Elihu', value: 'Three', ref: 'Job 2:11' },
       { of: 'years Job lived after his restoration', value: '140', ref: 'Job 42:16' },
     ],
-    christ: '"I know that my Redeemer lives, and at the last he will stand upon the earth" (19:25). Job wants a mediator who can lay his hand on both God and man — which is exactly the office Christ fills.',
+    christ: '"I know that my Redeemer lives, and in the end He will stand upon the earth" (19:25). Job wants a mediator who can lay his hand on both God and man — which is exactly the office Christ fills.',
     verses: [
       { ref: 'Job 1:21', text: 'The LORD gave, and the LORD has taken away. Blessed be the name of the LORD.' },
       { ref: 'Job 19:25', text: 'But I know that my Redeemer lives, and in the end He will stand upon the earth.' },
@@ -70,7 +70,7 @@ export const WISDOM_DETAILS: BookDetail[] = [
       { ref: '22', name: 'The psalm of the cross', what: '"My God, my God, why have you forsaken me" — pierced hands and feet and clothing divided by lot, a thousand years early', who: ['David'] },
       { ref: '23', name: 'The Shepherd psalm', what: 'The LORD as shepherd and host: green pastures, the valley of the shadow, a table before enemies', who: ['David'] },
       { ref: '51', name: 'David’s confession', what: 'Written after Nathan confronted him about Bathsheba: "Create in me a clean heart, O God"', who: ['David', 'Nathan'] },
-      { ref: '90', name: 'The prayer of Moses', what: 'The oldest psalm: "Teach us to number our days that we may get a heart of wisdom"', who: ['Moses'] },
+      { ref: '90', name: 'The prayer of Moses', what: 'The oldest psalm: "Teach us to number our days, that we may present a heart of wisdom"', who: ['Moses'] },
       { ref: '119', name: 'The longest chapter', what: '176 verses in twenty-two stanzas, one per Hebrew letter, every verse about God’s word', who: [] },
       { ref: '120-134', name: 'The songs of ascents', what: 'Fifteen psalms sung by pilgrims going up to Jerusalem for the feasts', who: [] },
       { ref: '150', name: 'The final hallelujah', what: 'The book ends with every instrument and every breath called to praise', who: [] },
@@ -127,8 +127,8 @@ export const WISDOM_DETAILS: BookDetail[] = [
       { ref: '3', name: 'Trust in the LORD', what: 'Lean not on your own understanding; honor the LORD with your wealth; do not despise His discipline', who: [] },
       { ref: '8', name: 'Wisdom calls out', what: 'Wisdom is personified as a woman who was beside God at creation, rejoicing in the world', who: [] },
       { ref: '9', name: 'Two invitations', what: 'Lady Wisdom and Folly both set tables and call to the simple from the highest point of the city', who: [] },
-      { ref: '22', name: 'Train up a child', what: 'The section on parenting, wealth, and speech begins — "a good name is to be chosen rather than great riches"', who: [] },
-      { ref: '30', name: 'Agur’s numerical sayings', what: '"Three things are too wonderful for me, four I do not understand" — a pattern of x, x+1 lists', who: ['Agur'] },
+      { ref: '22', name: 'Train up a child', what: 'The section on parenting, wealth, and speech begins — "a good name is more desirable than great riches"', who: [] },
+      { ref: '30', name: 'Agur’s numerical sayings', what: '"There are three things too wonderful for me, four that I cannot understand" — a pattern of x, x+1 lists', who: ['Agur'] },
       { ref: '31', name: 'The excellent wife', what: 'An acrostic poem, one verse per Hebrew letter, describing a woman who fears the LORD', who: ['Lemuel'] },
     ],
     figures: [
@@ -208,11 +208,11 @@ export const WISDOM_DETAILS: BookDetail[] = [
       { ch: '1-3', title: 'Courtship — longing, praise, and the daughters of Jerusalem' },
       { ch: '4-5', title: 'The wedding and the garden' },
       { ch: '5-6', title: 'A night of separation and searching' },
-      { ch: '7-8', title: 'Mature love — "set me as a seal upon your heart"' },
+      { ch: '7-8', title: 'Mature love — "set me as a seal over your heart"' },
     ],
     events: [
       { ref: '1', name: 'The Shulammite speaks', what: 'The woman opens the book: "Let him kiss me with the kisses of his mouth," and speaks of being dark from working the vineyards', who: ['The Shulammite'] },
-      { ref: '2', name: 'The rose of Sharon', what: 'Spring imagery — "the flowers appear on the earth, the time of singing has come" — and the charge not to awaken love before it pleases', who: [] },
+      { ref: '2', name: 'The rose of Sharon', what: 'Spring imagery — "the flowers have appeared in the countryside; the season of singing has come" — and the charge not to awaken love before it pleases', who: [] },
       { ref: '3', name: 'Solomon’s procession', what: 'The king’s carriage comes up from the wilderness with sixty mighty men around it', who: ['Solomon'] },
       { ref: '4', name: 'The wedding song', what: 'The bridegroom praises his bride head to foot and calls her a garden locked, a spring sealed', who: [] },
       { ref: '5', name: 'The night search', what: 'The bride hesitates to open the door; when she does he is gone, and she searches the city and is beaten by the watchmen', who: [] },
@@ -231,7 +231,7 @@ export const WISDOM_DETAILS: BookDetail[] = [
     ],
     numbers: [
       { of: 'chapters', value: 'Eight' },
-      { of: 'times the charge "do not awaken love" is repeated', value: 'Three', ref: 'Song 2:7, 3:5, 8:4' },
+      { of: 'times the charge "do not arouse or awaken love" is repeated', value: 'Three', ref: 'Song 2:7, 3:5, 8:4' },
     ],
     christ: 'Read across the whole canon, the picture of a bridegroom and bride is the one Paul reaches for in Ephesians 5 and John uses for the marriage supper of the Lamb.',
     verses: [

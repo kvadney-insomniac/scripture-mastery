@@ -71,3 +71,56 @@ export function quotesPassage(quote: string, passage: string): boolean {
   }
   return true;
 }
+
+/**
+ * Where `quote` is a run of the translation's own words: the smallest span of
+ * verses in one chapter that holds every part (parts split on an ellipsis) in
+ * order. Returns null when no chapter does.
+ */
+export function locateQuote(bible: BsbFile, quote: string): { ref: string; text: string } | null {
+  const parts = quote
+    .split(/\s*(?:…|\.\.\.)\s*/)
+    .map(words)
+    .filter((w) => w.length);
+  if (!parts.length) return null;
+  for (const book of bible.books) {
+    for (const ch of book.chapters) {
+      const flat: string[] = [];
+      const verseOf: number[] = [];
+      for (const v of ch.verses) {
+        for (const w of words(v.text)) {
+          flat.push(w);
+          verseOf.push(v.verse);
+        }
+      }
+      let at = 0;
+      let first = -1;
+      let last = -1;
+      for (const w of parts) {
+        let found = -1;
+        for (let i = at; i + w.length <= flat.length; i++) {
+          if (w.every((x, k) => flat[i + k] === x)) {
+            found = i;
+            break;
+          }
+        }
+        if (found < 0) {
+          first = -1;
+          break;
+        }
+        if (first < 0) first = found;
+        last = found + w.length - 1;
+        at = last + 1;
+      }
+      if (first < 0) continue;
+      const from = verseOf[first];
+      const to = verseOf[last];
+      const text = ch.verses
+        .filter((v) => v.verse >= from && v.verse <= to)
+        .map((v) => v.text)
+        .join(' ');
+      return { ref: `${book.name} ${ch.chapter}:${from}${to > from ? `-${to}` : ''}`, text };
+    }
+  }
+  return null;
+}

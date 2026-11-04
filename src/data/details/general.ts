@@ -51,7 +51,7 @@ export const GENERAL_DETAILS: BookDetail[] = [
   },
   {
     book: 'james',
-    audience: 'Jewish Christians scattered abroad — "the twelve tribes in the Dispersion"',
+    audience: 'Jewish Christians scattered abroad — "the twelve tribes of the Dispersion"',
     purpose: 'To insist that real faith shows up in behavior',
     written: 'c. AD 45–49 — possibly the earliest New Testament book',
     outline: [
@@ -154,7 +154,7 @@ export const GENERAL_DETAILS: BookDetail[] = [
       { ref: '3', name: 'The day of the Lord', what: 'The heavens will pass away with a roar; we wait for new heavens and a new earth in which righteousness dwells', who: ['Paul'] },
     ],
     figures: [
-      { name: 'Peter', did: 'Writes knowing his death is near, "since I know that the putting off of my body will be soon"', ref: '2 Pet 1:14' },
+      { name: 'Peter', did: 'Writes knowing his death is near, "I know that this tent will soon be laid aside"', ref: '2 Pet 1:14' },
       { name: 'Balaam', did: 'The example of a prophet who loved gain from wrongdoing', ref: '2 Pet 2:15' },
       { name: 'Paul', did: 'Referred to as "our beloved brother," his letters called Scripture', ref: '2 Pet 3:15-16' },
     ],
@@ -168,7 +168,7 @@ export const GENERAL_DETAILS: BookDetail[] = [
       { of: 'qualities to add to faith', value: 'Seven', ref: '2 Pet 1:5-7' },
       { of: 'a day with the Lord', value: 'As a thousand years', ref: '2 Pet 3:8' },
     ],
-    christ: 'Peter grounds the return in what he saw on the mountain: "we were eyewitnesses of his majesty." The delay is patience, "not wishing that any should perish."',
+    christ: 'Peter grounds the return in what he saw on the mountain: "we were eyewitnesses of his majesty." The delay is patience, "not wanting anyone to perish."',
     verses: [
       { ref: '2 Peter 3:9', text: 'The Lord is not slow in keeping His promise as some understand slowness… but is patient with you, not wanting anyone to perish but everyone to come to repentance.' },
       { ref: '2 Peter 1:21', text: 'But men spoke from God as they were carried along by the Holy Spirit.' },
@@ -192,7 +192,7 @@ export const GENERAL_DETAILS: BookDetail[] = [
       { ref: '1', name: 'If we confess our sins', what: 'Claiming to have no sin is self-deception; confession brings forgiveness and cleansing', who: [] },
       { ref: '2', name: 'Do not love the world', what: 'The desires of the flesh, the desires of the eyes, and pride of life are passing away', who: [] },
       { ref: '2', name: 'Antichrists', what: 'Many antichrists have gone out from us — they left because they were not of us', who: [] },
-      { ref: '3', name: 'Children of God', what: '"See what kind of love the Father has given to us, that we should be called children of God"', who: [] },
+      { ref: '3', name: 'Children of God', what: '"Behold what manner of love the Father has given to us, that we should be called children of God"', who: [] },
       { ref: '4', name: 'Test the spirits', what: 'Every spirit that confesses Jesus Christ has come in the flesh is from God; perfect love casts out fear', who: [] },
       { ref: '5', name: 'That you may know', what: 'The purpose stated: written so that those who believe in the name of the Son of God may know they have eternal life', who: [] },
     ],
@@ -211,7 +211,7 @@ export const GENERAL_DETAILS: BookDetail[] = [
       { of: 'John’s letters', value: 'Three' },
       { of: 'times "know" appears', value: 'About 39 — the letter is about assurance' },
     ],
-    christ: '"The blood of Jesus his Son cleanses us from all sin" (1:7), and "in this is love, not that we have loved God but that he loved us and sent his Son to be the propitiation for our sins."',
+    christ: '"The blood of Jesus his Son cleanses us from all sin" (1:7), and "love consists in this: not that we loved God, but that He loved us and sent His Son as the atoning sacrifice for our sins."',
     verses: [
       { ref: '1 John 1:9', text: 'If we confess our sins, He is faithful and just to forgive us our sins and to cleanse us from all unrighteousness.' },
       { ref: '1 John 4:8', text: 'Whoever does not love does not know God, because God is love.' },
@@ -269,7 +269,7 @@ export const GENERAL_DETAILS: BookDetail[] = [
       { of: 'verses', value: '14 — the shortest book by verse count in the New Testament' },
       { of: 'named individuals in the letter', value: 'Three — Gaius, Diotrephes, Demetrius' },
     ],
-    christ: 'Not named by title here, but the missionaries went out "for the sake of the name" — supporting them makes you a fellow worker for the truth.',
+    christ: 'Not named by title here, but the missionaries went out "on behalf of the Name" — supporting them makes you a fellow worker for the truth.',
     verses: [{ ref: '3 John 4', text: 'I have no greater joy than to hear that my children are walking in the truth.' }],
     distinctive: 'The only book of the Bible that is mostly about one difficult man in one small congregation.',
   },
@@ -289,7 +289,7 @@ export const GENERAL_DETAILS: BookDetail[] = [
       { ref: '9', name: 'Michael and the body of Moses', what: 'The archangel disputing with the devil did not pronounce a blasphemous judgment but said "The Lord rebuke you"', who: ['Michael', 'Moses'] },
       { ref: '11', name: 'Cain, Balaam, and Korah', what: 'Three names summarizing the false teachers: the way of Cain, Balaam’s error for gain, and Korah’s rebellion', who: ['Cain', 'Balaam', 'Korah'] },
       { ref: '12-13', name: 'Six pictures', what: 'Hidden reefs, waterless clouds, fruitless trees twice dead, wild waves, and wandering stars', who: [] },
-      { ref: '24-25', name: 'The doxology', what: '"Now to him who is able to keep you from stumbling and to present you blameless before the presence of his glory"', who: [] },
+      { ref: '24-25', name: 'The doxology', what: '"Now to Him who is able to keep you from stumbling and to present you unblemished in His glorious presence"', who: [] },
     ],
     figures: [
       { name: 'Jude', did: 'Brother of James and half-brother of Jesus, calling himself simply a servant', ref: 'Jude 1' },

@@ -31,7 +31,7 @@ export const LAW_DETAILS: BookDetail[] = [
       { ref: '21', name: 'Isaac born', what: 'Sarah bears Isaac at ninety as promised; Hagar and Ishmael are sent away', who: ['Abraham', 'Sarah', 'Isaac', 'Hagar', 'Ishmael'], detail: 'Isaac means "he laughs" — Sarah laughed when she first heard the promise' },
       { ref: '22', name: 'The binding of Isaac', what: 'Abraham is told to sacrifice Isaac; God stops him and provides a ram caught in a thicket', who: ['Abraham', 'Isaac'], where: 'Mount Moriah', detail: 'Abraham names the place "The LORD will provide" — Jehovah-Jireh' },
       { ref: '24', name: 'A wife for Isaac', what: 'Abraham’s servant is sent to Haran and finds Rebekah watering camels at the well', who: ['Isaac', 'Rebekah', 'Abraham'] },
-      { ref: '25', name: 'The birthright sold', what: 'Esau sells his birthright to Jacob for a bowl of red stew', who: ['Jacob', 'Esau', 'Isaac', 'Rebekah'], detail: 'God had already told Rebekah "the older shall serve the younger"' },
+      { ref: '25', name: 'The birthright sold', what: 'Esau sells his birthright to Jacob for a bowl of red stew', who: ['Jacob', 'Esau', 'Isaac', 'Rebekah'], detail: 'God had already told Rebekah "the older will serve the younger"' },
       { ref: '27', name: 'The stolen blessing', what: 'Jacob dresses in goatskins and deceives blind Isaac into blessing him instead of Esau', who: ['Jacob', 'Isaac', 'Rebekah', 'Esau'] },
       { ref: '28', name: 'Jacob’s ladder', what: 'Fleeing Esau, Jacob dreams of a stairway to heaven and names the place Bethel, "house of God"', who: ['Jacob'], where: 'Bethel' },
       { ref: '29-30', name: 'Leah, Rachel, and the twelve sons', what: 'Laban swaps Leah for Rachel; Jacob serves fourteen years and fathers eleven sons and a daughter in Haran', who: ['Jacob', 'Laban', 'Leah', 'Rachel'], detail: 'Benjamin, the twelfth son, is born later on the road to Bethlehem' },
@@ -41,7 +41,7 @@ export const LAW_DETAILS: BookDetail[] = [
       { ref: '40-41', name: 'Dreams interpreted', what: 'Joseph interprets the cupbearer’s and baker’s dreams, then Pharaoh’s seven fat and seven lean cows, and is made second in Egypt', who: ['Joseph (son of Jacob)', 'Pharaoh'], detail: 'Seven years of plenty followed by seven years of famine' },
       { ref: '42-45', name: 'The brothers in Egypt', what: 'The brothers come for grain, are tested with the silver cup in Benjamin’s sack, and Joseph reveals himself weeping', who: ['Joseph (son of Jacob)', 'Benjamin', 'Judah', 'Simeon'] },
       { ref: '49', name: 'Jacob blesses his sons', what: 'Jacob prophesies over the twelve tribes; the scepter will not depart from Judah', who: ['Jacob', 'Judah'] },
-      { ref: '50', name: 'Joseph forgives', what: '"You meant evil against me, but God meant it for good" — Joseph dies at 110 and asks that his bones be carried out of Egypt', who: ['Joseph (son of Jacob)'] },
+      { ref: '50', name: 'Joseph forgives', what: '"As for you, what you intended against me for evil, God intended for good" — Joseph dies at 110 and asks that his bones be carried out of Egypt', who: ['Joseph (son of Jacob)'] },
     ],
     figures: [
       { name: 'Adam', did: 'The first man; named the animals and brought sin into the world', ref: 'Gen 2-3' },
